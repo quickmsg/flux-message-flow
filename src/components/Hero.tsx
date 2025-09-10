@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/fluxmq-hero.jpg";
 
 const Hero = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden">
       {/* Background Image */}
@@ -20,35 +22,34 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-card/50 backdrop-blur-sm rounded-full border border-primary/20 mb-8 animate-float">
-            <span className="text-sm text-muted-foreground">🚀 High-Performance MQTT Broker</span>
+            <span className="text-sm text-muted-foreground">{t('hero.badge')}</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Scale Your
-            <span className="text-gradient block">Message Queues</span>
-            with FluxMQ
+            {t('hero.title')}
+            <span className="text-gradient block">{t('hero.titleHighlight')}</span>
+            {t('hero.titleEnd')}
           </h1>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Ultra-fast, scalable MQTT broker designed for modern applications. 
-            Handle millions of messages per second with minimal latency and maximum reliability.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button variant="hero" size="lg" className="group">
-              Get Started
+              {t('hero.getStarted')}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="glass" size="lg" className="group">
               <Github className="mr-2 h-5 w-5" />
-              View on GitHub
+              {t('hero.github')}
             </Button>
             <Button variant="outline" size="lg" className="group">
               <Download className="mr-2 h-5 w-5" />
-              Download
+              {t('hero.download')}
             </Button>
           </div>
 
@@ -56,15 +57,15 @@ const Hero = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">1M+</div>
-              <div className="text-muted-foreground">Messages/Second</div>
+              <div className="text-muted-foreground">{t('hero.stats.messages')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">&lt;1ms</div>
-              <div className="text-muted-foreground">Average Latency</div>
+              <div className="text-muted-foreground">{t('hero.stats.latency')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-gradient mb-2">99.9%</div>
-              <div className="text-muted-foreground">Uptime SLA</div>
+              <div className="text-muted-foreground">{t('hero.stats.uptime')}</div>
             </div>
           </div>
         </div>

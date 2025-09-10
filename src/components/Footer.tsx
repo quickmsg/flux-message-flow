@@ -1,27 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Zap, Github, Twitter, Mail, ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const footerLinks = {
-    Product: [
+    [t('footer.product')]: [
       { name: "Features", href: "#features" },
       { name: "Performance", href: "#performance" },
       { name: "Pricing", href: "#pricing" },
       { name: "Roadmap", href: "#roadmap" }
     ],
-    Developers: [
+    [t('footer.developers')]: [
       { name: "Documentation", href: "#docs" },
       { name: "API Reference", href: "#api" },
       { name: "Examples", href: "#examples" },
       { name: "SDKs", href: "#sdks" }
     ],
-    Resources: [
+    [t('footer.resources')]: [
       { name: "Blog", href: "#blog" },
       { name: "Community", href: "#community" },
       { name: "Support", href: "#support" },
       { name: "Status", href: "#status" }
     ],
-    Company: [
+    [t('footer.company')]: [
       { name: "About", href: "#about" },
       { name: "Careers", href: "#careers" },
       { name: "Contact", href: "#contact" },
@@ -43,8 +45,7 @@ const Footer = () => {
               <span className="text-2xl font-bold text-gradient">FluxMQ</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              High-performance, scalable MQTT broker designed for modern applications. 
-              Handle millions of messages with minimal latency.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <Button variant="glass" size="icon">
@@ -83,18 +84,18 @@ const Footer = () => {
         {/* Newsletter Section */}
         <div className="bg-gradient-card rounded-2xl border border-border/50 shadow-card p-8 mb-12">
           <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
+            <h3 className="text-2xl font-bold mb-4">{t('footer.newsletter.title')}</h3>
             <p className="text-muted-foreground mb-6">
-              Get the latest FluxMQ news, updates, and best practices delivered to your inbox.
+              {t('footer.newsletter.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input 
                 type="email" 
-                placeholder="Enter your email"
+                placeholder={t('footer.newsletter.placeholder')}
                 className="flex-1 px-4 py-2 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder-muted-foreground"
               />
               <Button variant="hero">
-                Subscribe
+                {t('footer.newsletter.subscribe')}
               </Button>
             </div>
           </div>
@@ -103,17 +104,17 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border/50">
           <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © 2024 FluxMQ. All rights reserved.
+            {t('footer.copyright')}
           </div>
           <div className="flex items-center space-x-6 text-sm">
             <a href="#privacy" className="text-muted-foreground hover:text-primary transition-colors">
-              Privacy Policy
+              {t('footer.privacy')}
             </a>
             <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors">
-              Terms of Service
+              {t('footer.terms')}
             </a>
             <a href="#cookies" className="text-muted-foreground hover:text-primary transition-colors">
-              Cookie Policy
+              {t('footer.cookies')}
             </a>
           </div>
         </div>

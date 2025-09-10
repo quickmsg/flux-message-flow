@@ -10,53 +10,55 @@ import {
   Database,
   Network
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Features = () => {
+  const { t } = useTranslation();
   const features = [
     {
       icon: Zap,
-      title: "Lightning Fast",
-      description: "Process millions of messages per second with ultra-low latency and optimized performance.",
+      title: t('features.lightningFast.title'),
+      description: t('features.lightningFast.desc'),
     },
     {
       icon: Shield,
-      title: "Enterprise Security",
-      description: "Built-in TLS encryption, authentication, and authorization for secure message delivery.",
+      title: t('features.enterpriseSecurity.title'),
+      description: t('features.enterpriseSecurity.desc'),
     },
     {
       icon: Globe,
-      title: "Global Scale",
-      description: "Deploy across multiple regions with automatic clustering and load balancing.",
+      title: t('features.globalScale.title'),
+      description: t('features.globalScale.desc'),
     },
     {
       icon: BarChart3,
-      title: "Real-time Analytics",
-      description: "Monitor performance, track metrics, and gain insights with comprehensive analytics.",
+      title: t('features.realTimeAnalytics.title'),
+      description: t('features.realTimeAnalytics.desc'),
     },
     {
       icon: Cpu,
-      title: "Resource Efficient",
-      description: "Minimal memory footprint and CPU usage while maintaining maximum throughput.",
+      title: t('features.resourceEfficient.title'),
+      description: t('features.resourceEfficient.desc'),
     },
     {
       icon: RefreshCw,
-      title: "High Availability",
-      description: "99.9% uptime with automatic failover and disaster recovery capabilities.",
+      title: t('features.highAvailability.title'),
+      description: t('features.highAvailability.desc'),
     },
     {
       icon: Database,
-      title: "Persistent Storage",
-      description: "Reliable message persistence with configurable retention policies and backup.",
+      title: t('features.persistentStorage.title'),
+      description: t('features.persistentStorage.desc'),
     },
     {
       icon: Network,
-      title: "Protocol Support",
-      description: "Full MQTT 5.0 compatibility with WebSocket and TCP transport protocols.",
+      title: t('features.protocolSupport.title'),
+      description: t('features.protocolSupport.desc'),
     },
     {
       icon: Lock,
-      title: "Access Control",
-      description: "Fine-grained permissions and role-based access control for secure operations.",
+      title: t('features.accessControl.title'),
+      description: t('features.accessControl.desc'),
     }
   ];
 
@@ -65,12 +67,11 @@ const Features = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Powerful Features for
-            <span className="text-gradient block">Modern Applications</span>
+            {t('features.title')}
+            <span className="text-gradient block">{t('features.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            FluxMQ provides everything you need to build reliable, scalable messaging systems 
-            with enterprise-grade performance and security.
+            {t('features.subtitle')}
           </p>
         </div>
 

@@ -1,35 +1,37 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Gauge, Server, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Performance = () => {
+  const { t } = useTranslation();
   const metrics = [
     {
       icon: TrendingUp,
       value: "1M+",
-      label: "Messages/Second",
-      description: "Sustained throughput under load",
+      label: t('performance.metrics.throughput'),
+      description: t('performance.metrics.throughputDesc'),
       color: "text-primary"
     },
     {
       icon: Gauge,
       value: "<1ms",
-      label: "Average Latency",
-      description: "End-to-end message delivery",
+      label: t('performance.metrics.latency'),
+      description: t('performance.metrics.latencyDesc'),
       color: "text-accent"
     },
     {
       icon: Server,
       value: "99.9%",
-      label: "Uptime SLA",
-      description: "Enterprise reliability",
+      label: t('performance.metrics.uptime'),
+      description: t('performance.metrics.uptimeDesc'),
       color: "text-primary"
     },
     {
       icon: Users,
       value: "100K+",
-      label: "Concurrent Clients",
-      description: "Simultaneous connections",
+      label: t('performance.metrics.clients'),
+      description: t('performance.metrics.clientsDesc'),
       color: "text-accent"
     }
   ];
@@ -39,11 +41,11 @@ const Performance = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Unmatched
-            <span className="text-gradient block">Performance</span>
+            {t('performance.title')}
+            <span className="text-gradient block">{t('performance.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            FluxMQ delivers industry-leading performance metrics that scale with your business needs.
+            {t('performance.subtitle')}
           </p>
         </div>
 
@@ -75,30 +77,29 @@ const Performance = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-6">
-                Benchmark Results
+                {t('performance.benchmark.title')}
               </h3>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Independent performance tests show FluxMQ consistently outperforms 
-                other MQTT brokers in throughput, latency, and resource efficiency.
+                {t('performance.benchmark.subtitle')}
               </p>
               
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between items-center p-4 bg-secondary/50 rounded-lg">
-                  <span className="font-medium">Message Throughput</span>
+                  <span className="font-medium">{t('performance.benchmark.throughput')}</span>
                   <span className="text-primary font-bold">3.2x faster</span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-secondary/50 rounded-lg">
-                  <span className="font-medium">Memory Usage</span>
+                  <span className="font-medium">{t('performance.benchmark.memory')}</span>
                   <span className="text-accent font-bold">40% less</span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-secondary/50 rounded-lg">
-                  <span className="font-medium">CPU Efficiency</span>
+                  <span className="font-medium">{t('performance.benchmark.cpu')}</span>
                   <span className="text-primary font-bold">2.5x better</span>
                 </div>
               </div>
               
               <Button variant="accent" size="lg">
-                View Full Benchmarks
+                {t('performance.benchmark.button')}
               </Button>
             </div>
             
@@ -112,7 +113,7 @@ const Performance = () => {
                     Messages per second
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Peak performance on standard hardware
+                    {t('performance.benchmark.peak')}
                   </div>
                 </div>
                 

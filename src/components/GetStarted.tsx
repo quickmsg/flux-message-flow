@@ -1,29 +1,31 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Code, Download, BookOpen, Rocket } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const GetStarted = () => {
+  const { t } = useTranslation();
   const steps = [
     {
       icon: Download,
-      title: "Download FluxMQ",
-      description: "Get the latest release for your platform",
+      title: t('getStarted.step1.title'),
+      description: t('getStarted.step1.desc'),
       code: "curl -L https://github.com/fluxmq/releases/latest/download/fluxmq.tar.gz",
-      action: "Download Now"
+      action: t('getStarted.step1.action')
     },
     {
       icon: Code,
-      title: "Configure & Start",
-      description: "Quick configuration and startup",
+      title: t('getStarted.step2.title'),
+      description: t('getStarted.step2.desc'),
       code: "./fluxmq --config config.yaml --port 1883",
-      action: "View Config"
+      action: t('getStarted.step2.action')
     },
     {
       icon: Rocket,
-      title: "Connect Clients",
-      description: "Start publishing and subscribing",
+      title: t('getStarted.step3.title'),
+      description: t('getStarted.step3.desc'),
       code: "mqtt pub -h localhost -p 1883 -t topic -m 'Hello FluxMQ'",
-      action: "See Examples"
+      action: t('getStarted.step3.action')
     }
   ];
 
@@ -32,11 +34,11 @@ const GetStarted = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Get Started in
-            <span className="text-gradient block">Minutes</span>
+            {t('getStarted.title')}
+            <span className="text-gradient block">{t('getStarted.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Deploy FluxMQ quickly with our simple setup process and comprehensive documentation.
+            {t('getStarted.subtitle')}
           </p>
         </div>
 
@@ -83,22 +85,22 @@ const GetStarted = () => {
             </div>
             
             <h3 className="text-3xl font-bold mb-6">
-              Complete Documentation
+              {t('getStarted.docs.title')}
             </h3>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Explore our comprehensive guides, API references, and tutorials to get the most out of FluxMQ.
+              {t('getStarted.docs.subtitle')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg">
-                Read Documentation
+                {t('getStarted.docs.documentation')}
               </Button>
               <Button variant="glass" size="lg">
-                API Reference
+                {t('getStarted.docs.api')}
               </Button>
               <Button variant="outline" size="lg">
-                Community Support
+                {t('getStarted.docs.community')}
               </Button>
             </div>
           </div>

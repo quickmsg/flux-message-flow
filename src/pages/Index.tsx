@@ -4,6 +4,7 @@ import Features from "@/components/Features";
 import TrustedBy from "@/components/TrustedBy";
 import Performance from "@/components/Performance";
 import Pricing from "@/components/Pricing";
+import Documentation from "@/components/Documentation";
 import GetStarted from "@/components/GetStarted";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <TrustedBy />
       <Performance />
       <Pricing />
+      <Documentation />
       <GetStarted />
       <Footer />
     </div>

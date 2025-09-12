@@ -25,6 +25,13 @@ jobs:
         env:
           NODE_ENV: production
           
+      - name: List build output
+        run: |
+          echo "Build output contents:"
+          ls -la ./dist/
+          echo "Index.html content (first 20 lines):"
+          head -20 ./dist/index.html
+          
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'

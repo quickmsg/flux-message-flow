@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FluxMQ Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .status {
+            background: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        .info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 FluxMQ Test Page</h1>
+        <div class="status">✅ GitHub Pages 部署成功！</div>
+        
+        <div class="info">
+            <h3>部署信息</h3>
+            <p><strong>时间：</strong> <span id="timestamp"></span></p>
+            <p><strong>URL：</strong> <span id="current-url"></span></p>
+            <p><strong>User Agent：</strong> <span id="user-agent"></span></p>
+        </div>
+        
+        <div class="info">
+            <h3>下一步</h3>
+            <p>如果能看到这个页面，说明 GitHub Pages 部署正常工作。</p>
+            <p>现在可以访问主应用：<a href="/" style="color: #FFD700;">FluxMQ 主页</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('user-agent').textContent = navigator.userAgent;
+    </script>
+</body>
+</html>

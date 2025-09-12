@@ -91,9 +91,32 @@ git push origin main
 
 ### 页面无法访问
 
+#### 404 错误
+如果访问 `https://quickmsg.github.io/flux-message-flow/` 出现404错误：
+
+1. **检查GitHub Pages设置**：
+   - 进入仓库的 **Settings** > **Pages**
+   - 确认 **Source** 设置为 **GitHub Actions**
+   - 确认 **Custom domain** 为空（除非使用自定义域名）
+
+2. **检查Actions部署状态**：
+   - 进入 **Actions** 标签
+   - 查看最新的部署是否成功
+   - 如果失败，查看错误日志
+
+3. **等待部署完成**：
+   - GitHub Pages部署通常需要几分钟
+   - 刷新页面或清除浏览器缓存
+
+4. **检查URL路径**：
+   - 确保访问的是完整URL：`https://quickmsg.github.io/flux-message-flow/`
+   - 注意末尾的斜杠
+
+#### 其他访问问题
 1. 确认GitHub Pages已启用
 2. 检查仓库设置中的Pages配置
 3. 等待几分钟让DNS传播
+4. 检查仓库是否为公开仓库
 
 ### 资源加载失败
 

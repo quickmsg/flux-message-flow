@@ -21,5 +21,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- GitHub Pages 重定向脚本 -->
+    <script>
+      // 检查是否在 GitHub Pages 上运行
+      if (window.location.hostname === 'quickmsg.github.io') {
+        // 如果当前路径不包含 /flux-message-flow/，则重定向
+        if (!window.location.pathname.startsWith('/flux-message-flow/')) {
+          window.location.replace('/flux-message-flow/');
+        }
+      }
+    </script>
   </body>
 </html>

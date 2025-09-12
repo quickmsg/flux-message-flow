@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: process.env.NODE_ENV === 'production' ? '/flux-message-flow/' : '/',
+  base: '/flux-message-flow/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

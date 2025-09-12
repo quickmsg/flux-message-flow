@@ -1,13 +1,31 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, Zap, Globe, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import FluxMQLogo from "./FluxMQLogo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    // Check if dark mode is enabled
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark') || 
+                window.matchMedia('(prefers-color-scheme: dark)').matches);
+    };
+    
+    checkDarkMode();
+    
+    // Listen for theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', checkDarkMode);
+    
+    return () => mediaQuery.removeEventListener('change', checkDarkMode);
+  }, []);
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -22,10 +40,8 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="p-2 bg-gradient-primary rounded-lg shadow-glow">
-              <Zap className="h-6 w-6 text-primary-foreground" />
-            </div>
+          <div className="flex items-center space-x-3">
+            <FluxMQLogo size={24} variant={isDark ? 'dark' : 'light'} />
             <span className="text-2xl font-bold text-gradient">FluxMQ</span>
           </div>
 
@@ -34,14 +50,14 @@ const Header = () => {
             <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">
               {t('nav.features')}
             </a>
-            <a href="#performance" className="text-muted-foreground hover:text-primary transition-colors">
-              {t('nav.performance')}
+            <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors">
+              {t('nav.comparison')}
             </a>
-            <a href="#docs" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors">
+              {t('nav.quickstart')}
+            </a>
+            <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
               {t('nav.documentation')}
-            </a>
-            <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-              {t('nav.about')}
             </a>
           </div>
 
@@ -72,10 +88,10 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Button variant="ghost">
+            <Button variant="ghost" onClick={() => window.open('https://github.com/quickmsg/fluxmq', '_blank')}>
               {t('nav.github')}
             </Button>
-            <Button variant="hero">
+            <Button variant="hero" onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}>
               {t('nav.getStarted')}
             </Button>
           </div>
@@ -99,14 +115,14 @@ const Header = () => {
                 <a href="#features" className="text-muted-foreground hover:text-primary transition-colors py-2">
                   {t('nav.features')}
                 </a>
-                <a href="#performance" className="text-muted-foreground hover:text-primary transition-colors py-2">
-                  {t('nav.performance')}
+                <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors py-2">
+                  {t('nav.comparison')}
                 </a>
-                <a href="#docs" className="text-muted-foreground hover:text-primary transition-colors py-2">
+                <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors py-2">
+                  {t('nav.quickstart')}
+                </a>
+                <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2">
                   {t('nav.documentation')}
-                </a>
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors py-2">
-                  {t('nav.about')}
                 </a>
                 
                 {/* Mobile Language Selector */}
@@ -134,10 +150,10 @@ const Header = () => {
                 </div>
                 
                 <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
-                  <Button variant="ghost" className="justify-start">
+                  <Button variant="ghost" className="justify-start" onClick={() => window.open('https://github.com/quickmsg/fluxmq', '_blank')}>
                     {t('nav.github')}
                   </Button>
-                  <Button variant="hero" className="justify-start">
+                  <Button variant="hero" className="justify-start" onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}>
                     {t('nav.getStarted')}
                   </Button>
                 </div>

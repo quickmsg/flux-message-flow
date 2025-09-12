@@ -18,61 +18,61 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: "Community",
-      price: "Free",
-      description: "Perfect for small projects and learning",
+      name: t('pricing.plans.community.name'),
+      price: t('pricing.plans.community.price'),
+      description: t('pricing.plans.community.description'),
       icon: Users,
       color: "text-muted-foreground",
       bgColor: "bg-secondary/50",
       popular: false,
       features: [
-        { name: "Up to 1,000 connections", included: true },
-        { name: "Basic monitoring", included: true },
-        { name: "Community support", included: true },
-        { name: "Standard protocols", included: true },
-        { name: "Basic authentication", included: true },
-        { name: "Advanced analytics", included: false },
-        { name: "Priority support", included: false },
-        { name: "Custom integrations", included: false },
+        { name: t('pricing.features.connections1k'), included: true },
+        { name: t('pricing.features.basicMonitoring'), included: true },
+        { name: t('pricing.features.communitySupport'), included: true },
+        { name: t('pricing.features.standardProtocols'), included: true },
+        { name: t('pricing.features.basicAuth'), included: true },
+        { name: t('pricing.features.advancedAnalytics'), included: false },
+        { name: t('pricing.features.prioritySupport'), included: false },
+        { name: t('pricing.features.customIntegrations'), included: false },
       ]
     },
     {
-      name: "Professional",
-      price: "$49",
-      period: "/month",
-      description: "Ideal for growing businesses and teams",
+      name: t('pricing.plans.professional.name'),
+      price: t('pricing.plans.professional.price'),
+      period: t('pricing.plans.professional.period'),
+      description: t('pricing.plans.professional.description'),
       icon: Zap,
       color: "text-primary",
       bgColor: "bg-gradient-primary",
       popular: true,
       features: [
-        { name: "Up to 100,000 connections", included: true },
-        { name: "Advanced monitoring & analytics", included: true },
-        { name: "Priority email support", included: true },
-        { name: "All protocols supported", included: true },
-        { name: "Advanced security features", included: true },
-        { name: "Custom dashboards", included: true },
-        { name: "API access", included: true },
-        { name: "99.9% SLA", included: true },
+        { name: t('pricing.features.connections100k'), included: true },
+        { name: t('pricing.features.advancedMonitoring'), included: true },
+        { name: t('pricing.features.priorityEmail'), included: true },
+        { name: t('pricing.features.allProtocols'), included: true },
+        { name: t('pricing.features.advancedSecurity'), included: true },
+        { name: t('pricing.features.customDashboards'), included: true },
+        { name: t('pricing.features.apiAccess'), included: true },
+        { name: t('pricing.features.sla99'), included: true },
       ]
     },
     {
-      name: "Enterprise",
-      price: "Custom",
-      description: "For large-scale production deployments",
+      name: t('pricing.plans.enterprise.name'),
+      price: t('pricing.plans.enterprise.price'),
+      description: t('pricing.plans.enterprise.description'),
       icon: Crown,
       color: "text-accent",
       bgColor: "bg-gradient-to-br from-accent/20 to-primary/20",
       popular: false,
       features: [
-        { name: "Unlimited connections", included: true },
-        { name: "Real-time analytics", included: true },
-        { name: "24/7 dedicated support", included: true },
-        { name: "Custom protocols", included: true },
-        { name: "Enterprise security", included: true },
-        { name: "Custom integrations", included: true },
-        { name: "On-premise deployment", included: true },
-        { name: "99.99% SLA", included: true },
+        { name: t('pricing.features.unlimitedConnections'), included: true },
+        { name: t('pricing.features.realtimeAnalytics'), included: true },
+        { name: t('pricing.features.dedicatedSupport'), included: true },
+        { name: t('pricing.features.customProtocols'), included: true },
+        { name: t('pricing.features.enterpriseSecurity'), included: true },
+        { name: t('pricing.features.customIntegrations'), included: true },
+        { name: t('pricing.features.onPremise'), included: true },
+        { name: t('pricing.features.sla99_99'), included: true },
       ]
     }
   ];
@@ -82,11 +82,11 @@ const Pricing = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Simple, Transparent
-            <span className="text-gradient block">Pricing</span>
+            {t('pricing.title')}
+            <span className="text-gradient block">{t('pricing.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choose the plan that fits your needs. Start free and scale as you grow.
+            {t('pricing.subtitle')}
           </p>
         </div>
 
@@ -102,7 +102,7 @@ const Pricing = () => {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <Badge className="bg-gradient-primary text-primary-foreground px-4 py-1 shadow-glow">
                     <Star className="h-3 w-3 mr-1" />
-                    Most Popular
+                    {t('pricing.mostPopular')}
                   </Badge>
                 </div>
               )}
@@ -144,7 +144,7 @@ const Pricing = () => {
                   className="w-full group"
                   size="lg"
                 >
-                  {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
+                  {plan.name === t('pricing.plans.enterprise.name') ? t('pricing.buttons.contactSales') : t('pricing.buttons.getStarted')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </CardContent>
@@ -155,56 +155,53 @@ const Pricing = () => {
         {/* FAQ Section */}
         <div className="mt-24">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold mb-4">Frequently Asked Questions</h3>
+            <h3 className="text-3xl font-bold mb-4">{t('pricing.faq.title')}</h3>
             <p className="text-lg text-muted-foreground">
-              Got questions? We have answers.
+              {t('pricing.faq.subtitle')}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="bg-gradient-card border-border/50 shadow-card">
               <CardHeader>
-                <CardTitle className="text-lg">Can I upgrade or downgrade my plan?</CardTitle>
+                <CardTitle className="text-lg">{t('pricing.faq.upgrade.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Yes, you can change your plan at any time. Upgrades take effect immediately, 
-                  and downgrades will take effect at the next billing cycle.
+                  {t('pricing.faq.upgrade.answer')}
                 </p>
               </CardContent>
             </Card>
             
             <Card className="bg-gradient-card border-border/50 shadow-card">
               <CardHeader>
-                <CardTitle className="text-lg">What payment methods do you accept?</CardTitle>
+                <CardTitle className="text-lg">{t('pricing.faq.payment.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  We accept all major credit cards, PayPal, and wire transfers for Enterprise customers.
+                  {t('pricing.faq.payment.answer')}
                 </p>
               </CardContent>
             </Card>
             
             <Card className="bg-gradient-card border-border/50 shadow-card">
               <CardHeader>
-                <CardTitle className="text-lg">Is there a free trial for paid plans?</CardTitle>
+                <CardTitle className="text-lg">{t('pricing.faq.trial.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Yes, we offer a 14-day free trial for both Professional and Enterprise plans. 
-                  No credit card required.
+                  {t('pricing.faq.trial.answer')}
                 </p>
               </CardContent>
             </Card>
             
             <Card className="bg-gradient-card border-border/50 shadow-card">
               <CardHeader>
-                <CardTitle className="text-lg">Do you offer custom enterprise solutions?</CardTitle>
+                <CardTitle className="text-lg">{t('pricing.faq.enterprise.title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Absolutely! We work with enterprise customers to create custom solutions 
-                  that meet their specific requirements.
+                  {t('pricing.faq.enterprise.answer')}
                 </p>
               </CardContent>
             </Card>

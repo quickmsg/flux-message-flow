@@ -1,8 +1,10 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
+import FluxMQFeatures from "@/components/FluxMQFeatures";
 import TrustedBy from "@/components/TrustedBy";
 import Performance from "@/components/Performance";
+import PerformanceComparison from "@/components/PerformanceComparison";
+import QuickStart from "@/components/QuickStart";
 import Pricing from "@/components/Pricing";
 import DocumentationPortal from "@/components/DocumentationPortal";
 import GetStarted from "@/components/GetStarted";
@@ -13,9 +15,11 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <Features />
+      <FluxMQFeatures />
       <TrustedBy />
       <Performance />
+      <PerformanceComparison />
+      <QuickStart />
       <Pricing />
       <DocumentationPortal />
       <GetStarted />

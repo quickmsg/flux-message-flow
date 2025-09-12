@@ -29,21 +29,21 @@ const TrustedBy = () => {
       name: "Sarah Chen",
       role: "Senior DevOps Engineer",
       company: "TechCorp",
-      content: "FluxMQ has revolutionized our messaging infrastructure. The performance improvements are incredible.",
+      content: t('trusted.testimonials.sarah.content'),
       rating: 5
     },
     {
       name: "Marcus Rodriguez",
       role: "CTO",
       company: "IoT Solutions",
-      content: "Handling millions of IoT device messages has never been easier. FluxMQ just works.",
+      content: t('trusted.testimonials.marcus.content'),
       rating: 5
     },
     {
       name: "Lisa Wang",
       role: "Platform Architect",
       company: "StreamData",
-      content: "The analytics and monitoring capabilities help us maintain 99.9% uptime consistently.",
+      content: t('trusted.testimonials.lisa.content'),
       rating: 5
     }
   ];
@@ -51,21 +51,21 @@ const TrustedBy = () => {
   const useCases = [
     {
       icon: Building2,
-      title: "Enterprise Messaging",
-      description: "Mission-critical business communications",
-      features: ["High Availability", "Security", "Compliance"]
+      title: t('trusted.useCases.enterprise.title'),
+      description: t('trusted.useCases.enterprise.desc'),
+      features: t('trusted.useCases.enterprise.features', { returnObjects: true })
     },
     {
       icon: Rocket,
-      title: "IoT Applications",
-      description: "Connect millions of devices seamlessly",
-      features: ["Scalability", "Low Latency", "Edge Computing"]
+      title: t('trusted.useCases.iot.title'),
+      description: t('trusted.useCases.iot.desc'),
+      features: t('trusted.useCases.iot.features', { returnObjects: true })
     },
     {
       icon: Code2,
-      title: "Microservices",
-      description: "Reliable service-to-service communication",
-      features: ["Decoupling", "Resilience", "Load Balancing"]
+      title: t('trusted.useCases.microservices.title'),
+      description: t('trusted.useCases.microservices.desc'),
+      features: t('trusted.useCases.microservices.features', { returnObjects: true })
     }
   ];
 
@@ -75,7 +75,7 @@ const TrustedBy = () => {
         {/* Trusted By Section */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            Trusted by Industry Leaders
+            {t('trusted.title')}
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {companies.map((company, index) => (
@@ -96,10 +96,10 @@ const TrustedBy = () => {
         <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Built for Every Use Case
+              {t('trusted.useCases.title')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              From startups to enterprises, FluxMQ scales with your needs
+              {t('trusted.useCases.subtitle')}
             </p>
           </div>
           
@@ -134,10 +134,10 @@ const TrustedBy = () => {
         <div>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Developers Say
+              {t('trusted.testimonials.title')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Real feedback from teams using FluxMQ in production
+              {t('trusted.testimonials.subtitle')}
             </p>
           </div>
           
@@ -177,22 +177,22 @@ const TrustedBy = () => {
           <Card className="bg-gradient-card border-border/50 shadow-card p-8">
             <div className="max-w-2xl mx-auto">
               <MessageCircle className="h-16 w-16 text-primary mx-auto mb-6" />
-              <h3 className="text-2xl font-bold mb-4">Join Our Community</h3>
+              <h3 className="text-2xl font-bold mb-4">{t('trusted.community.title')}</h3>
               <p className="text-muted-foreground mb-6">
-                Connect with thousands of developers, share experiences, and get support from the FluxMQ community.
+                {t('trusted.community.subtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Card className="bg-secondary/50 p-4 flex items-center space-x-4">
                   <div className="text-2xl font-bold text-primary">15K+</div>
-                  <div className="text-sm text-muted-foreground">Active Developers</div>
+                  <div className="text-sm text-muted-foreground">{t('trusted.community.developers')}</div>
                 </Card>
                 <Card className="bg-secondary/50 p-4 flex items-center space-x-4">
                   <div className="text-2xl font-bold text-accent">500+</div>
-                  <div className="text-sm text-muted-foreground">GitHub Stars</div>
+                  <div className="text-sm text-muted-foreground">{t('trusted.community.stars')}</div>
                 </Card>
                 <Card className="bg-secondary/50 p-4 flex items-center space-x-4">
                   <div className="text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-sm text-muted-foreground">Community Support</div>
+                  <div className="text-sm text-muted-foreground">{t('trusted.community.support')}</div>
                 </Card>
               </div>
             </div>

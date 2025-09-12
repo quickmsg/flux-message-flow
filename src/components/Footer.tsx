@@ -1,33 +1,52 @@
 import { Button } from "@/components/ui/button";
-import { Zap, Github, Twitter, Mail, ExternalLink } from "lucide-react";
+import { Github, Twitter, Mail, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useState, useEffect } from "react";
+import FluxMQLogo from "./FluxMQLogo";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check if dark mode is enabled
+    const checkDarkMode = () => {
+      setIsDark(document.documentElement.classList.contains('dark') || 
+                window.matchMedia('(prefers-color-scheme: dark)').matches);
+    };
+    
+    checkDarkMode();
+    
+    // Listen for theme changes
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQuery.addEventListener('change', checkDarkMode);
+    
+    return () => mediaQuery.removeEventListener('change', checkDarkMode);
+  }, []);
   const footerLinks = {
     [t('footer.product')]: [
-      { name: "Features", href: "#features" },
-      { name: "Performance", href: "#performance" },
-      { name: "Pricing", href: "#pricing" },
-      { name: "Roadmap", href: "#roadmap" }
+      { name: t('footer.links.features'), href: "#features" },
+      { name: t('footer.links.performance'), href: "#performance" },
+      { name: t('footer.links.pricing'), href: "#pricing" },
+      { name: t('footer.links.roadmap'), href: "#roadmap" }
     ],
     [t('footer.developers')]: [
-      { name: "Documentation", href: "#docs" },
-      { name: "API Reference", href: "#api" },
-      { name: "Examples", href: "#examples" },
-      { name: "SDKs", href: "#sdks" }
+      { name: t('footer.links.documentation'), href: "https://doc.fluxmq.com", external: true },
+      { name: t('footer.links.apiReference'), href: "https://doc.fluxmq.com/api", external: true },
+      { name: t('footer.links.examples'), href: "https://doc.fluxmq.com/function", external: true },
+      { name: t('footer.links.sdks'), href: "https://doc.fluxmq.com/install", external: true }
     ],
     [t('footer.resources')]: [
-      { name: "Blog", href: "#blog" },
-      { name: "Community", href: "#community" },
-      { name: "Support", href: "#support" },
-      { name: "Status", href: "#status" }
+      { name: t('footer.links.blog'), href: "#blog" },
+      { name: t('footer.links.community'), href: "#community" },
+      { name: t('footer.links.support'), href: "#support" },
+      { name: t('footer.links.status'), href: "#status" }
     ],
     [t('footer.company')]: [
-      { name: "About", href: "#about" },
-      { name: "Careers", href: "#careers" },
-      { name: "Contact", href: "#contact" },
-      { name: "Privacy", href: "#privacy" }
+      { name: t('footer.links.about'), href: "#about" },
+      { name: t('footer.links.careers'), href: "#careers" },
+      { name: t('footer.links.contact'), href: "#contact" },
+      { name: t('footer.links.privacy'), href: "#privacy" }
     ]
   };
 
@@ -39,9 +58,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="p-2 bg-gradient-primary rounded-lg shadow-glow">
-                <Zap className="h-6 w-6 text-primary-foreground" />
-              </div>
+              <FluxMQLogo size={24} variant={isDark ? 'dark' : 'light'} />
               <span className="text-2xl font-bold text-gradient">FluxMQ</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -70,6 +87,8 @@ const Footer = () => {
                     <a 
                       href={link.href} 
                       className="text-muted-foreground hover:text-primary transition-colors group flex items-center"
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
                     >
                       {link.name}
                       <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -104,7 +123,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border/50">
           <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-            {t('footer.copyright')}
+            Copyright © 2021-{new Date().getFullYear()} 非迅科技 版权所有 | 苏ICP备2023015068号-1
           </div>
           <div className="flex items-center space-x-6 text-sm">
             <a href="#privacy" className="text-muted-foreground hover:text-primary transition-colors">

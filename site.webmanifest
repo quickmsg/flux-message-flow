@@ -1,0 +1,25 @@
+{
+  "name": "FluxMQ - High-Performance MQTT Broker",
+  "short_name": "FluxMQ",
+  "description": "Ultra-fast, scalable MQTT broker designed for modern applications",
+  "icons": [
+    {
+      "src": "/logo_light.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo_light.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "orientation": "portrait-primary"
+}

@@ -31,7 +31,8 @@ git push origin main
 ### 4. 访问网站
 
 部署完成后，你的网站将在以下地址可用：
-- `https://[你的用户名].github.io/flux-message-flow/`
+- `https://quickmsg.github.io/` (根域名)
+- 如果使用子路径：`https://quickmsg.github.io/flux-message-flow/`
 
 ## 配置说明
 
@@ -53,7 +54,7 @@ git push origin main
 ### Vite 配置
 
 `vite.config.ts` 已配置：
-- 生产环境基础路径：`/flux-message-flow/`
+- 生产环境基础路径：`/` (根路径)
 - 构建输出目录：`dist`
 - 代码分割优化
 - 资源压缩
@@ -92,7 +93,7 @@ git push origin main
 ### 页面无法访问
 
 #### 404 错误
-如果访问 `https://quickmsg.github.io/flux-message-flow/` 出现404错误：
+如果访问 `https://quickmsg.github.io/` 出现404错误：
 
 1. **检查GitHub Pages设置**：
    - 进入仓库的 **Settings** > **Pages**
@@ -109,7 +110,7 @@ git push origin main
    - 刷新页面或清除浏览器缓存
 
 4. **检查URL路径**：
-   - 确保访问的是完整URL：`https://quickmsg.github.io/flux-message-flow/`
+   - 确保访问的是完整URL：`https://quickmsg.github.io/`
    - 注意末尾的斜杠
 
 #### 其他访问问题

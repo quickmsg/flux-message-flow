@@ -26,9 +26,9 @@
     <script>
       // 检查是否在 GitHub Pages 上运行
       if (window.location.hostname === 'quickmsg.github.io') {
-        // 如果当前路径不包含 /flux-message-flow/，则重定向
-        if (!window.location.pathname.startsWith('/flux-message-flow/')) {
-          window.location.replace('/flux-message-flow/');
+        // 如果当前路径不是根路径，则重定向到根路径
+        if (window.location.pathname !== '/' && !window.location.pathname.startsWith('/flux-message-flow/')) {
+          window.location.replace('/');
         }
       }
     </script>

@@ -78,9 +78,16 @@ git push origin main
 
 ### 构建失败
 
+#### Terser 错误
+如果遇到 "terser not found" 错误：
+- 已修复：将 `minify: 'terser'` 改为 `minify: 'esbuild'`
+- esbuild 是 Vite 的默认压缩器，无需额外安装
+
+#### 其他构建问题
 1. 检查Node.js版本兼容性
 2. 确保所有依赖都已正确安装
 3. 查看Actions日志中的错误信息
+4. 检查是否有TypeScript类型错误
 
 ### 页面无法访问
 

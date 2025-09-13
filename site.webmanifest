@@ -4,13 +4,13 @@
   "description": "Ultra-fast, scalable MQTT broker designed for modern applications",
   "icons": [
     {
-      "src": "/logo_light.jpg",
+      "src": "/logo_dark.jpg",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "/logo_light.jpg",
+      "src": "/logo_dark.jpg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any maskable"

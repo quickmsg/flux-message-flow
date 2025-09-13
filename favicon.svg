@@ -1,10 +1,23 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="6" fill="url(#gradient)"/>
-  <text x="16" y="22" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">F</text>
+  <!-- FluxMQ Dark Logo Design -->
+  <rect width="32" height="32" rx="4" fill="url(#gradient)"/>
+  
+  <!-- FluxMQ "F" Logo -->
+  <g transform="translate(8, 6)">
+    <!-- F letter design -->
+    <rect x="0" y="0" width="2" height="20" fill="white"/>
+    <rect x="0" y="0" width="12" height="2" fill="white"/>
+    <rect x="0" y="8" width="8" height="2" fill="white"/>
+  </g>
+  
+  <!-- MQTT connection dots -->
+  <circle cx="22" cy="8" r="1.5" fill="white" opacity="0.8"/>
+  <circle cx="26" cy="12" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="24" cy="18" r="1.5" fill="white" opacity="0.4"/>
 </svg>

@@ -9,6 +9,7 @@ import FluxMQLogo from "./FluxMQLogo";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState('en');
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
@@ -27,12 +28,35 @@ const Header = () => {
     return () => mediaQuery.removeEventListener('change', checkDarkMode);
   }, []);
 
+  // 监听语言变化，确保状态同步
+  useEffect(() => {
+    const handleLanguageChange = (lng: string) => {
+      setCurrentLanguage(lng);
+    };
+
+    // 设置初始语言状态
+    setCurrentLanguage(i18n.language);
+
+    // 监听语言变化
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+    // 防止重复切换
+    if (i18n.language === lng) return;
+    
+    // 平滑切换语言，避免页面晃动
+    i18n.changeLanguage(lng).then(() => {
+      setCurrentLanguage(lng);
+    });
   };
 
   const getCurrentLanguage = () => {
-    return i18n.language === 'zh' ? '中文' : 'English';
+    return currentLanguage === 'zh' ? '中文' : 'English';
   };
 
   return (
@@ -133,14 +157,14 @@ const Header = () => {
                   </div>
                   <div className="flex space-x-2">
                     <Button 
-                      variant={i18n.language === 'en' ? 'default' : 'ghost'} 
+                      variant={currentLanguage === 'en' ? 'default' : 'ghost'} 
                       size="sm"
                       onClick={() => changeLanguage('en')}
                     >
                       English
                     </Button>
                     <Button 
-                      variant={i18n.language === 'zh' ? 'default' : 'ghost'} 
+                      variant={currentLanguage === 'zh' ? 'default' : 'ghost'} 
                       size="sm"
                       onClick={() => changeLanguage('zh')}
                     >

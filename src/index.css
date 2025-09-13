@@ -9,6 +9,15 @@
     /* Dark theme for tech/developer tool aesthetic */
     --background: 222 47% 4%;
     --foreground: 210 40% 98%;
+    
+    /* 防止语言切换时页面晃动 */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      transition: none !important;
+    }
 
     --card: 222 47% 6%;
     --card-foreground: 210 40% 98%;

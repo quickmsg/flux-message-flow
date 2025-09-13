@@ -985,13 +985,16 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
+    lng: 'en', // 设置默认语言为英文
     debug: false,
     interpolation: {
       escapeValue: false
     },
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
-      caches: ['localStorage']
+      caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
+      checkWhitelist: true
     }
   });
 

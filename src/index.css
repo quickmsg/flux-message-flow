@@ -18,6 +18,20 @@
     body {
       transition: none !important;
     }
+    
+    /* 防止导航栏晃动 */
+    header {
+      transition: none !important;
+    }
+    
+    nav {
+      transition: none !important;
+    }
+    
+    /* 确保导航项不会因为文本变化而改变布局 */
+    .nav-item {
+      transition: none !important;
+    }
 
     --card: 222 47% 6%;
     --card-foreground: 210 40% 98%;

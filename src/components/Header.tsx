@@ -71,16 +71,16 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="#features" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
               {t('nav.features')}
             </a>
-            <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[120px] text-center">
               {t('nav.comparison')}
             </a>
-            <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[100px] text-center">
               {t('nav.quickstart')}
             </a>
-            <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[100px] text-center">
               {t('nav.documentation')}
             </a>
           </div>
@@ -90,9 +90,9 @@ const Header = () => {
             {/* Language Selector */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-2">
+                <Button variant="ghost" className="flex items-center space-x-2 min-w-[80px] justify-center">
                   <Globe className="h-4 w-4" />
-                  <span className="text-sm">{getCurrentLanguage()}</span>
+                  <span className="text-sm whitespace-nowrap">{getCurrentLanguage()}</span>
                   <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
@@ -136,16 +136,16 @@ const Header = () => {
           <Card className="md:hidden mt-4 bg-card/95 backdrop-blur-sm border-border/50">
             <CardContent className="p-4">
               <div className="flex flex-col space-y-4">
-                <a href="#features" className="text-muted-foreground hover:text-primary transition-colors py-2">
+                <a href="#features" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.features')}
                 </a>
-                <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors py-2">
+                <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.comparison')}
                 </a>
-                <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors py-2">
+                <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.quickstart')}
                 </a>
-                <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2">
+                <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.documentation')}
                 </a>
                 

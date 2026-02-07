@@ -6,7 +6,7 @@ const resources = {
   en: {
     translation: {
       // Header
-      "nav.brand": "Flux Message Flow",
+      "nav.brand": "Feixun Tech",
       "nav.features": "Features",
       "nav.products": "Products",
       "nav.docFluxMQ": "FluxMQ Docs",
@@ -521,7 +521,7 @@ const resources = {
   zh: {
     translation: {
       // Header
-      "nav.brand": "Flux Message Flow",
+      "nav.brand": "非迅科技",
       "nav.features": "功能特性",
       "nav.products": "产品",
       "nav.docFluxMQ": "FluxMQ 文档",

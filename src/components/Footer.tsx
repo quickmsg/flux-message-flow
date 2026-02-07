@@ -31,10 +31,10 @@ const Footer = () => {
       { name: t('footer.links.roadmap'), href: "#roadmap" }
     ],
     [t('footer.developers')]: [
-      { name: t('footer.links.documentation'), href: "https://doc.fluxmq.com", external: true },
+      { name: t('footer.links.fluxmqDocs'), href: "https://doc.fluxmq.com", external: true },
+      { name: t('footer.links.fcpDocs'), href: "https://fcp.doc.fluxmq.com", external: true },
       { name: t('footer.links.apiReference'), href: "https://doc.fluxmq.com/api", external: true },
-      { name: t('footer.links.examples'), href: "https://doc.fluxmq.com/function", external: true },
-      { name: t('footer.links.sdks'), href: "https://doc.fluxmq.com/install", external: true }
+      { name: t('footer.links.examples'), href: "https://doc.fluxmq.com/function", external: true }
     ],
     [t('footer.resources')]: [
       { name: t('footer.links.blog'), href: "#blog" },
@@ -59,7 +59,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
               <FluxMQLogo size={24} variant={isDark ? 'dark' : 'light'} />
-              <span className="text-2xl font-bold text-gradient">FluxMQ</span>
+              <span className="text-2xl font-bold text-gradient">{t('nav.brand')}</span>
             </div>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               {t('footer.description')}

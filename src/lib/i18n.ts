@@ -6,7 +6,11 @@ const resources = {
   en: {
     translation: {
       // Header
+      "nav.brand": "Flux Message Flow",
       "nav.features": "Features",
+      "nav.products": "Products",
+      "nav.docFluxMQ": "FluxMQ Docs",
+      "nav.docFCP": "FCP Docs",
       "nav.performance": "Performance",
       "nav.comparison": "Performance Comparison",
       "nav.quickstart": "Quick Start",
@@ -16,11 +20,11 @@ const resources = {
       "nav.getStarted": "Get Started",
       
       // Hero Section
-      "hero.badge": "🚀 High-Performance MQTT Broker",
-      "hero.title": "Scale Your",
-      "hero.titleHighlight": "Message Queues",
-      "hero.titleEnd": "with FluxMQ",
-      "hero.subtitle": "Ultra-fast, scalable MQTT broker designed for modern applications. Handle millions of messages per second with minimal latency and maximum reliability.",
+      "hero.badge": "FluxMQ · FCP",
+      "hero.title": "Message Infrastructure",
+      "hero.titleHighlight": "for Scale",
+      "hero.titleEnd": "",
+      "hero.subtitle": "FluxMQ: high-performance MQTT broker. FCP: centralized control plane for license, apps & monitoring. One platform for messaging and operations.",
       "hero.getStarted": "Get Started",
       "hero.github": "View on GitHub",
       "hero.download": "Download",
@@ -157,8 +161,13 @@ const resources = {
       "docs.cta.joinCommunity": "Join Community",
       
       // Documentation Portal
-      "docs.portal.title": "Complete Documentation",
-      "docs.portal.subtitle": "From quick start to advanced configuration, FluxMQ provides complete documentation support to help you quickly build high-performance IoT platforms",
+      "docs.portal.title": "Documentation",
+      "docs.portal.subtitle": "Choose a product to view its documentation. FluxMQ for the MQTT broker; FCP for the control plane.",
+      "docs.portal.byProduct": "Documentation by product",
+      "docs.portal.fluxmqDoc": "FluxMQ Documentation",
+      "docs.portal.fluxmqDocDesc": "MQTT broker: install, config, API, clustering",
+      "docs.portal.fcpDoc": "FCP Documentation",
+      "docs.portal.fcpDocDesc": "Control plane: license, applications, proxy, monitoring",
       "docs.portal.gettingStarted.title": "Quick Start",
       "docs.portal.gettingStarted.desc": "Installation deployment and basic configuration guide",
       "docs.portal.configuration.title": "Configuration Guide",
@@ -174,6 +183,8 @@ const resources = {
       "docs.portal.quickAccess.title": "Quick Access",
       "docs.portal.quickAccess.subtitle": "Need help? Check out these common resources",
       "docs.portal.quickAccess.completeDocs": "Complete Documentation",
+      "docs.portal.quickAccess.fluxmqDocs": "FluxMQ Docs",
+      "docs.portal.quickAccess.fcpDocs": "FCP Docs",
       "docs.portal.quickAccess.faq": "FAQ",
       "docs.portal.quickAccess.github": "GitHub",
       "docs.portal.viewDocs": "View Documentation",
@@ -262,6 +273,21 @@ const resources = {
       "footer.terms": "Terms of Service",
       "footer.cookies": "Cookie Policy",
       
+      // Products Section
+      "products.title": "Our",
+      "products.titleHighlight": "Products",
+      "products.subtitle": "FluxMQ product family: high-performance MQTT broker and centralized control plane for license and operations.",
+      "products.fluxmq.title": "FluxMQ",
+      "products.fluxmq.desc": "Cloud-native distributed MQTT broker. Millions of connections, ultra-low latency, rule engine, multi-protocol. Deploy anywhere.",
+      "products.fluxmq.features": ["MQTT 3.1.1 / 5.0", "Rule engine & multi data sources", "Cluster & horizontal scaling", "TLS/SSL, Auth, ACL", "Docker / K8s ready"],
+      "products.fluxmq.linkText": "Documentation",
+      "products.fluxmq.cta": "View Documentation",
+      "products.fcp.title": "FCP",
+      "products.fcp.desc": "FluxMQ Control Plane. Centralized license management, application management, proxy gateway, and monitoring for FluxMQ clusters.",
+      "products.fcp.features": ["License allocation & activation", "Application & project management", "Proxy for browser access", "Monitoring & alerts", "Multi-tenant support"],
+      "products.fcp.linkText": "Learn more",
+      "products.fcp.cta": "Learn More",
+      
       // TrustedBy Section
       "trusted.title": "Trusted by Industry Leaders",
       "trusted.useCases.title": "Built for Every Use Case",
@@ -343,6 +369,8 @@ const resources = {
       "footer.links.pricing": "Pricing",
       "footer.links.roadmap": "Roadmap",
       "footer.links.documentation": "Documentation",
+      "footer.links.fluxmqDocs": "FluxMQ Docs",
+      "footer.links.fcpDocs": "FCP Docs",
       "footer.links.apiReference": "API Reference",
       "footer.links.examples": "Examples",
       "footer.links.sdks": "SDKs",
@@ -493,7 +521,11 @@ const resources = {
   zh: {
     translation: {
       // Header
+      "nav.brand": "Flux Message Flow",
       "nav.features": "功能特性",
+      "nav.products": "产品",
+      "nav.docFluxMQ": "FluxMQ 文档",
+      "nav.docFCP": "FCP 文档",
       "nav.performance": "性能表现",
       "nav.comparison": "性能对比",
       "nav.quickstart": "快速开始",
@@ -503,11 +535,11 @@ const resources = {
       "nav.getStarted": "立即开始",
       
       // Hero Section
-      "hero.badge": "🚀 高性能MQTT消息代理",
-      "hero.title": "用FluxMQ",
-      "hero.titleHighlight": "扩展您的消息队列",
+      "hero.badge": "FluxMQ · FCP",
+      "hero.title": "消息与管控",
+      "hero.titleHighlight": "一体化平台",
       "hero.titleEnd": "",
-      "hero.subtitle": "专为现代应用设计的超快速、可扩展MQTT代理。每秒处理数百万条消息，延迟极低，可靠性极高。",
+      "hero.subtitle": "FluxMQ：高性能 MQTT 消息服务；FCP：集中式控制平面，统一 License、应用与监控。一套体系，消息与运维兼得。",
       "hero.getStarted": "立即开始",
       "hero.github": "查看GitHub",
       "hero.download": "下载",
@@ -644,8 +676,13 @@ const resources = {
       "docs.cta.joinCommunity": "加入社区",
       
       // Documentation Portal
-      "docs.portal.title": "完整文档",
-      "docs.portal.subtitle": "从快速开始到高级配置，FluxMQ 提供完整的文档支持，帮助您快速构建高性能的物联网平台",
+      "docs.portal.title": "文档中心",
+      "docs.portal.subtitle": "按产品查看文档：FluxMQ 消息服务与 FCP 控制平面。",
+      "docs.portal.byProduct": "按产品查看文档",
+      "docs.portal.fluxmqDoc": "FluxMQ 文档",
+      "docs.portal.fluxmqDocDesc": "MQTT 消息服务：安装、配置、API、集群",
+      "docs.portal.fcpDoc": "FCP 文档",
+      "docs.portal.fcpDocDesc": "控制平面：License、应用、代理、监控",
       "docs.portal.gettingStarted.title": "快速开始",
       "docs.portal.gettingStarted.desc": "安装部署和基础配置指南",
       "docs.portal.configuration.title": "配置指南",
@@ -661,6 +698,8 @@ const resources = {
       "docs.portal.quickAccess.title": "快速访问",
       "docs.portal.quickAccess.subtitle": "需要帮助？查看这些常用资源",
       "docs.portal.quickAccess.completeDocs": "完整文档",
+      "docs.portal.quickAccess.fluxmqDocs": "FluxMQ 文档",
+      "docs.portal.quickAccess.fcpDocs": "FCP 文档",
       "docs.portal.quickAccess.faq": "常见问题",
       "docs.portal.quickAccess.github": "GitHub",
       "docs.portal.viewDocs": "查看文档",
@@ -749,6 +788,21 @@ const resources = {
       "footer.terms": "服务条款",
       "footer.cookies": "Cookie政策",
       
+      // Products Section
+      "products.title": "我们的",
+      "products.titleHighlight": "产品",
+      "products.subtitle": "FluxMQ 产品体系：高性能 MQTT 消息服务与统一的授权与运维控制平面。",
+      "products.fluxmq.title": "FluxMQ",
+      "products.fluxmq.desc": "云原生分布式 MQTT 消息服务器。百万级连接、超低延迟、规则引擎、多协议支持，随处部署。",
+      "products.fluxmq.features": ["MQTT 3.1.1 / 5.0", "规则引擎与多数据源", "集群与水平扩展", "TLS/SSL、认证、ACL", "Docker / K8s 就绪"],
+      "products.fluxmq.linkText": "文档",
+      "products.fluxmq.cta": "查看文档",
+      "products.fcp.title": "FCP",
+      "products.fcp.desc": "FluxMQ 控制平面。集中式 License 管理、应用管理、代理网关与监控，统一管理 FluxMQ 集群。",
+      "products.fcp.features": ["License 分配与激活", "应用与项目管理", "浏览器访问代理", "监控与告警", "多租户支持"],
+      "products.fcp.linkText": "了解更多",
+      "products.fcp.cta": "了解更多",
+      
       // TrustedBy Section
       "trusted.title": "行业领导者信赖",
       "trusted.useCases.title": "适用于各种使用场景",
@@ -830,6 +884,8 @@ const resources = {
       "footer.links.pricing": "定价方案",
       "footer.links.roadmap": "发展路线",
       "footer.links.documentation": "文档",
+      "footer.links.fluxmqDocs": "FluxMQ 文档",
+      "footer.links.fcpDocs": "FCP 文档",
       "footer.links.apiReference": "API参考",
       "footer.links.examples": "示例",
       "footer.links.sdks": "SDK",

@@ -64,13 +64,16 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <a href="/" className="flex items-center space-x-3">
             <FluxMQLogo size={24} variant={isDark ? 'dark' : 'light'} />
-            <span className="text-2xl font-bold text-gradient">FluxMQ</span>
-          </div>
+            <span className="text-2xl font-bold text-gradient">{t('nav.brand')}</span>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <a href="#products" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
+              {t('nav.products')}
+            </a>
             <a href="#features" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
               {t('nav.features')}
             </a>
@@ -80,9 +83,22 @@ const Header = () => {
             <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[100px] text-center">
               {t('nav.quickstart')}
             </a>
-            <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[100px] text-center">
-              {t('nav.documentation')}
-            </a>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="text-muted-foreground hover:text-primary min-w-[100px]">
+                  {t('nav.documentation')}
+                  <ChevronDown className="ml-1 h-3 w-3" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-card border-border/50 shadow-card">
+                <DropdownMenuItem onClick={() => window.open('https://doc.fluxmq.com', '_blank')} className="cursor-pointer">
+                  {t('nav.docFluxMQ')}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => window.open('https://fcp.doc.fluxmq.com', '_blank')} className="cursor-pointer">
+                  {t('nav.docFCP')}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* CTA Buttons & Language Selector */}
@@ -136,6 +152,9 @@ const Header = () => {
           <Card className="md:hidden mt-4 bg-card/95 backdrop-blur-sm border-border/50">
             <CardContent className="p-4">
               <div className="flex flex-col space-y-4">
+                <a href="#products" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
+                  {t('nav.products')}
+                </a>
                 <a href="#features" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.features')}
                 </a>
@@ -145,8 +164,12 @@ const Header = () => {
                 <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.quickstart')}
                 </a>
-                <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
-                  {t('nav.documentation')}
+                <span className="text-muted-foreground py-2 whitespace-nowrap font-medium">{t('nav.documentation')}</span>
+                <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2 pl-4 whitespace-nowrap">
+                  {t('nav.docFluxMQ')}
+                </a>
+                <a href="https://fcp.doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2 pl-4 whitespace-nowrap">
+                  {t('nav.docFCP')}
                 </a>
                 
                 {/* Mobile Language Selector */}

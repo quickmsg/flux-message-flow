@@ -88,7 +88,7 @@ const DocumentationPortal: React.FC = () => {
     <section id="documentation" className="py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-6 text-gradient">
             {t('docs.portal.title')}
           </h2>
@@ -97,6 +97,56 @@ const DocumentationPortal: React.FC = () => {
           </p>
         </div>
 
+        {/* By product: FluxMQ + FCP */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+          <Card
+            className="group hover:shadow-card transition-all duration-300 border-border/50 hover:border-primary/50 cursor-pointer overflow-hidden"
+            onClick={() => window.open('https://doc.fluxmq.com', '_blank')}
+          >
+            <CardHeader className="pb-4">
+              <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl w-fit mb-3">
+                <BookOpen className="h-8 w-8 text-primary" />
+              </div>
+              <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                {t('docs.portal.fluxmqDoc')}
+              </CardTitle>
+              <p className="text-muted-foreground leading-relaxed">
+                {t('docs.portal.fluxmqDocDesc')}
+              </p>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <Button variant="hero" className="w-full justify-between group/btn">
+                <span>{t('docs.portal.viewDocs')}</span>
+                <ExternalLink className="h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
+          <Card
+            className="group hover:shadow-card transition-all duration-300 border-border/50 hover:border-primary/50 cursor-pointer overflow-hidden"
+            onClick={() => window.open('https://fcp.doc.fluxmq.com', '_blank')}
+          >
+            <CardHeader className="pb-4">
+              <div className="p-3 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-xl w-fit mb-3">
+                <Settings className="h-8 w-8 text-primary" />
+              </div>
+              <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                {t('docs.portal.fcpDoc')}
+              </CardTitle>
+              <p className="text-muted-foreground leading-relaxed">
+                {t('docs.portal.fcpDocDesc')}
+              </p>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <Button variant="outline" className="w-full justify-between group/btn border-primary/50">
+                <span>{t('docs.portal.viewDocs')}</span>
+                <ExternalLink className="h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* FluxMQ quick links */}
+        <p className="text-center text-sm text-muted-foreground mb-6">{t('docs.portal.quickAccess.title')}</p>
         {/* Documentation Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {docSections.map((section) => (
@@ -150,7 +200,15 @@ const DocumentationPortal: React.FC = () => {
                 className="flex items-center space-x-2"
               >
                 <BookOpen className="h-4 w-4" />
-                <span>{t('docs.portal.quickAccess.completeDocs')}</span>
+                <span>{t('docs.portal.quickAccess.fluxmqDocs')}</span>
+              </Button>
+              <Button 
+                variant="outline" 
+                onClick={() => window.open('https://fcp.doc.fluxmq.com', '_blank')}
+                className="flex items-center space-x-2"
+              >
+                <Settings className="h-4 w-4" />
+                <span>{t('docs.portal.quickAccess.fcpDocs')}</span>
               </Button>
               <Button 
                 variant="outline" 

@@ -24,6 +24,7 @@ const ProductShowcase = () => {
       id: "fcp",
       icon: Cloud,
       logo: false,
+      logoSrc: "/fcp-logo.ico",
       titleKey: "products.fcp.title",
       descKey: "products.fcp.desc",
       featuresKey: "products.fcp.features",
@@ -57,6 +58,12 @@ const ProductShowcase = () => {
                 <div className="flex items-center gap-3 mb-2">
                   {product.logo ? (
                     <FluxMQLogo size={32} variant="light" className="flex-shrink-0" />
+                  ) : (product as { logoSrc?: string }).logoSrc ? (
+                    <img
+                      src={(product as { logoSrc: string }).logoSrc}
+                      alt="FCP"
+                      className="h-10 w-10 flex-shrink-0 object-contain"
+                    />
                   ) : (
                     <div
                       className={`${product.gradient} p-3 rounded-xl shadow-glow group-hover:animate-glow`}

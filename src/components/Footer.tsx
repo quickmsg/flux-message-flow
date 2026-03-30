@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Twitter, Mail, ExternalLink } from "lucide-react";
+import { Github, Twitter, Mail, Phone, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import FluxMQLogo from "./FluxMQLogo";
@@ -64,6 +64,23 @@ const Footer = () => {
             <p className="text-muted-foreground mb-6 leading-relaxed">
               {t('footer.description')}
             </p>
+            <div className="space-y-2 mb-6 text-sm">
+              <p className="text-foreground font-medium">{t('footer.contactInfo')}</p>
+              <a
+                href="tel:17512575402"
+                className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+              >
+                <Phone className="h-4 w-4" />
+                17512575402
+              </a>
+              <a
+                href="mailto:xurong.lu@fluxmq.com"
+                className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 break-all"
+              >
+                <Mail className="h-4 w-4" />
+                xurong.lu@fluxmq.com
+              </a>
+            </div>
             <div className="flex space-x-4">
               <Button variant="glass" size="icon">
                 <Github className="h-5 w-5" />

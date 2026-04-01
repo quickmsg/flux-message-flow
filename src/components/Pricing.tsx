@@ -46,7 +46,7 @@ const Pricing = () => {
       bgColor: "bg-gradient-primary",
       popular: true,
       features: [
-        { name: t('pricing.features.connections100k'), included: true },
+        { name: t('pricing.features.connections10k'), included: true },
         { name: t('pricing.features.advancedMonitoring'), included: true },
         { name: t('pricing.features.priorityEmail'), included: true },
         { name: t('pricing.features.allProtocols'), included: true },

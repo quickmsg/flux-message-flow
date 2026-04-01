@@ -276,7 +276,7 @@ const Documentation = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg">
+              <Button variant="hero" size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 {t('docs.cta.getStarted')}
               </Button>
               <Button variant="glass" size="lg">

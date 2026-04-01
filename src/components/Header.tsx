@@ -131,7 +131,7 @@ const Header = () => {
             <Button variant="ghost" onClick={() => window.open('https://github.com/quickmsg/fluxmq', '_blank')}>
               {t('nav.github')}
             </Button>
-            <Button variant="hero" onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button variant="hero" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
               {t('nav.getStarted')}
             </Button>
           </div>
@@ -200,7 +200,7 @@ const Header = () => {
                   <Button variant="ghost" className="justify-start" onClick={() => window.open('https://github.com/quickmsg/fluxmq', '_blank')}>
                     {t('nav.github')}
                   </Button>
-                  <Button variant="hero" className="justify-start" onClick={() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' })}>
+                  <Button variant="hero" className="justify-start" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                     {t('nav.getStarted')}
                   </Button>
                 </div>

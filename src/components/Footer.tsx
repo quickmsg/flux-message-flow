@@ -64,7 +64,7 @@ const Footer = () => {
             <p className="text-muted-foreground mb-6 leading-relaxed">
               {t('footer.description')}
             </p>
-            <div className="space-y-2 mb-6 text-sm">
+            <div id="contact" className="space-y-2 mb-6 text-sm scroll-mt-24">
               <p className="text-foreground font-medium">{t('footer.contactInfo')}</p>
               <a
                 href="tel:13218040662"

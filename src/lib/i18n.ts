@@ -17,7 +17,7 @@ const resources = {
       "nav.documentation": "Documentation",
       "nav.about": "About",
       "nav.github": "GitHub",
-      "nav.getStarted": "Get Started",
+      "nav.getStarted": "Contact Us",
       
       // Hero Section
       "hero.badge": "FluxMQ · FCP",
@@ -25,7 +25,7 @@ const resources = {
       "hero.titleHighlight": "for Scale",
       "hero.titleEnd": "",
       "hero.subtitle": "FluxMQ: high-performance MQTT broker. FCP: centralized control plane for license, apps & monitoring. One platform for messaging and operations.",
-      "hero.getStarted": "Get Started",
+      "hero.getStarted": "Contact Us",
       "hero.github": "View on GitHub",
       "hero.download": "Download",
       "hero.stats.messages": "Messages/Second",
@@ -156,7 +156,7 @@ const resources = {
       "docs.buttons.viewDocs": "View Docs",
       "docs.cta.title": "Ready to Get Started?",
       "docs.cta.subtitle": "Join thousands of developers building with FluxMQ. Start with our comprehensive guides and scale as you grow.",
-      "docs.cta.getStarted": "Get Started",
+      "docs.cta.getStarted": "Contact Us",
       "docs.cta.viewExamples": "View Examples", 
       "docs.cta.joinCommunity": "Join Community",
       
@@ -352,7 +352,7 @@ const resources = {
       "pricing.features.enterpriseSecurity": "Enterprise security",
       "pricing.features.onPremise": "On-premise deployment",
       "pricing.features.sla99_99": "99.99% SLA",
-      "pricing.buttons.getStarted": "Get Started",
+      "pricing.buttons.getStarted": "Contact Us",
       "pricing.buttons.contactSales": "Contact Sales",
       "pricing.faq.title": "Frequently Asked Questions",
       "pricing.faq.subtitle": "Got questions? We have answers.",
@@ -534,7 +534,7 @@ const resources = {
       "nav.documentation": "文档",
       "nav.about": "关于我们",
       "nav.github": "GitHub",
-      "nav.getStarted": "立即开始",
+      "nav.getStarted": "联系我们",
       
       // Hero Section
       "hero.badge": "FluxMQ · FCP",
@@ -542,7 +542,7 @@ const resources = {
       "hero.titleHighlight": "一体化平台",
       "hero.titleEnd": "",
       "hero.subtitle": "FluxMQ：高性能 MQTT 消息服务；FCP：集中式控制平面，统一 License、应用与监控。一套体系，消息与运维兼得。",
-      "hero.getStarted": "立即开始",
+      "hero.getStarted": "联系我们",
       "hero.github": "查看GitHub",
       "hero.download": "下载",
       "hero.stats.messages": "消息/秒",
@@ -673,7 +673,7 @@ const resources = {
       "docs.buttons.viewDocs": "查看文档",
       "docs.cta.title": "准备开始了吗？",
       "docs.cta.subtitle": "加入数千名使用FluxMQ构建应用的开发者。从我们的综合指南开始，随着您的成长而扩展。",
-      "docs.cta.getStarted": "立即开始",
+      "docs.cta.getStarted": "联系我们",
       "docs.cta.viewExamples": "查看示例", 
       "docs.cta.joinCommunity": "加入社区",
       
@@ -869,7 +869,7 @@ const resources = {
       "pricing.features.enterpriseSecurity": "企业级安全",
       "pricing.features.onPremise": "本地部署",
       "pricing.features.sla99_99": "99.99% SLA",
-      "pricing.buttons.getStarted": "立即开始",
+      "pricing.buttons.getStarted": "联系我们",
       "pricing.buttons.contactSales": "联系销售",
       "pricing.faq.title": "常见问题",
       "pricing.faq.subtitle": "有问题？我们有答案。",

@@ -143,6 +143,7 @@ const Pricing = () => {
                   variant={plan.popular ? "hero" : "outline"} 
                   className="w-full group"
                   size="lg"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   {plan.name === t('pricing.plans.enterprise.name') ? t('pricing.buttons.contactSales') : t('pricing.buttons.getStarted')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

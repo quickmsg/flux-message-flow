@@ -67,11 +67,11 @@ const Footer = () => {
             <div className="space-y-2 mb-6 text-sm">
               <p className="text-foreground font-medium">{t('footer.contactInfo')}</p>
               <a
-                href="tel:17512575402"
+                href="tel:13218040662"
                 className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
               >
                 <Phone className="h-4 w-4" />
-                17512575402
+                13218040662
               </a>
               <a
                 href="mailto:xurong.lu@fluxmq.com"

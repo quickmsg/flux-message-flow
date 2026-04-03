@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Code, Download, BookOpen, Rocket } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from "@/lib/constants";
 
 const GetStarted = () => {
   const { t } = useTranslation();
@@ -69,7 +70,15 @@ const GetStarted = () => {
                 <div className="bg-secondary/50 rounded-lg p-4 mb-6 font-mono text-sm overflow-x-auto">
                   <code className="text-primary">{step.code}</code>
                 </div>
-                <Button variant="outline" className="w-full group-hover:variant-primary">
+                <Button
+                  variant="outline"
+                  className="w-full group-hover:variant-primary"
+                  onClick={() => {
+                    if (index === 0) {
+                      window.open(FLUXMQ_DOC_INSTALL_CATEGORY_URL, "_blank");
+                    }
+                  }}
+                >
                   {step.action}
                 </Button>
               </CardContent>

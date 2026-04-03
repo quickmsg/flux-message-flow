@@ -14,6 +14,7 @@ import {
   Download
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from "@/lib/constants";
 
 const PerformanceComparison = () => {
   const { t } = useTranslation();
@@ -324,7 +325,7 @@ const PerformanceComparison = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="hero" size="lg" className="group" onClick={() => window.open(FLUXMQ_DOC_INSTALL_CATEGORY_URL, '_blank')}>
                 <Download className="h-5 w-5 mr-2" />
                 {t('comparison.cta.download')}
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />

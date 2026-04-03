@@ -17,6 +17,7 @@ import {
   BarChart3
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from '@/lib/constants';
 
 interface DocSection {
   id: string;
@@ -38,7 +39,7 @@ const DocumentationPortal: React.FC = () => {
       title: t('docs.portal.gettingStarted.title'),
       description: t('docs.portal.gettingStarted.desc'),
       icon: <Download className="h-5 w-5" />,
-      href: 'https://doc.fluxmq.com/install',
+      href: FLUXMQ_DOC_INSTALL_CATEGORY_URL,
       external: true,
       badge: t('docs.badges.essential')
     },

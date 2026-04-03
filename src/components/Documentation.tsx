@@ -22,6 +22,7 @@ import {
   Cloud
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from "@/lib/constants";
 
 const Documentation = () => {
   const { t } = useTranslation();
@@ -127,8 +128,8 @@ const Documentation = () => {
   ];
 
   const quickLinks = [
-    { title: t('docs.quickLinks.download'), icon: Download, href: "#download", color: "bg-gradient-primary" },
-    { title: t('docs.quickLinks.github'), icon: GitBranch, href: "https://github.com/quickmsg/fluxmq", color: "bg-gradient-secondary" },
+    { title: t('docs.quickLinks.download'), icon: Download, href: FLUXMQ_DOC_INSTALL_CATEGORY_URL, external: true, color: "bg-gradient-primary" },
+    { title: t('docs.quickLinks.github'), icon: GitBranch, href: "https://github.com/quickmsg/fluxmq", external: true, color: "bg-gradient-secondary" },
     { title: t('docs.quickLinks.examples'), icon: FileText, href: "#examples", color: "bg-gradient-accent" },
     { title: t('docs.quickLinks.support'), icon: HelpCircle, href: "#support", color: "bg-gradient-muted" }
   ];
@@ -188,7 +189,17 @@ const Documentation = () => {
         {/* Quick Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
           {quickLinks.map((link, index) => (
-            <Card key={index} className="bg-gradient-card border-border/50 hover:shadow-card transition-all duration-300 group cursor-pointer">
+            <Card
+              key={index}
+              className="bg-gradient-card border-border/50 hover:shadow-card transition-all duration-300 group cursor-pointer"
+              onClick={() => {
+                if ("external" in link && link.external) {
+                  window.open(link.href, "_blank");
+                } else {
+                  window.location.href = link.href;
+                }
+              }}
+            >
               <CardContent className="p-6 text-center">
                 <div className={`${link.color} p-3 rounded-lg w-fit mx-auto mb-4 shadow-glow group-hover:animate-glow`}>
                   <link.icon className="h-6 w-6 text-primary-foreground" />

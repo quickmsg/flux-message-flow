@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, Github } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from "@/lib/constants";
 import heroImage from "@/assets/fluxmq-hero.jpg";
 
 const Hero = () => {
@@ -47,7 +48,7 @@ const Hero = () => {
               <Github className="mr-2 h-5 w-5" />
               {t('hero.github')}
             </Button>
-            <Button variant="outline" size="lg" className="group" onClick={() => window.open('https://github.com/quickmsg/fluxmq/releases', '_blank')}>
+            <Button variant="outline" size="lg" className="group" onClick={() => window.open(FLUXMQ_DOC_INSTALL_CATEGORY_URL, '_blank')}>
               <Download className="mr-2 h-5 w-5" />
               {t('hero.download')}
             </Button>

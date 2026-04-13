@@ -9,29 +9,6 @@
     /* Dark theme for tech/developer tool aesthetic */
     --background: 222 47% 4%;
     --foreground: 210 40% 98%;
-    
-    /* 防止语言切换时页面晃动 */
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      transition: none !important;
-    }
-    
-    /* 防止导航栏晃动 */
-    header {
-      transition: none !important;
-    }
-    
-    nav {
-      transition: none !important;
-    }
-    
-    /* 确保导航项不会因为文本变化而改变布局 */
-    .nav-item {
-      transition: none !important;
-    }
 
     --card: 222 47% 6%;
     --card-foreground: 210 40% 98%;
@@ -117,11 +94,29 @@
     @apply border-border;
   }
 
+  /* 防止语言切换 / 导航栏因过渡产生晃动 */
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
+    transition: none !important;
     @apply bg-background text-foreground font-sans;
     background: hsl(var(--background));
     background-image: var(--gradient-hero);
     background-attachment: fixed;
+  }
+
+  header {
+    transition: none !important;
+  }
+
+  nav {
+    transition: none !important;
+  }
+
+  .nav-item {
+    transition: none !important;
   }
 
   /* Custom gradient backgrounds */

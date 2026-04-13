@@ -32,27 +32,35 @@ const DemoVideos = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {FLUXMQ_DEMO_VIDEOS.map((item) => (
+          {FLUXMQ_DEMO_VIDEOS.map((item, index) => (
             <Card
               key={item.id}
-              className="bg-gradient-card border-border/50 overflow-hidden shadow-card hover:shadow-lg transition-shadow"
+              className="bg-gradient-card border-border/50 overflow-hidden shadow-card hover:shadow-lg transition-shadow flex flex-col"
             >
-              <CardHeader className="pb-2">
-                <CardTitle className="text-lg">{t(item.titleKey)}</CardTitle>
-                <CardDescription>{t("demos.videoHint")}</CardDescription>
-              </CardHeader>
-              <CardContent className="pt-0">
-                <div className="rounded-lg overflow-hidden border border-border/50 bg-black/5 aspect-video">
+              <CardContent className="p-5 pb-3">
+                <div
+                  className={
+                    index === 0
+                      ? "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-cyan-500/15 via-background to-violet-500/10"
+                      : index === 1
+                        ? "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-violet-500/15 via-background to-cyan-500/10"
+                        : "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-emerald-500/15 via-background to-teal-500/10"
+                  }
+                >
                   <video
-                    className="w-full h-full object-contain bg-black"
+                    className="w-full h-full object-contain bg-transparent"
                     controls
-                    preload="metadata"
+                    preload={index === 0 ? "auto" : "metadata"}
                     playsInline
                   >
                     <source src={item.src} type="video/webm" />
                   </video>
                 </div>
               </CardContent>
+              <CardHeader className="pb-5 pt-0 px-5">
+                <CardTitle className="text-lg">{t(item.titleKey)}</CardTitle>
+                <CardDescription>{t("demos.videoHint")}</CardDescription>
+              </CardHeader>
             </Card>
           ))}
         </div>

@@ -17,7 +17,7 @@ import {
   BarChart3
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from '@/lib/constants';
+import { FLUXMQ_DOC_INSTALL_CATEGORY_URL, FLUXMQ_DOC_DEMOS_URL } from '@/lib/constants';
 
 interface DocSection {
   id: string;
@@ -42,6 +42,15 @@ const DocumentationPortal: React.FC = () => {
       href: FLUXMQ_DOC_INSTALL_CATEGORY_URL,
       external: true,
       badge: t('docs.badges.essential')
+    },
+    {
+      id: 'demo-videos',
+      title: t('docs.portal.demos.title'),
+      description: t('docs.portal.demos.desc'),
+      icon: <TestTube className="h-5 w-5" />,
+      href: FLUXMQ_DOC_DEMOS_URL,
+      external: true,
+      badge: t('docs.badges.basic')
     },
     {
       id: 'configuration',

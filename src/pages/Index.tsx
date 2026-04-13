@@ -8,6 +8,7 @@ import PerformanceComparison from "@/components/PerformanceComparison";
 import QuickStart from "@/components/QuickStart";
 import Pricing from "@/components/Pricing";
 import DocumentationPortal from "@/components/DocumentationPortal";
+import DemoVideos from "@/components/DemoVideos";
 import GetStarted from "@/components/GetStarted";
 import Footer from "@/components/Footer";
 
@@ -24,6 +25,7 @@ const Index = () => {
       <QuickStart />
       <Pricing />
       <DocumentationPortal />
+      <DemoVideos />
       <GetStarted />
       <Footer />
     </div>

@@ -74,6 +74,9 @@ const Header = () => {
             <a href="#products" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
               {t('nav.products')}
             </a>
+            <a href="#demos" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
+              {t('nav.demos')}
+            </a>
             <a href="#features" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
               {t('nav.features')}
             </a>
@@ -154,6 +157,9 @@ const Header = () => {
               <div className="flex flex-col space-y-4">
                 <a href="#products" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.products')}
+                </a>
+                <a href="#demos" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
+                  {t('nav.demos')}
                 </a>
                 <a href="#features" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
                   {t('nav.features')}

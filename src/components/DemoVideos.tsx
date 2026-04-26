@@ -48,9 +48,10 @@ const DemoVideos = () => {
                   }
                 >
                   <video
-                    className="w-full h-full object-contain bg-transparent"
+                    className="w-full h-full object-cover bg-transparent"
                     controls
                     preload={index === 0 ? "auto" : "metadata"}
+                    poster={item.poster}
                     playsInline
                   >
                     <source src={item.src} type="video/webm" />

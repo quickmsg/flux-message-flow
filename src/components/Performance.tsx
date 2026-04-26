@@ -54,10 +54,10 @@ const Performance = () => {
           {metrics.map((metric, index) => (
             <Card 
               key={index} 
-              className="text-center bg-gradient-card border-border/50 shadow-card hover:shadow-primary transition-all duration-300 hover:scale-105 group"
+              className="text-center bg-gradient-card border-border/50 shadow-card hover:shadow-primary transition-all duration-300 group"
             >
               <CardHeader className="pb-4">
-                <div className="mx-auto p-4 bg-gradient-primary rounded-full w-fit shadow-glow group-hover:animate-glow">
+                <div className="mx-auto p-4 bg-gradient-primary w-fit shadow-glow">
                   <metric.icon className="h-8 w-8 text-primary-foreground" />
                 </div>
               </CardHeader>
@@ -73,7 +73,7 @@ const Performance = () => {
         </div>
 
         {/* Benchmark Section */}
-        <div className="bg-gradient-card rounded-2xl border border-border/50 shadow-card p-8 md:p-12">
+        <div className="bg-gradient-card border border-border/50 shadow-card p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl font-bold mb-6">
@@ -84,15 +84,15 @@ const Performance = () => {
               </p>
               
               <div className="space-y-4 mb-8">
-                <div className="flex justify-between items-center p-4 bg-secondary/50 rounded-lg">
+                <div className="flex justify-between items-center p-4 bg-secondary/50">
                   <span className="font-medium">{t('performance.benchmark.throughput')}</span>
                   <span className="text-primary font-bold">3.2x faster</span>
                 </div>
-                <div className="flex justify-between items-center p-4 bg-secondary/50 rounded-lg">
+                <div className="flex justify-between items-center p-4 bg-secondary/50">
                   <span className="font-medium">{t('performance.benchmark.memory')}</span>
                   <span className="text-accent font-bold">40% less</span>
                 </div>
-                <div className="flex justify-between items-center p-4 bg-secondary/50 rounded-lg">
+                <div className="flex justify-between items-center p-4 bg-secondary/50">
                   <span className="font-medium">{t('performance.benchmark.cpu')}</span>
                   <span className="text-primary font-bold">2.5x better</span>
                 </div>
@@ -104,7 +104,7 @@ const Performance = () => {
             </div>
             
             <div className="relative">
-              <div className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl p-8 backdrop-blur-sm border border-primary/10">
+              <div className="bg-gradient-to-br from-primary/20 to-accent/20 p-8 backdrop-blur-sm border border-primary/10">
                 <div className="text-center">
                   <div className="text-6xl font-bold text-gradient mb-4">
                     1.2M
@@ -122,7 +122,7 @@ const Performance = () => {
                   {[...Array(5)].map((_, i) => (
                     <div 
                       key={i}
-                      className="w-3 h-20 bg-gradient-primary rounded-full animate-pulse"
+                      className="w-3 h-20 bg-gradient-primary animate-pulse"
                       style={{ animationDelay: `${i * 0.2}s` }}
                     ></div>
                   ))}

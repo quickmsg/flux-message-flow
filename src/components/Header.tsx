@@ -1,215 +1,187 @@
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Card, CardContent } from "@/components/ui/card";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, Globe, ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ChevronDown, Globe, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import FluxMQLogo from "./FluxMQLogo";
+import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('en');
-  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState("en");
+  const { i18n } = useTranslation();
+  const content = homepageContent[getHomepageLocale(currentLanguage)];
 
-  useEffect(() => {
-    // Check if dark mode is enabled
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark') || 
-                window.matchMedia('(prefers-color-scheme: dark)').matches);
-    };
-    
-    checkDarkMode();
-    
-    // Listen for theme changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    mediaQuery.addEventListener('change', checkDarkMode);
-    
-    return () => mediaQuery.removeEventListener('change', checkDarkMode);
-  }, []);
-
-  // 监听语言变化，确保状态同步
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
       setCurrentLanguage(lng);
     };
 
-    // 设置初始语言状态
     setCurrentLanguage(i18n.language);
-
-    // 监听语言变化
-    i18n.on('languageChanged', handleLanguageChange);
+    i18n.on("languageChanged", handleLanguageChange);
 
     return () => {
-      i18n.off('languageChanged', handleLanguageChange);
+      i18n.off("languageChanged", handleLanguageChange);
     };
   }, [i18n]);
 
   const changeLanguage = (lng: string) => {
-    // 防止重复切换
     if (i18n.language === lng) return;
-    
-    // 平滑切换语言，避免页面晃动
-    i18n.changeLanguage(lng).then(() => {
-      setCurrentLanguage(lng);
-    });
+    i18n.changeLanguage(lng).then(() => setCurrentLanguage(lng));
   };
 
-  const getCurrentLanguage = () => {
-    return currentLanguage === 'zh' ? '中文' : 'English';
+  const languageLabel = getHomepageLocale(currentLanguage) === "zh" ? "中文" : "English";
+
+  const navItems = [
+    { label: content.nav.products, href: "#products" },
+    { label: content.nav.solutions, href: "#solutions" },
+    { label: content.nav.architecture, href: "#architecture" },
+    { label: content.nav.performance, href: "#performance" },
+  ];
+
+  const docItems = [
+    { label: "FluxMQ Docs", href: "https://doc.fluxmq.com" },
+    { label: "FCP Docs", href: "https://fcp.doc.fluxmq.com" },
+    { label: "Halia", href: "#contact" },
+  ];
+
+  const openLink = (href: string) => {
+    if (href.startsWith("#")) {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+      return;
+    }
+    window.open(href, "_blank");
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-md border-b border-border/50">
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-border/50 bg-background/82 backdrop-blur-md">
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="/" className="flex items-center space-x-3">
-            <FluxMQLogo size={24} variant={isDark ? 'dark' : 'light'} />
-            <span className="text-2xl font-bold text-gradient">{t('nav.brand')}</span>
+          <a href="/" className="flex items-center gap-3">
+            <img src="/feixun.svg" alt="Feixun Tech" className="h-8 w-8 object-contain" />
+            <span className="text-xl font-bold md:text-2xl">{content.nav.brand}</span>
           </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#products" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
-              {t('nav.products')}
-            </a>
-            <a href="#demos" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
-              {t('nav.demos')}
-            </a>
-            <a href="#features" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[80px] text-center">
-              {t('nav.features')}
-            </a>
-            <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[120px] text-center">
-              {t('nav.comparison')}
-            </a>
-            <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap min-w-[100px] text-center">
-              {t('nav.quickstart')}
-            </a>
+          <div className="hidden items-center gap-7 lg:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                {item.label}
+              </a>
+            ))}
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="text-muted-foreground hover:text-primary min-w-[100px]">
-                  {t('nav.documentation')}
-                  <ChevronDown className="ml-1 h-3 w-3" />
+                <Button variant="ghost" className="text-muted-foreground hover:text-primary">
+                  {content.nav.docs}
+                  <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-card border-border/50 shadow-card">
-                <DropdownMenuItem onClick={() => window.open('https://doc.fluxmq.com', '_blank')} className="cursor-pointer">
-                  {t('nav.docFluxMQ')}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => window.open('https://fcp.doc.fluxmq.com', '_blank')} className="cursor-pointer">
-                  {t('nav.docFCP')}
-                </DropdownMenuItem>
+              <DropdownMenuContent className="border-border/60 bg-card shadow-card">
+                {docItems.map((item) => (
+                  <DropdownMenuItem
+                    key={item.label}
+                    onClick={() => openLink(item.href)}
+                    className="cursor-pointer"
+                  >
+                    {item.label}
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
 
-          {/* CTA Buttons & Language Selector */}
-          <div className="hidden md:flex items-center space-x-4">
-            {/* Language Selector */}
+          <div className="hidden items-center gap-3 lg:flex">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-2 min-w-[80px] justify-center">
+                <Button variant="ghost" className="min-w-28">
                   <Globe className="h-4 w-4" />
-                  <span className="text-sm whitespace-nowrap">{getCurrentLanguage()}</span>
+                  {languageLabel}
                   <ChevronDown className="h-3 w-3" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-card border-border/50 shadow-card">
-                <DropdownMenuItem 
-                  onClick={() => changeLanguage('en')}
-                  className="cursor-pointer hover:bg-secondary/50"
-                >
+              <DropdownMenuContent className="border-border/60 bg-card shadow-card">
+                <DropdownMenuItem onClick={() => changeLanguage("en")} className="cursor-pointer">
                   English
                 </DropdownMenuItem>
-                <DropdownMenuItem 
-                  onClick={() => changeLanguage('zh')}
-                  className="cursor-pointer hover:bg-secondary/50"
-                >
+                <DropdownMenuItem onClick={() => changeLanguage("zh")} className="cursor-pointer">
                   中文
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            
-            <Button variant="ghost" onClick={() => window.open('https://github.com/quickmsg/fluxmq', '_blank')}>
-              {t('nav.github')}
+            <Button variant="ghost" onClick={() => window.open("https://github.com/quickmsg/fluxmq", "_blank")}>
+              {content.nav.github}
             </Button>
-            <Button variant="hero" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-              {t('nav.getStarted')}
+            <Button variant="hero" onClick={() => openLink("#contact")}>
+              {content.nav.contact}
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden"
+            onClick={() => setIsMenuOpen((open) => !open)}
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </nav>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <Card className="md:hidden mt-4 bg-card/95 backdrop-blur-sm border-border/50">
+          <Card className="mt-4 border-border/60 bg-card/95 shadow-card backdrop-blur lg:hidden">
             <CardContent className="p-4">
-              <div className="flex flex-col space-y-4">
-                <a href="#products" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
-                  {t('nav.products')}
-                </a>
-                <a href="#demos" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
-                  {t('nav.demos')}
-                </a>
-                <a href="#features" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
-                  {t('nav.features')}
-                </a>
-                <a href="#comparison" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
-                  {t('nav.comparison')}
-                </a>
-                <a href="#quickstart" className="text-muted-foreground hover:text-primary transition-colors py-2 whitespace-nowrap">
-                  {t('nav.quickstart')}
-                </a>
-                <span className="text-muted-foreground py-2 whitespace-nowrap font-medium">{t('nav.documentation')}</span>
-                <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2 pl-4 whitespace-nowrap">
-                  {t('nav.docFluxMQ')}
-                </a>
-                <a href="https://fcp.doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors py-2 pl-4 whitespace-nowrap">
-                  {t('nav.docFCP')}
-                </a>
-                
-                {/* Mobile Language Selector */}
-                <div className="border-t border-border/50 pt-4">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <Globe className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-sm text-muted-foreground">Language:</span>
+              <div className="flex flex-col gap-2">
+                {navItems.map((item) => (
+                  <button
+                    key={item.href}
+                    className="px-2 py-3 text-left text-muted-foreground hover:text-primary"
+                    onClick={() => openLink(item.href)}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+                <div className="border-t border-border/60 pt-3">
+                  <div className="px-2 py-2 text-sm font-medium text-foreground">
+                    {content.nav.docs}
                   </div>
-                  <div className="flex space-x-2">
-                    <Button 
-                      variant={currentLanguage === 'en' ? 'default' : 'ghost'} 
-                      size="sm"
-                      onClick={() => changeLanguage('en')}
+                  {docItems.map((item) => (
+                    <button
+                      key={item.label}
+                      className="block w-full px-2 py-3 text-left text-muted-foreground hover:text-primary"
+                      onClick={() => openLink(item.href)}
                     >
-                      English
-                    </Button>
-                    <Button 
-                      variant={currentLanguage === 'zh' ? 'default' : 'ghost'} 
-                      size="sm"
-                      onClick={() => changeLanguage('zh')}
-                    >
-                      中文
-                    </Button>
-                  </div>
+                      {item.label}
+                    </button>
+                  ))}
                 </div>
-                
-                <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
-                  <Button variant="ghost" className="justify-start" onClick={() => window.open('https://github.com/quickmsg/fluxmq', '_blank')}>
-                    {t('nav.github')}
+                <div className="flex gap-2 border-t border-border/60 pt-4">
+                  <Button
+                    variant={getHomepageLocale(currentLanguage) === "en" ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => changeLanguage("en")}
+                  >
+                    English
                   </Button>
-                  <Button variant="hero" className="justify-start" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-                    {t('nav.getStarted')}
+                  <Button
+                    variant={getHomepageLocale(currentLanguage) === "zh" ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => changeLanguage("zh")}
+                  >
+                    中文
                   </Button>
                 </div>
+                <Button className="mt-3 justify-start" variant="hero" onClick={() => openLink("#contact")}>
+                  {content.nav.contact}
+                </Button>
               </div>
             </CardContent>
           </Card>

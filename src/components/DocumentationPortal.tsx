@@ -14,10 +14,12 @@ import {
   Database, 
   Settings,
   TestTube,
-  BarChart3
+  BarChart3,
+  Cpu
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { FLUXMQ_DOC_INSTALL_CATEGORY_URL, FLUXMQ_DOC_DEMOS_URL } from '@/lib/constants';
+import { getHomepageLocale, homepageContent } from '@/lib/homepageContent';
 
 interface DocSection {
   id: string;
@@ -30,8 +32,14 @@ interface DocSection {
 }
 
 const DocumentationPortal: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const locale = getHomepageLocale(i18n.language);
+  const home = homepageContent[locale];
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const docsSubtitle =
+    locale === 'zh'
+      ? '按产品查看文档与资源：Halia 工业接入、FluxMQ 消息服务、FCP 控制平面。'
+      : 'Browse resources by product: Halia for industrial access, FluxMQ for messaging, and FCP for control plane operations.';
 
   const docSections: DocSection[] = [
     {
@@ -103,18 +111,40 @@ const DocumentationPortal: React.FC = () => {
             {t('docs.portal.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {t('docs.portal.subtitle')}
+            {docsSubtitle}
           </p>
         </div>
 
-        {/* By product: FluxMQ + FCP */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
+        {/* By product */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+          <Card
+            className="group hover:shadow-card transition-all duration-300 border-border/50 hover:border-primary/50 cursor-pointer overflow-hidden"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <CardHeader className="pb-4">
+              <div className="p-3 bg-background/60 border border-border/60 w-fit mb-3">
+                <Cpu className="h-8 w-8 text-primary" />
+              </div>
+              <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                Halia
+              </CardTitle>
+              <p className="text-muted-foreground leading-relaxed">
+                {home.products.items[0].summary}
+              </p>
+            </CardHeader>
+            <CardContent className="pt-0">
+              <Button variant="outline" className="w-full justify-between group/btn border-primary/50">
+                <span>{home.products.items[0].cta}</span>
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </CardContent>
+          </Card>
           <Card
             className="group hover:shadow-card transition-all duration-300 border-border/50 hover:border-primary/50 cursor-pointer overflow-hidden"
             onClick={() => window.open('https://doc.fluxmq.com', '_blank')}
           >
             <CardHeader className="pb-4">
-              <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl w-fit mb-3">
+              <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 w-fit mb-3">
                 <BookOpen className="h-8 w-8 text-primary" />
               </div>
               <CardTitle className="text-2xl group-hover:text-primary transition-colors">
@@ -136,7 +166,7 @@ const DocumentationPortal: React.FC = () => {
             onClick={() => window.open('https://fcp.doc.fluxmq.com', '_blank')}
           >
             <CardHeader className="pb-4">
-              <div className="p-3 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-xl w-fit mb-3">
+              <div className="p-3 bg-gradient-to-br from-amber-500/20 to-teal-500/20 w-fit mb-3">
                 <Settings className="h-8 w-8 text-primary" />
               </div>
               <CardTitle className="text-2xl group-hover:text-primary transition-colors">
@@ -197,7 +227,7 @@ const DocumentationPortal: React.FC = () => {
         </div>
 
         {/* Quick Access */}
-        <div className="bg-gradient-card rounded-2xl border border-border/50 shadow-card p-8">
+        <div className="bg-gradient-card border border-border/50 shadow-card p-8">
           <div className="text-center">
             <h3 className="text-2xl font-bold mb-4">{t('docs.portal.quickAccess.title')}</h3>
             <p className="text-muted-foreground mb-6">

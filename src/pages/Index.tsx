@@ -1,15 +1,13 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductShowcase from "@/components/ProductShowcase";
-import FluxMQFeatures from "@/components/FluxMQFeatures";
-import TrustedBy from "@/components/TrustedBy";
+import PlatformArchitecture from "@/components/PlatformArchitecture";
+import SuiteCapabilities from "@/components/SuiteCapabilities";
+import IndustrySolutions from "@/components/IndustrySolutions";
 import Performance from "@/components/Performance";
-import PerformanceComparison from "@/components/PerformanceComparison";
 import QuickStart from "@/components/QuickStart";
-import Pricing from "@/components/Pricing";
 import DocumentationPortal from "@/components/DocumentationPortal";
 import DemoVideos from "@/components/DemoVideos";
-import GetStarted from "@/components/GetStarted";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -18,15 +16,13 @@ const Index = () => {
       <Header />
       <Hero />
       <ProductShowcase />
-      <FluxMQFeatures />
-      <TrustedBy />
+      <PlatformArchitecture />
+      <SuiteCapabilities />
+      <IndustrySolutions />
       <Performance />
-      <PerformanceComparison />
       <QuickStart />
-      <Pricing />
       <DocumentationPortal />
       <DemoVideos />
-      <GetStarted />
       <Footer />
     </div>
   );

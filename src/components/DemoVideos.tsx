@@ -41,9 +41,9 @@ const DemoVideos = () => {
                 <div
                   className={
                     index === 0
-                      ? "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-cyan-500/15 via-background to-violet-500/10"
+                      ? "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-cyan-500/15 via-background to-amber-500/10"
                       : index === 1
-                        ? "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-violet-500/15 via-background to-cyan-500/10"
+                        ? "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-emerald-500/15 via-background to-cyan-500/10"
                         : "rounded-lg overflow-hidden border border-border/50 aspect-video bg-gradient-to-br from-emerald-500/15 via-background to-teal-500/10"
                   }
                 >

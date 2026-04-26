@@ -1,156 +1,133 @@
 import { Button } from "@/components/ui/button";
-import { Github, Twitter, Mail, Phone, ExternalLink } from "lucide-react";
+import { ExternalLink, Github, Mail, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
-import FluxMQLogo from "./FluxMQLogo";
+import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { FLUXMQ_DOC_DEMOS_URL } from "@/lib/constants";
 
 const Footer = () => {
-  const { t } = useTranslation();
-  const [isDark, setIsDark] = useState(false);
+  const { i18n } = useTranslation();
+  const content = homepageContent[getHomepageLocale(i18n.language)];
 
-  useEffect(() => {
-    // Check if dark mode is enabled
-    const checkDarkMode = () => {
-      setIsDark(document.documentElement.classList.contains('dark') || 
-                window.matchMedia('(prefers-color-scheme: dark)').matches);
-    };
-    
-    checkDarkMode();
-    
-    // Listen for theme changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    mediaQuery.addEventListener('change', checkDarkMode);
-    
-    return () => mediaQuery.removeEventListener('change', checkDarkMode);
-  }, []);
-  const footerLinks = {
-    [t('footer.product')]: [
-      { name: t('footer.links.features'), href: "#features" },
-      { name: t('footer.links.performance'), href: "#performance" },
-      { name: t('footer.links.pricing'), href: "#pricing" },
-      { name: t('footer.links.roadmap'), href: "#roadmap" }
-    ],
-    [t('footer.developers')]: [
-      { name: t('footer.links.fluxmqDocs'), href: "https://doc.fluxmq.com", external: true },
-      { name: t('footer.links.fcpDocs'), href: "https://fcp.doc.fluxmq.com", external: true },
-      { name: t('footer.links.apiReference'), href: "https://doc.fluxmq.com/api", external: true },
-      { name: t('footer.links.examples'), href: "https://doc.fluxmq.com/function", external: true }
-    ],
-    [t('footer.resources')]: [
-      { name: t('footer.links.blog'), href: "#blog" },
-      { name: t('footer.links.community'), href: "#community" },
-      { name: t('footer.links.support'), href: "#support" },
-      { name: t('footer.links.status'), href: "#status" }
-    ],
-    [t('footer.company')]: [
-      { name: t('footer.links.about'), href: "#about" },
-      { name: t('footer.links.careers'), href: "#careers" },
-      { name: t('footer.links.contact'), href: "#contact" },
-      { name: t('footer.links.privacy'), href: "#privacy" }
-    ]
-  };
+  const footerLinks = [
+    {
+      title: content.footer.products,
+      links: [
+        { name: "Halia", href: "#products" },
+        { name: "FluxMQ", href: "https://doc.fluxmq.com", external: true },
+        { name: "FCP", href: "https://fcp.doc.fluxmq.com", external: true },
+      ],
+    },
+    {
+      title: content.footer.resources,
+      links: [
+        { name: "FluxMQ Docs", href: "https://doc.fluxmq.com", external: true },
+        { name: "FCP Docs", href: "https://fcp.doc.fluxmq.com", external: true },
+        { name: "Demo Videos", href: FLUXMQ_DOC_DEMOS_URL, external: true },
+        { name: "GitHub", href: "https://github.com/quickmsg/fluxmq", external: true },
+      ],
+    },
+    {
+      title: content.footer.company,
+      links: [
+        { name: content.nav.contact, href: "#contact" },
+        { name: "xurong.lu@fluxmq.com", href: "mailto:xurong.lu@fluxmq.com" },
+        { name: "13218040662", href: "tel:13218040662" },
+      ],
+    },
+  ];
 
   return (
-    <footer className="bg-secondary/50 border-t border-border/50">
+    <footer className="border-t border-border/50 bg-secondary/35">
       <div className="container mx-auto px-6 py-16">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <FluxMQLogo size={24} variant={isDark ? 'dark' : 'light'} />
-              <span className="text-2xl font-bold text-gradient">{t('nav.brand')}</span>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <div>
+            <div className="mb-6 flex items-center gap-3">
+              <img src="/feixun.svg" alt="Feixun Tech" className="h-9 w-9 object-contain" />
+              <span className="text-2xl font-bold">{content.nav.brand}</span>
             </div>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              {t('footer.description')}
+            <p className="max-w-xl text-sm leading-7 text-muted-foreground">
+              {content.footer.description}
             </p>
-            <div id="contact" className="space-y-2 mb-6 text-sm scroll-mt-24">
-              <p className="text-foreground font-medium">{t('footer.contactInfo')}</p>
+            <div id="contact" className="mt-8 scroll-mt-28 space-y-3 text-sm">
               <a
                 href="tel:13218040662"
-                className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+                className="flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
               >
                 <Phone className="h-4 w-4" />
                 13218040662
               </a>
               <a
                 href="mailto:xurong.lu@fluxmq.com"
-                className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 break-all"
+                className="flex items-center gap-2 break-all text-muted-foreground transition-colors hover:text-primary"
               >
                 <Mail className="h-4 w-4" />
                 xurong.lu@fluxmq.com
               </a>
-            </div>
-            <div className="flex space-x-4">
-              <Button variant="glass" size="icon">
+              <Button
+                variant="glass"
+                size="icon"
+                onClick={() => window.open("https://github.com/quickmsg/fluxmq", "_blank")}
+              >
                 <Github className="h-5 w-5" />
               </Button>
-              <Button variant="glass" size="icon">
-                <Twitter className="h-5 w-5" />
-              </Button>
-              <Button variant="glass" size="icon">
-                <Mail className="h-5 w-5" />
-              </Button>
             </div>
           </div>
 
-          {/* Links Sections */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="font-semibold text-foreground mb-4">{category}</h3>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link.name}>
-                    <a 
-                      href={link.href} 
-                      className="text-muted-foreground hover:text-primary transition-colors group flex items-center"
-                      target={link.external ? "_blank" : undefined}
-                      rel={link.external ? "noopener noreferrer" : undefined}
-                    >
-                      {link.name}
-                      <ExternalLink className="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Newsletter Section */}
-        <div className="bg-gradient-card rounded-2xl border border-border/50 shadow-card p-8 mb-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">{t('footer.newsletter.title')}</h3>
-            <p className="text-muted-foreground mb-6">
-              {t('footer.newsletter.subtitle')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input 
-                type="email" 
-                placeholder={t('footer.newsletter.placeholder')}
-                className="flex-1 px-4 py-2 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground placeholder-muted-foreground"
-              />
-              <Button variant="hero">
-                {t('footer.newsletter.subscribe')}
-              </Button>
-            </div>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {footerLinks.map((group) => (
+              <div key={group.title}>
+                <h3 className="mb-4 font-semibold">{group.title}</h3>
+                <ul className="space-y-3">
+                  {group.links.map((link) => (
+                    <li key={link.name}>
+                      <a
+                        href={link.href}
+                        target={link.external ? "_blank" : undefined}
+                        rel={link.external ? "noopener noreferrer" : undefined}
+                        className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                      >
+                        {link.name}
+                        {link.external && (
+                          <ExternalLink className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
+                        )}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border/50">
-          <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-            Copyright © 2021-{new Date().getFullYear()} 非迅科技 版权所有 | 苏ICP备2023015068号-1
+        <div className="mt-12 border border-border/60 bg-card/70 p-7">
+          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 className="text-xl font-semibold">{content.footer.contactTitle}</h3>
+              <p className="mt-2 max-w-3xl text-sm leading-7 text-muted-foreground">
+                {content.footer.contactText}
+              </p>
+            </div>
+            <Button
+              variant="hero"
+              className="shrink-0"
+              onClick={() => window.location.assign("mailto:xurong.lu@fluxmq.com")}
+            >
+              {content.footer.contactButton}
+            </Button>
           </div>
-          <div className="flex items-center space-x-6 text-sm">
-            <a href="#privacy" className="text-muted-foreground hover:text-primary transition-colors">
-              {t('footer.privacy')}
+        </div>
+
+        <div className="mt-10 flex flex-col justify-between gap-4 border-t border-border/50 pt-8 text-sm text-muted-foreground md:flex-row md:items-center">
+          <div>Copyright © 2021-{new Date().getFullYear()} 非迅科技 版权所有 | 苏ICP备2023015068号-1</div>
+          <div className="flex gap-5">
+            <a href="#products" className="hover:text-primary">
+              Halia
             </a>
-            <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors">
-              {t('footer.terms')}
+            <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+              FluxMQ
             </a>
-            <a href="#cookies" className="text-muted-foreground hover:text-primary transition-colors">
-              {t('footer.cookies')}
+            <a href="https://fcp.doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+              FCP
             </a>
           </div>
         </div>

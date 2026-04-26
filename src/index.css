@@ -2,53 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* FluxMQ Design System - Modern tech-focused theme with electric blue accents */
+/* Feixun site design system - industrial product suite with balanced accents */
 
 @layer base {
   :root {
-    /* Dark theme for tech/developer tool aesthetic */
-    --background: 222 47% 4%;
+    /* Neutral dark theme with teal, amber, and green accents */
+    --background: 170 18% 5%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 6%;
+    --card: 170 16% 8%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 6%;
+    --popover: 170 16% 8%;
     --popover-foreground: 210 40% 98%;
 
-    /* Electric blue primary with high contrast */
-    --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 4%;
+    --primary: 174 74% 46%;
+    --primary-foreground: 170 18% 5%;
 
-    /* Darker secondary for subtle elements */
-    --secondary: 222 47% 8%;
+    --secondary: 35 18% 12%;
     --secondary-foreground: 210 40% 90%;
 
-    --muted: 222 47% 8%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 170 12% 12%;
+    --muted-foreground: 42 14% 70%;
 
-    /* Cyan accent for highlights */
-    --accent: 188 95% 68%;
-    --accent-foreground: 222 47% 4%;
+    --accent: 38 92% 58%;
+    --accent-foreground: 170 18% 5%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 47% 12%;
-    --input: 222 47% 8%;
-    --ring: 199 89% 48%;
+    --border: 170 12% 17%;
+    --input: 170 12% 12%;
+    --ring: 174 74% 46%;
 
     /* Design tokens for gradients and effects */
-    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%), hsl(188 95% 68%));
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 4%) 0%, hsl(222 47% 6%) 50%, hsl(222 47% 8%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(222 47% 6%), hsl(222 47% 8%));
+    --gradient-primary: linear-gradient(135deg, hsl(174 74% 46%), hsl(38 92% 58%));
+    --gradient-hero: linear-gradient(135deg, hsl(170 18% 5%) 0%, hsl(170 16% 8%) 50%, hsl(35 18% 10%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(170 16% 8%), hsl(35 18% 10%));
     
-    /* Shadows with blue glow */
-    --shadow-primary: 0 10px 30px -5px hsl(199 89% 48% / 0.3);
-    --shadow-card: 0 4px 20px -2px hsl(199 89% 48% / 0.1);
-    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.4);
+    --shadow-primary: 0 10px 30px -5px hsl(174 74% 46% / 0.28);
+    --shadow-card: 0 18px 45px -28px hsl(0 0% 0% / 0.8);
+    --shadow-glow: 0 0 34px hsl(38 92% 58% / 0.24);
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -125,15 +121,15 @@
   }
 
   .bg-gradient-secondary {
-    background: linear-gradient(135deg, hsl(222 47% 8%), hsl(222 47% 12%));
+    background: linear-gradient(135deg, hsl(170 16% 8%), hsl(35 18% 12%));
   }
 
   .bg-gradient-accent {
-    background: linear-gradient(135deg, hsl(188 95% 68%), hsl(199 89% 48%));
+    background: linear-gradient(135deg, hsl(38 92% 58%), hsl(140 58% 48%));
   }
 
   .bg-gradient-muted {
-    background: linear-gradient(135deg, hsl(222 47% 8%), hsl(222 47% 10%));
+    background: linear-gradient(135deg, hsl(170 12% 12%), hsl(35 18% 12%));
   }
 
   .bg-gradient-card {

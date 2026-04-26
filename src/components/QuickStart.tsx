@@ -270,7 +270,7 @@ kubectl get pods -l app=fluxmq`,
 
         {/* License Information */}
         <div className="mb-16">
-          <div className="bg-gradient-card rounded-2xl border border-border/50 shadow-card p-8 text-center">
+          <div className="bg-gradient-card border border-border/50 shadow-card p-8 text-center">
             <h3 className="text-2xl font-bold mb-4">{t('quickstart.license.title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <div className="flex items-center gap-3 p-4 bg-secondary/20 rounded-lg">
@@ -321,7 +321,7 @@ kubectl get pods -l app=fluxmq`,
         </div>
 
         {/* Download CTA */}
-        <div className="bg-gradient-card rounded-2xl border border-border/50 shadow-card p-8 md:p-12 text-center">
+        <div className="bg-gradient-card border border-border/50 shadow-card p-8 md:p-12 text-center">
           <div className="max-w-3xl mx-auto">
             <div className="p-4 bg-gradient-primary rounded-full w-fit mx-auto mb-6 shadow-glow">
               <Download className="h-12 w-12 text-primary-foreground" />

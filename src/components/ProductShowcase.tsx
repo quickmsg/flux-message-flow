@@ -10,15 +10,15 @@ const ProductShowcase = () => {
 
   return (
     <section id="products" className="bg-background py-24">
-      <div className="container mx-auto px-6">
-        <div className="mb-14 max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mb-14 max-w-3xl min-w-0">
           <p className="mb-3 text-sm font-semibold uppercase tracking-normal text-primary">
             {content.products.eyebrow}
           </p>
-          <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="text-3xl font-bold leading-tight [overflow-wrap:anywhere] md:text-5xl">
             {content.products.title}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-muted-foreground">
+          <p className="mt-5 max-w-[29ch] text-base leading-8 text-muted-foreground [overflow-wrap:anywhere] sm:max-w-none md:text-lg">
             {content.products.subtitle}
           </p>
         </div>
@@ -30,6 +30,7 @@ const ProductShowcase = () => {
             return (
               <Card
                 key={product.id}
+                id={product.id}
                 className="group flex h-full flex-col overflow-hidden border-border/70 bg-card/80 shadow-card transition-colors hover:border-primary/60"
               >
                 <CardHeader className="pb-5">
@@ -83,6 +84,10 @@ const ProductShowcase = () => {
                           document
                             .querySelector(product.href)
                             ?.scrollIntoView({ behavior: "smooth" });
+                          return;
+                        }
+                        if (product.href.startsWith("/")) {
+                          window.location.assign(product.href);
                           return;
                         }
                         window.open(product.href, "_blank");

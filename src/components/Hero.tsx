@@ -1,36 +1,44 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Network } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import heroImage from "@/assets/fluxmq-hero.jpg";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
 
 const Hero = () => {
   const { i18n } = useTranslation();
   const content = homepageContent[getHomepageLocale(i18n.language)];
+  const titleParts = content.hero.title.split("·").map((part) => part.trim());
 
   return (
     <section className="relative min-h-[92vh] overflow-hidden border-b border-border/50 pt-28 pb-16">
       <div className="absolute inset-0 z-0">
         <img
-          src={heroImage}
+          src="/site-assets/suite-hero.webp"
           alt="Industrial IoT message infrastructure"
-          className="h-full w-full object-cover opacity-30"
+          className="h-full w-full object-cover opacity-58"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,hsl(var(--background)/0.72)_0%,hsl(var(--background)/0.9)_62%,hsl(var(--background))_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,hsl(var(--background)/0.94)_0%,hsl(var(--background)/0.73)_46%,hsl(var(--background)/0.5)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,hsl(var(--background)/0.44)_0%,hsl(var(--background)/0.84)_62%,hsl(var(--background))_100%)]" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-6">
-        <div className="mx-auto max-w-5xl text-center">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
+        <div className="mx-auto max-w-5xl min-w-0 text-center">
           <div className="mb-7 inline-flex items-center gap-2 border border-primary/30 bg-background/55 px-4 py-2 text-sm text-muted-foreground backdrop-blur">
             <Network className="h-4 w-4 text-primary" />
             {content.hero.eyebrow}
           </div>
 
-          <h1 className="mx-auto max-w-4xl text-5xl font-bold leading-tight md:text-7xl">
-            {content.hero.title}
+          <h1 className="mx-auto flex w-full max-w-64 flex-wrap items-center justify-center gap-x-2 gap-y-1 text-3xl font-bold leading-tight sm:max-w-4xl sm:text-5xl md:text-7xl">
+            {titleParts.map((part, index) => (
+              <span key={part} className="inline-flex items-center gap-x-2 whitespace-nowrap">
+                {index > 0 && (
+                  <span className="text-muted-foreground">·</span>
+                )}
+                <span>{part}</span>
+              </span>
+            ))}
           </h1>
 
-          <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-muted-foreground md:text-xl">
+          <p className="mx-auto mt-7 max-w-[28ch] text-base leading-8 text-muted-foreground [overflow-wrap:anywhere] sm:max-w-3xl md:text-xl">
             {content.hero.subtitle}
           </p>
 
@@ -38,10 +46,8 @@ const Hero = () => {
             <Button
               variant="hero"
               size="lg"
-              className="group min-w-44"
-              onClick={() =>
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-              }
+              className="group w-full max-w-xs min-w-0 sm:w-auto sm:min-w-44"
+              onClick={() => window.location.assign("/contact")}
             >
               {content.hero.primaryCta}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -49,17 +55,15 @@ const Hero = () => {
             <Button
               variant="glass"
               size="lg"
-              className="min-w-44"
-              onClick={() =>
-                document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })
-              }
+              className="w-full max-w-xs min-w-0 sm:w-auto sm:min-w-44"
+              onClick={() => window.location.assign("/products")}
             >
               {content.hero.secondaryCta}
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="min-w-44 border-primary/30 bg-background/40"
+              className="w-full max-w-xs min-w-0 border-primary/30 bg-background/40 sm:w-auto sm:min-w-44"
               onClick={() => window.open("https://github.com/quickmsg/fluxmq", "_blank")}
             >
               <Github className="h-5 w-5" />

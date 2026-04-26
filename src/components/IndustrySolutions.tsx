@@ -8,15 +8,15 @@ const IndustrySolutions = () => {
 
   return (
     <section id="solutions" className="bg-secondary/25 py-24">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-normal text-primary">
             {content.solutions.eyebrow}
           </p>
-          <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="text-3xl font-bold leading-tight [overflow-wrap:anywhere] md:text-5xl">
             {content.solutions.title}
           </h2>
-          <p className="mt-5 text-lg leading-8 text-muted-foreground">
+          <p className="mx-auto mt-5 max-w-[29ch] text-base leading-8 text-muted-foreground [overflow-wrap:anywhere] sm:max-w-none md:text-lg">
             {content.solutions.subtitle}
           </p>
         </div>

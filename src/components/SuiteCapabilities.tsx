@@ -7,12 +7,12 @@ const SuiteCapabilities = () => {
 
   return (
     <section id="features" className="bg-background py-24">
-      <div className="container mx-auto px-6">
-        <div className="mb-14 max-w-3xl">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mb-14 max-w-3xl min-w-0">
           <p className="mb-3 text-sm font-semibold uppercase tracking-normal text-primary">
             {content.capabilities.eyebrow}
           </p>
-          <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+          <h2 className="text-3xl font-bold leading-tight [overflow-wrap:anywhere] md:text-5xl">
             {content.capabilities.title}
           </h2>
         </div>

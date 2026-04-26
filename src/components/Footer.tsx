@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Mail, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
-import { FLUXMQ_DOC_DEMOS_URL } from "@/lib/constants";
 
 const Footer = () => {
   const { i18n } = useTranslation();
@@ -12,7 +11,7 @@ const Footer = () => {
     {
       title: content.footer.products,
       links: [
-        { name: "Halia", href: "#products" },
+        { name: "Halia", href: "/products#halia" },
         { name: "FluxMQ", href: "https://doc.fluxmq.com", external: true },
         { name: "FCP", href: "https://fcp.doc.fluxmq.com", external: true },
       ],
@@ -22,14 +21,14 @@ const Footer = () => {
       links: [
         { name: "FluxMQ Docs", href: "https://doc.fluxmq.com", external: true },
         { name: "FCP Docs", href: "https://fcp.doc.fluxmq.com", external: true },
-        { name: "Demo Videos", href: FLUXMQ_DOC_DEMOS_URL, external: true },
+        { name: "Demo Videos", href: "/demos" },
         { name: "GitHub", href: "https://github.com/quickmsg/fluxmq", external: true },
       ],
     },
     {
       title: content.footer.company,
       links: [
-        { name: content.nav.contact, href: "#contact" },
+        { name: content.nav.contact, href: "/contact" },
         { name: "xurong.lu@fluxmq.com", href: "mailto:xurong.lu@fluxmq.com" },
         { name: "13218040662", href: "tel:13218040662" },
       ],
@@ -120,7 +119,7 @@ const Footer = () => {
         <div className="mt-10 flex flex-col justify-between gap-4 border-t border-border/50 pt-8 text-sm text-muted-foreground md:flex-row md:items-center">
           <div>Copyright © 2021-{new Date().getFullYear()} 非迅科技 版权所有 | 苏ICP备2023015068号-1</div>
           <div className="flex gap-5">
-            <a href="#products" className="hover:text-primary">
+            <a href="/products#halia" className="hover:text-primary">
               Halia
             </a>
             <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">

@@ -181,14 +181,14 @@ kubectl get pods -l app=fluxmq`,
 
   return (
     <section id="quickstart" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="mb-6 text-3xl font-bold leading-tight [overflow-wrap:anywhere] md:text-5xl">
             {t('getStarted.title')}
             <span className="text-gradient block">{t('getStarted.titleHighlight')}</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-3xl text-base leading-8 text-muted-foreground md:text-xl">
             {t('getStarted.subtitle')}
           </p>
         </div>
@@ -197,11 +197,15 @@ kubectl get pods -l app=fluxmq`,
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">{t('quickstart.installation.title')}</h3>
           <Tabs defaultValue="docker" className="w-full">
-            <TabsList className="grid w-full grid-cols-5 mb-8">
+            <TabsList className="mb-8 grid h-auto w-full grid-cols-2 gap-2 bg-muted/40 p-1 sm:grid-cols-3 lg:grid-cols-5">
               {installationMethods.map((method) => (
-                <TabsTrigger key={method.id} value={method.id} className="flex items-center gap-2">
+                <TabsTrigger
+                  key={method.id}
+                  value={method.id}
+                  className="min-w-0 gap-2 px-2 text-xs sm:text-sm"
+                >
                   <method.icon className="h-4 w-4" />
-                  {method.title}
+                  <span className="truncate">{method.title}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -336,17 +340,17 @@ kubectl get pods -l app=fluxmq`,
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button variant="hero" size="lg" className="group" onClick={() => window.open(FLUXMQ_DOC_INSTALL_CATEGORY_URL, '_blank')}>
+              <Button variant="hero" size="lg" className="group w-full sm:w-auto" onClick={() => window.open(FLUXMQ_DOC_INSTALL_CATEGORY_URL, '_blank')}>
                 <Download className="h-5 w-5 mr-2" />
                 {t('quickstart.cta.download')}
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="glass" size="lg" className="group">
+              <Button variant="glass" size="lg" className="group w-full sm:w-auto">
                 <Code className="h-5 w-5 mr-2" />
                 {t('quickstart.cta.source')}
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="group">
+              <Button variant="outline" size="lg" className="group w-full sm:w-auto">
                 <Play className="h-5 w-5 mr-2" />
                 {t('quickstart.cta.demo')}
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />

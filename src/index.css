@@ -93,6 +93,7 @@
   /* 防止语言切换 / 导航栏因过渡产生晃动 */
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
@@ -101,6 +102,12 @@
     background: hsl(var(--background));
     background-image: var(--gradient-hero);
     background-attachment: fixed;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  #root {
+    overflow-x: hidden;
   }
 
   header {

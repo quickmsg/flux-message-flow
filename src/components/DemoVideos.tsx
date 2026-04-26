@@ -10,17 +10,17 @@ const DemoVideos = () => {
 
   return (
     <section id="demos" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/40 px-4 py-1.5 text-sm text-muted-foreground mb-4">
             <Play className="h-4 w-4 text-primary" />
             <span>{t("demos.badge")}</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="mb-4 text-3xl font-bold leading-tight [overflow-wrap:anywhere] md:text-5xl">
             {t("demos.title")}
             <span className="text-gradient block">{t("demos.titleHighlight")}</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-3xl text-base leading-8 text-muted-foreground md:text-xl">
             {t("demos.subtitle")}
           </p>
           <Button variant="outline" size="lg" asChild>

@@ -38,21 +38,27 @@ const Header = () => {
   const languageLabel = getHomepageLocale(currentLanguage) === "zh" ? "中文" : "English";
 
   const navItems = [
-    { label: content.nav.products, href: "#products" },
-    { label: content.nav.solutions, href: "#solutions" },
-    { label: content.nav.architecture, href: "#architecture" },
-    { label: content.nav.performance, href: "#performance" },
+    { label: content.nav.products, href: "/products" },
+    { label: content.nav.solutions, href: "/solutions" },
+    { label: content.nav.architecture, href: "/architecture" },
+    { label: content.nav.performance, href: "/architecture#performance" },
   ];
 
   const docItems = [
     { label: "FluxMQ Docs", href: "https://doc.fluxmq.com" },
     { label: "FCP Docs", href: "https://fcp.doc.fluxmq.com" },
-    { label: "Halia", href: "#contact" },
+    { label: "Demo Videos", href: "/demos" },
+    { label: "Halia", href: "/products#halia" },
   ];
 
   const openLink = (href: string) => {
-    if (href.startsWith("#")) {
+    if (href.startsWith("#") && document.querySelector(href)) {
       document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+      return;
+    }
+    if (href.startsWith("/")) {
+      window.location.assign(href);
       setIsMenuOpen(false);
       return;
     }
@@ -61,11 +67,13 @@ const Header = () => {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-border/50 bg-background/82 backdrop-blur-md">
-      <div className="container mx-auto px-6 py-4">
-        <nav className="flex items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
-            <img src="/feixun.svg" alt="Feixun Tech" className="h-8 w-8 object-contain" />
-            <span className="text-xl font-bold md:text-2xl">{content.nav.brand}</span>
+      <div className="container mx-auto px-4 py-4 sm:px-6">
+        <nav className="flex min-w-0 items-center justify-between">
+          <a href="/" className="flex min-w-0 items-center gap-3">
+            <img src="/feixun.svg" alt="Feixun Tech" className="h-8 w-8 shrink-0 object-contain" />
+            <span className="truncate text-lg font-bold sm:text-xl md:text-2xl">
+              {content.nav.brand}
+            </span>
           </a>
 
           <div className="hidden items-center gap-7 lg:flex">
@@ -121,7 +129,7 @@ const Header = () => {
             <Button variant="ghost" onClick={() => window.open("https://github.com/quickmsg/fluxmq", "_blank")}>
               {content.nav.github}
             </Button>
-            <Button variant="hero" onClick={() => openLink("#contact")}>
+            <Button variant="hero" onClick={() => openLink("/contact")}>
               {content.nav.contact}
             </Button>
           </div>
@@ -129,7 +137,8 @@ const Header = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="shrink-0 bg-primary text-primary-foreground shadow-primary hover:bg-primary/90 lg:hidden"
+            aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
             onClick={() => setIsMenuOpen((open) => !open)}
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -179,7 +188,7 @@ const Header = () => {
                     中文
                   </Button>
                 </div>
-                <Button className="mt-3 justify-start" variant="hero" onClick={() => openLink("#contact")}>
+                <Button className="mt-3 justify-start" variant="hero" onClick={() => openLink("/contact")}>
                   {content.nav.contact}
                 </Button>
               </div>

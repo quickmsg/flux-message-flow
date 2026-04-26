@@ -9,16 +9,16 @@ const PlatformArchitecture = () => {
 
   return (
     <section id="architecture" className="border-y border-border/50 bg-secondary/25 py-24">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-normal text-primary">
               {content.architecture.eyebrow}
             </p>
-            <h2 className="text-4xl font-bold leading-tight md:text-5xl">
+            <h2 className="text-3xl font-bold leading-tight [overflow-wrap:anywhere] md:text-5xl">
               {content.architecture.title}
             </h2>
-            <p className="mt-5 text-lg leading-8 text-muted-foreground">
+            <p className="mt-5 max-w-[29ch] text-base leading-8 text-muted-foreground [overflow-wrap:anywhere] sm:max-w-none md:text-lg">
               {content.architecture.subtitle}
             </p>
 
@@ -34,7 +34,9 @@ const PlatformArchitecture = () => {
                     <SignalIcon className="mt-1 h-5 w-5 shrink-0 text-primary" />
                     <div>
                       <div className="font-semibold">{signal.label}</div>
-                      <div className="mt-1 text-sm text-muted-foreground">{signal.value}</div>
+                      <div className="mt-1 text-sm text-muted-foreground [overflow-wrap:anywhere]">
+                        {signal.value}
+                      </div>
                     </div>
                   </div>
                 );

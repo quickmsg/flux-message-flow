@@ -5,18 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FluxMQ Documentation</title>
     <script>
-        // GitHub Pages 404 重定向脚本
-        // 这个脚本会重定向到正确的路径
-        var pathSegmentsToKeep = 1;
-        
-        var l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
+        // SPA fallback for GitHub Pages/custom domains.
+        // Custom domain: /architecture -> /?/architecture
+        // Project page: /flux-message-flow/architecture -> /flux-message-flow/?/architecture
+        (function () {
+            var l = window.location;
+            var origin = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '');
+            var isProjectPage = l.hostname === 'quickmsg.github.io' && l.pathname.indexOf('/flux-message-flow/') === 0;
+            var pathSegmentsToKeep = isProjectPage ? 1 : 0;
+            var pathSegments = l.pathname.split('/');
+            var basePath = pathSegments.slice(0, 1 + pathSegmentsToKeep).join('/');
+            var routePath = l.pathname
+                .slice(1)
+                .split('/')
+                .slice(pathSegmentsToKeep)
+                .join('/')
+                .replace(/^\/+|\/+$/g, '');
+
+            var search = l.search;
+
+            // Older fallback settings could create URLs like /architecture/?/&/~and~/...
+            // Drop that generated query and keep the real route segment.
+            if (search.indexOf('?/') === 0 || search.indexOf('?/&') === 0) {
+                search = '';
+            }
+
+            l.replace(
+                origin +
+                basePath +
+                '/?/' +
+                routePath.replace(/&/g, '~and~') +
+                (search ? '&' + search.slice(1).replace(/&/g, '~and~') : '') +
+                l.hash
+            );
+        })();
     </script>
 </head>
 <body>

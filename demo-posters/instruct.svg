@@ -1,0 +1,19 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07100F"/>
+  <rect x="72" y="54" width="1136" height="612" rx="10" fill="#101916" stroke="#24423B" stroke-width="2"/>
+  <rect x="118" y="120" width="1044" height="102" rx="8" fill="#0D1513" stroke="#24423B"/>
+  <rect x="154" y="154" width="210" height="24" rx="4" fill="#25C6B5" fill-opacity="0.42"/>
+  <rect x="424" y="154" width="170" height="24" rx="4" fill="#F4B942" fill-opacity="0.48"/>
+  <rect x="654" y="154" width="138" height="24" rx="4" fill="#56C271" fill-opacity="0.44"/>
+  <rect x="852" y="154" width="238" height="24" rx="4" fill="#A9B8B2" fill-opacity="0.25"/>
+  <rect x="118" y="270" width="1044" height="260" rx="8" fill="#0D1513" stroke="#24423B"/>
+  <rect x="162" y="318" width="210" height="34" rx="5" fill="#13201D" stroke="#24423B"/>
+  <rect x="162" y="390" width="784" height="24" rx="4" fill="#A9B8B2" fill-opacity="0.23"/>
+  <rect x="162" y="442" width="632" height="24" rx="4" fill="#A9B8B2" fill-opacity="0.18"/>
+  <rect x="978" y="378" width="120" height="62" rx="6" fill="#25C6B5" fill-opacity="0.28" stroke="#25C6B5"/>
+  <path d="M222 334H312" stroke="#25C6B5" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="640" cy="360" r="74" fill="#56C271" fill-opacity="0.94"/>
+  <path d="M616 320L688 360L616 400V320Z" fill="#07100F"/>
+  <text x="112" y="642" fill="#DDF7F0" font-family="Arial, sans-serif" font-size="42" font-weight="700">Command Consumption</text>
+  <text x="112" y="684" fill="#A9B8B2" font-family="Arial, sans-serif" font-size="24">Publish, consume and inspect command workflows</text>
+</svg>

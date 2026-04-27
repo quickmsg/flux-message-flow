@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Renewable energy station animation</title>
+  <desc id="desc">Animated renewable energy devices sending telemetry through a secure FluxMQ cluster.</desc>
+  <defs>
+    <linearGradient id="sun" x1="0" x2="1">
+      <stop offset="0" stop-color="#f4b63a"/>
+      <stop offset="1" stop-color="#1eccbb"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f2724"/>
+      <stop offset="1" stop-color="#191c12"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .bg{fill:#07100f}
+      .card{fill:url(#panel);stroke:#244641;stroke-width:1.4}
+      .wire{fill:none;stroke:#1eccbb;stroke-width:3;stroke-dasharray:8 13;animation:flow 3.4s linear infinite}
+      .wire2{animation-delay:.7s}
+      .label{font:600 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:500 13px Arial,sans-serif;fill:#bdb7a8}
+      .node{fill:#1eccbb;filter:url(#glow);animation:pulse 2.5s ease-in-out infinite}
+      .node2{animation-delay:.8s}
+      .blade{fill:#d9fff8;opacity:.8;animation:spin 5s linear infinite;transform-origin:210px 158px}
+      .bar{fill:url(#sun);animation:rise 3s ease-in-out infinite alternate}
+      @keyframes flow{to{stroke-dashoffset:-84}}
+      @keyframes pulse{0%,100%{opacity:.3;r:5}50%{opacity:1;r:9}}
+      @keyframes spin{to{transform:rotate(360deg)}}
+      @keyframes rise{from{height:20px;transform:translateY(42px)}to{height:62px;transform:translateY(0)}}
+    </style>
+  </defs>
+  <rect class="bg" width="760" height="420"/>
+  <circle cx="615" cy="72" r="42" fill="url(#sun)" opacity=".18"/>
+  <circle cx="615" cy="72" r="22" fill="url(#sun)" opacity=".8" filter="url(#glow)"/>
+
+  <g>
+    <polygon points="68,286 248,242 278,290 98,334" fill="#102623" stroke="#37625d" stroke-width="2"/>
+    <path d="M104 278l30 44M145 268l30 44M187 258l30 44M229 248l30 44M83 302l181-44M92 320l181-44" stroke="#1eccbb" opacity=".45"/>
+    <polygon points="98,342 278,298 302,334 122,378" fill="#102623" stroke="#37625d" stroke-width="2"/>
+    <path d="M134 335l25 38M176 325l25 38M218 315l25 38M260 305l25 38M111 354l181-44" stroke="#f4b63a" opacity=".45"/>
+  </g>
+
+  <g>
+    <line x1="210" y1="158" x2="210" y2="296" stroke="#bdb7a8" stroke-width="5"/>
+    <path class="blade" d="M210 158l-13-90c20 15 31 39 27 67z"/>
+    <path class="blade" d="M210 158l86 33c-22 13-48 13-72-3z"/>
+    <path class="blade" d="M210 158l-72 57c2-26 16-48 41-61z"/>
+    <circle cx="210" cy="158" r="13" fill="#1eccbb"/>
+  </g>
+
+  <g>
+    <rect class="card" x="363" y="84" width="153" height="116" rx="8"/>
+    <text class="label" x="397" y="130">FluxMQ</text>
+    <text class="small" x="391" y="152">7-node cluster</text>
+    <rect x="396" y="165" width="22" height="20" rx="4" fill="#1eccbb"/>
+    <rect x="429" y="165" width="22" height="20" rx="4" fill="#1eccbb" opacity=".7"/>
+    <rect x="462" y="165" width="22" height="20" rx="4" fill="#f4b63a" opacity=".8"/>
+  </g>
+  <g>
+    <rect class="card" x="571" y="68" width="123" height="75" rx="8"/>
+    <text class="label" x="605" y="108">Kafka</text>
+    <rect class="card" x="571" y="174" width="123" height="75" rx="8"/>
+    <text class="label" x="603" y="214">RDS</text>
+    <rect class="card" x="571" y="280" width="123" height="75" rx="8"/>
+    <text class="label" x="600" y="320">FCP</text>
+  </g>
+  <path class="wire" d="M280 285 C324 260 340 190 363 158"/>
+  <path class="wire wire2" d="M224 156 C282 120 314 113 363 122"/>
+  <path class="wire" d="M516 125 C543 112 552 107 571 106"/>
+  <path class="wire wire2" d="M516 145 C548 166 552 211 571 213"/>
+  <path class="wire" d="M516 165 C548 224 552 318 571 318"/>
+  <circle class="node" cx="318" cy="231" r="7"/>
+  <circle class="node node2" cx="544" cy="112" r="7"/>
+  <circle class="node" cx="544" cy="214" r="7"/>
+  <g>
+    <rect class="bar" x="392" y="319" width="17" height="62" rx="4"/>
+    <rect class="bar" x="421" y="319" width="17" height="62" rx="4" style="animation-delay:.4s"/>
+    <rect class="bar" x="450" y="319" width="17" height="62" rx="4" style="animation-delay:.8s"/>
+    <rect class="bar" x="479" y="319" width="17" height="62" rx="4" style="animation-delay:1.2s"/>
+    <text class="small" x="380" y="397">remote monitoring</text>
+  </g>
+</svg>

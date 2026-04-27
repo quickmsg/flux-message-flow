@@ -20,9 +20,10 @@ const Header = () => {
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
       setCurrentLanguage(lng);
+      document.documentElement.lang = getHomepageLocale(lng) === "zh" ? "zh-CN" : "en";
     };
 
-    setCurrentLanguage(i18n.language);
+    handleLanguageChange(i18n.language);
     i18n.on("languageChanged", handleLanguageChange);
 
     return () => {
@@ -32,6 +33,8 @@ const Header = () => {
 
   const changeLanguage = (lng: string) => {
     if (i18n.language === lng) return;
+    window.localStorage.setItem("i18nextLng", lng);
+    document.documentElement.lang = getHomepageLocale(lng) === "zh" ? "zh-CN" : "en";
     i18n.changeLanguage(lng).then(() => setCurrentLanguage(lng));
   };
 

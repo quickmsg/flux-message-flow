@@ -1069,7 +1069,8 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
-    lng: 'en', // 设置默认语言为英文
+    supportedLngs: ['en', 'zh'],
+    nonExplicitSupportedLngs: true,
     debug: false,
     interpolation: {
       escapeValue: false
@@ -1078,6 +1079,7 @@ i18n
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
       lookupLocalStorage: 'i18nextLng',
+      lookupFromPathIndex: 0,
       checkWhitelist: true
     }
   });

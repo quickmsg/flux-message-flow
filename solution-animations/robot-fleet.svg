@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Robot fleet edge animation</title>
+  <desc id="desc">Animated robot fleet data flowing from sensors and cameras through edge software to cloud systems.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#102623"/>
+      <stop offset="1" stop-color="#1c1b12"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#1eccbb"/>
+      <stop offset="1" stop-color="#f4b63a"/>
+    </linearGradient>
+    <filter id="glow" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .bg{fill:#07100f}
+      .card{fill:url(#panel);stroke:#244641;stroke-width:1.4}
+      .line{fill:none;stroke:#1eccbb;stroke-width:3;stroke-dasharray:9 13;animation:flow 3.1s linear infinite}
+      .line2{animation-delay:.9s}
+      .label{font:600 18px Arial,sans-serif;fill:#f8fafc}
+      .small{font:500 13px Arial,sans-serif;fill:#bdb7a8}
+      .bot{animation:move 5s ease-in-out infinite}
+      .eye{fill:#1eccbb;animation:blink 3.2s ease-in-out infinite}
+      .scan{fill:none;stroke:url(#accent);stroke-width:3;opacity:.8;animation:scan 2.6s ease-in-out infinite}
+      .dot{fill:#1eccbb;filter:url(#glow);animation:pulse 2s ease-in-out infinite}
+      @keyframes flow{to{stroke-dashoffset:-88}}
+      @keyframes move{0%,100%{transform:translateX(0)}50%{transform:translateX(20px)}}
+      @keyframes blink{0%,88%,100%{opacity:1}92%{opacity:.2}}
+      @keyframes scan{0%{transform:scale(.75);opacity:.15;transform-origin:160px 236px}60%{transform:scale(1.25);opacity:.75;transform-origin:160px 236px}100%{transform:scale(1.5);opacity:0;transform-origin:160px 236px}}
+      @keyframes pulse{0%,100%{opacity:.35;transform:scale(.9);transform-origin:center}50%{opacity:1;transform:scale(1.15);transform-origin:center}}
+    </style>
+  </defs>
+  <rect class="bg" width="760" height="420"/>
+  <path d="M40 344 C160 270 249 381 352 316 C468 244 574 297 720 218" fill="none" stroke="#244641" stroke-width="2"/>
+
+  <g class="bot">
+    <rect x="98" y="176" width="124" height="88" rx="26" fill="#152522" stroke="#37625d" stroke-width="2"/>
+    <rect x="130" y="145" width="60" height="42" rx="12" fill="#102623" stroke="#1eccbb" stroke-width="2"/>
+    <circle class="eye" cx="146" cy="166" r="6"/>
+    <circle class="eye" cx="174" cy="166" r="6"/>
+    <path d="M120 264l-26 45M200 264l26 45" stroke="#bdb7a8" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="94" cy="314" r="13" fill="#0a1211" stroke="#1eccbb" stroke-width="3"/>
+    <circle cx="226" cy="314" r="13" fill="#0a1211" stroke="#1eccbb" stroke-width="3"/>
+    <circle class="scan" cx="160" cy="236" r="44"/>
+  </g>
+
+  <g>
+    <rect class="card" x="326" y="72" width="133" height="82" rx="8"/>
+    <text class="label" x="367" y="111">Halia</text>
+    <text class="small" x="346" y="133">sensor hub</text>
+    <rect class="card" x="326" y="190" width="133" height="82" rx="8"/>
+    <text class="label" x="354" y="229">NodeMQ</text>
+    <text class="small" x="349" y="251">edge bus</text>
+  </g>
+  <g>
+    <rect class="card" x="554" y="95" width="132" height="96" rx="8"/>
+    <text class="label" x="586" y="136">FluxMQ</text>
+    <text class="small" x="582" y="158">cloud broker</text>
+    <rect class="card" x="554" y="230" width="132" height="96" rx="8"/>
+    <text class="label" x="588" y="271">Kafka</text>
+    <text class="small" x="584" y="293">analytics</text>
+  </g>
+
+  <path class="line" d="M223 199 C264 151 293 119 326 113"/>
+  <path class="line line2" d="M223 238 C268 236 293 232 326 231"/>
+  <path class="line" d="M459 113 C499 113 522 126 554 136"/>
+  <path class="line line2" d="M459 232 C503 247 523 272 554 278"/>
+  <circle class="dot" cx="282" cy="150" r="7"/>
+  <circle class="dot" cx="502" cy="121" r="7" style="animation-delay:.7s"/>
+  <circle class="dot" cx="506" cy="256" r="7" style="animation-delay:1.2s"/>
+
+  <g>
+    <rect x="86" y="58" width="74" height="30" rx="15" fill="#0f1c1a" stroke="#37625d"/>
+    <text class="small" x="103" y="78">Sensor</text>
+    <rect x="172" y="58" width="77" height="30" rx="15" fill="#0f1c1a" stroke="#37625d"/>
+    <text class="small" x="190" y="78">Camera</text>
+    <rect x="261" y="58" width="67" height="30" rx="15" fill="#0f1c1a" stroke="#37625d"/>
+    <text class="small" x="282" y="78">Voice</text>
+  </g>
+</svg>

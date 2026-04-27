@@ -18,8 +18,8 @@ const Solutions = () => {
         eyebrow={content.solutions.eyebrow}
         title={
           locale === "zh"
-            ? "典型落地场景"
-            : "Deployment scenarios"
+            ? "行业案例"
+            : "Industry cases"
         }
         subtitle={content.solutions.subtitle}
         image="/site-assets/solutions-command-center.webp"

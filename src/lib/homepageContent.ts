@@ -2,7 +2,6 @@ import {
   Activity,
   BarChart3,
   Boxes,
-  Building2,
   CheckCircle2,
   CloudCog,
   Cpu,
@@ -196,34 +195,82 @@ export const homepageContent = {
       ],
     },
     solutions: {
-      eyebrow: "Solutions",
-      title: "Show the suite by business scenario, not only by technology",
+      eyebrow: "Industry cases",
+      title: "Real IoT industry cases",
       subtitle:
-        "The homepage now speaks to the buying contexts seen on industrial IoT, infrastructure, and enterprise SaaS websites.",
+        "Reference cases from connected vehicles, renewable energy, robot fleets, and factory edge collection show how Halia, FluxMQ, and FCP fit into production systems.",
       items: [
         {
-          title: "Smart manufacturing",
+          title: "Connected vehicle data platform",
+          caseLabel: "Large automotive group · vehicle telemetry and control",
+          scenario:
+            "Vehicle terminals continuously report periodic, event, and statistical data. Regional and national data centers need stable access, validation, routing, and service integration.",
           description:
-            "Collect PLC and equipment data, publish events, and monitor factory-side message flows.",
-          icon: Factory,
-        },
-        {
-          title: "Energy and utilities",
-          description:
-            "Connect remote stations, keep device telemetry flowing, and centralize cluster operations.",
-          icon: Zap,
-        },
-        {
-          title: "Connected equipment",
-          description:
-            "Bridge device fleets into applications with MQTT, HTTP, Kafka, and time-series storage.",
+            "FluxMQ acts as the vehicle access gateway, carrying GB/T32960, JT/T808, MQTT, HTTP, and private TCP/UDP traffic into TSP services, data platforms, and control APIs.",
+          flow: ["T-BOX / IVI", "FluxMQ cluster", "Rule engine", "Kafka / API", "TSP services"],
+          metrics: ["100K-class vehicle concurrency", "Million-level message architecture", "Offline message + API command delivery"],
+          outcomes: [
+            "Unified vehicle admission and data forwarding",
+            "Low-latency two-way communication for app control",
+            "Safer integration with certification, ACL, and service APIs",
+          ],
+          products: ["FluxMQ", "FCP"],
+          visual: "/solution-animations/vehicle-data.svg",
           icon: Gauge,
         },
         {
-          title: "Multi-tenant platforms",
+          title: "Renewable energy operations",
+          caseLabel: "Distributed photovoltaic and energy assets",
+          scenario:
+            "Remote stations are widely distributed, operating conditions are harsh, and generation, device status, alarms, and forecasts need to be visible without increasing field work.",
           description:
-            "Use projects, applications, licenses, proxy access, and audit trails for customer isolation.",
-          icon: Building2,
+            "FluxMQ uses clustered access, TLS authentication, per-device topics, and Kafka bridging to keep telemetry flowing into monitoring, diagnosis, and forecasting systems.",
+          flow: ["PV devices", "TLS access", "FluxMQ cluster", "Kafka bridge", "Monitoring / forecast"],
+          metrics: ["2M+ connected devices", "7-node production cluster", "Per-device topic model"],
+          outcomes: [
+            "Remote monitoring and diagnosis across stations",
+            "High-throughput persistence without data backlog",
+            "Lower on-site inspection and operating cost",
+          ],
+          products: ["FluxMQ", "FCP"],
+          visual: "/solution-animations/energy-station.svg",
+          icon: Zap,
+        },
+        {
+          title: "Robot and smart equipment fleets",
+          caseLabel: "Garden robots and export-oriented equipment",
+          scenario:
+            "Robot products combine sensors, cameras, voice, text, and private protocols. Edge rules and cloud analytics must work together across markets and networks.",
+          description:
+            "Halia normalizes edge inputs, NodeMQ handles local messaging, and FluxMQ carries fleet data to Kafka, big data, and business systems for real-time and offline analysis.",
+          flow: ["Sensors / camera", "Halia", "NodeMQ", "FluxMQ", "Kafka / big data"],
+          metrics: ["Edge stream processing", "Private protocol access", "Real-time + offline data paths"],
+          outcomes: [
+            "Clear separation between edge collection and cloud services",
+            "Flexible data rules for robot scenarios",
+            "A reusable cloud-edge pattern for smart hardware fleets",
+          ],
+          products: ["Halia", "NodeMQ", "FluxMQ"],
+          visual: "/solution-animations/robot-fleet.svg",
+          icon: Cpu,
+        },
+        {
+          title: "Digital factory edge collection",
+          caseLabel: "Industrial equipment, PLC, CNC, and SCADA integration",
+          scenario:
+            "Factory systems need to collect equipment data, filter invalid payloads, transform point models, and deliver clean streams to platforms, storage, and applications.",
+          description:
+            "Halia connects industrial protocols and runs edge rules, FluxMQ delivers MQTT data streams, and FCP keeps clusters, access, alerts, and audit trails manageable.",
+          flow: ["PLC / CNC", "Halia rules", "FluxMQ", "FCP", "SCADA / analytics"],
+          metrics: ["Modbus / OPC UA / IEC104", "Edge filtering and calculation", "MQTT / HTTP / Kafka delivery"],
+          outcomes: [
+            "Reduced cloud bandwidth and storage pressure",
+            "Faster protocol onboarding across sites",
+            "Operational visibility for rules, connections, and alarms",
+          ],
+          products: ["Halia", "FluxMQ", "FCP"],
+          visual: "/solution-animations/factory-edge.svg",
+          icon: Factory,
         },
       ],
     },
@@ -401,30 +448,82 @@ export const homepageContent = {
       ],
     },
     solutions: {
-      eyebrow: "解决方案",
-      title: "用业务场景讲清产品价值，而不只展示技术点",
+      eyebrow: "行业案例",
+      title: "真实物联网行业案例",
       subtitle:
-        "新版首页参考工业物联网、基础设施与企业 SaaS 官网的表达方式，把产品放进真实采购与落地语境。",
+        "结合车联网、新能源、智能机器人与数字化工厂案例，把 Halia、FluxMQ、FCP 放进真实的接入链路、运维模型和业务结果里。",
       items: [
         {
-          title: "智能制造",
-          description: "采集 PLC 与设备数据，发布事件，并监控工厂侧消息链路。",
-          icon: Factory,
-        },
-        {
-          title: "能源与公用事业",
-          description: "接入远程站点，保持设备遥测持续流转，并集中管理集群。",
-          icon: Zap,
-        },
-        {
-          title: "联网设备平台",
-          description: "通过 MQTT、HTTP、Kafka 与时序存储，把设备群接入业务应用。",
+          title: "智能网联汽车数据平台",
+          caseLabel: "华中大型车企 · 新能源数据采集与车控链路",
+          scenario:
+            "车端持续上报周期数据、事件数据与统计数据，平台需要同时对接企业、属地和国家数据中心，并保障车辆准入、监管和业务应用的稳定接入。",
+          description:
+            "FluxMQ 承担车辆接入网关，承载 GB/T32960、JT/T808、MQTT、HTTP 与私有 TCP/UDP 流量，将车端数据送入 TSP、数据平台与车控 API。",
+          flow: ["T-BOX / 车机", "FluxMQ 集群", "规则引擎", "Kafka / API", "TSP 业务"],
+          metrics: ["10 万级车辆并发接入", "百万级消息吞吐架构", "离线消息 + API 指令下发"],
+          outcomes: [
+            "统一车辆准入、监管数据转发与业务数据分发",
+            "支持 App 远程控车的低时延双向通信",
+            "通过认证、ACL 与服务 API 降低系统集成风险",
+          ],
+          products: ["FluxMQ", "FCP"],
+          visual: "/solution-animations/vehicle-data.svg",
           icon: Gauge,
         },
         {
-          title: "多租户 IoT 平台",
-          description: "用项目、应用、License、代理访问与审计能力实现客户隔离。",
-          icon: Building2,
+          title: "新能源场站远程运营",
+          caseLabel: "分布式光伏与新能源资产监控",
+          scenario:
+            "新能源设备分布离散、位置偏远、环境复杂，企业需要实时掌握发电、状态、告警、诊断与预测信息，减少现场巡检压力。",
+          description:
+            "FluxMQ 通过集群接入、TLS 安全认证、一设备一 Topic 与 Kafka 桥接，把设备遥测稳定送入监控、诊断、预测和存储系统。",
+          flow: ["光伏 / 逆变器", "TLS 接入", "FluxMQ 集群", "Kafka 桥接", "监控 / 预测"],
+          metrics: ["200 万+设备连接", "7 节点生产集群", "一设备一 Topic 模型"],
+          outcomes: [
+            "实现跨场站远程监控与远程诊断",
+            "高吞吐持久化，桥接数据不积压",
+            "降低现场运营、排障和巡检成本",
+          ],
+          products: ["FluxMQ", "FCP"],
+          visual: "/solution-animations/energy-station.svg",
+          icon: Zap,
+        },
+        {
+          title: "智能机器人与出海设备",
+          caseLabel: "园林机器人、智能硬件与海外业务链路",
+          scenario:
+            "机器人设备同时包含传感器、摄像头、语音、文本和私有协议数据，需要边缘规则、云端消息和离线分析协同工作。",
+          description:
+            "Halia 负责边缘输入规范化，NodeMQ 承载本地消息，FluxMQ 将设备数据送入 Kafka、大数据和业务系统，形成实时与离线并行的数据链路。",
+          flow: ["传感器 / 摄像头", "Halia", "NodeMQ", "FluxMQ", "Kafka / 大数据"],
+          metrics: ["边缘流式处理", "私有协议接入", "实时 + 离线数据通路"],
+          outcomes: [
+            "边端采集与云端业务解耦",
+            "按机器人场景灵活下发和调整数据规则",
+            "形成可复用的智能硬件云边一体架构",
+          ],
+          products: ["Halia", "NodeMQ", "FluxMQ"],
+          visual: "/solution-animations/robot-fleet.svg",
+          icon: Cpu,
+        },
+        {
+          title: "数字化工厂边缘采集",
+          caseLabel: "PLC、CNC、SCADA 与工业现场数据接入",
+          scenario:
+            "工厂需要接入多类设备协议，过滤无效数据，转换点位模型，并把干净的数据流交付给平台、存储、可视化和分析应用。",
+          description:
+            "Halia 接入工业协议并执行边缘规则，FluxMQ 承载 MQTT 数据流转，FCP 统一管理集群、访问、告警与审计。",
+          flow: ["PLC / CNC", "Halia 规则", "FluxMQ", "FCP", "SCADA / 分析"],
+          metrics: ["Modbus / OPC UA / IEC104", "边缘过滤与计算", "MQTT / HTTP / Kafka 输出"],
+          outcomes: [
+            "降低云端带宽、存储和计算压力",
+            "让多站点协议接入更快复用",
+            "统一观察规则、连接、告警和审计事件",
+          ],
+          products: ["Halia", "FluxMQ", "FCP"],
+          visual: "/solution-animations/factory-edge.svg",
+          icon: Factory,
         },
       ],
     },

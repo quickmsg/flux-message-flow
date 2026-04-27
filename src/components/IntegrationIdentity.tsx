@@ -31,23 +31,25 @@ const frameSizeClass: Record<IntegrationIconSize, string> = {
 };
 
 const markSizeClass: Record<IntegrationIconSize, string> = {
-  xs: "h-4 w-4",
-  sm: "h-5 w-5",
-  md: "h-7 w-7",
+  xs: "h-5 w-5",
+  sm: "h-7 w-7",
+  md: "h-10 w-10",
 };
 
 const IntegrationMark = ({
   integration,
   size = "md",
+  className,
 }: {
   integration: IntegrationId;
   size?: IntegrationIconSize;
+  className?: string;
 }) => (
   <img
     src={integrationAssets[integration]}
     alt=""
     aria-hidden="true"
-    className={cn("block shrink-0 object-contain", markSizeClass[size])}
+    className={cn("block shrink-0 object-contain", markSizeClass[size], className)}
     loading="lazy"
   />
 );
@@ -62,19 +64,19 @@ export const IntegrationIcon = ({
   if (!integrationId) return null;
 
   if (!framed) {
-    return <IntegrationMark integration={integrationId} size={size} />;
+    return <IntegrationMark integration={integrationId} size={size} className={className} />;
   }
 
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center justify-center border border-primary/25 bg-primary/10 shadow-[0_0_18px_hsl(var(--primary)/0.10)]",
+        "inline-flex shrink-0 items-center justify-center",
         frameSizeClass[size],
         className,
       )}
       title={integrationNames[integrationId]}
     >
-      <IntegrationMark integration={integrationId} size={size} />
+      <IntegrationMark integration={integrationId} size={size} className="h-full w-full" />
     </span>
   );
 };

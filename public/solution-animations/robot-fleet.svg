@@ -25,14 +25,13 @@
       .eye{fill:#1eccbb;animation:blink 3.2s ease-in-out infinite}
       .scan{fill:none;stroke:url(#accent);stroke-width:3;opacity:.8;animation:scan 2.6s ease-in-out infinite}
       .dot{fill:#1eccbb;filter:url(#glow);animation:pulse 2s ease-in-out infinite}
-      .logoBox{fill:#0b1715;stroke:url(#accent);stroke-width:2}
       .logoH{fill:none;stroke:#f8fafc;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
       .logoArc{fill:none;stroke:url(#accent);stroke-width:2.5;stroke-linecap:round}
-      .fluxMark{fill:url(#accent)}
+      .fluxHex{fill:url(#accent)}
+      .fluxWave{fill:none;stroke:#f8fafc;stroke-width:7;stroke-linecap:round}
       .logoShield{fill:none;stroke:#f8fafc;stroke-width:2.8;stroke-linejoin:round}
       .logoNode{fill:none;stroke:#f8fafc;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
       .logoName{font:700 17px Arial,sans-serif;fill:#f8fafc}
-      .sysBox{fill:#0b1715;stroke:url(#accent);stroke-width:1.6}
       .sysLine{fill:none;stroke:#f8fafc;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
       .sysAccent{fill:#1eccbb}
       .sysGold{fill:#f4b63a}
@@ -60,7 +59,6 @@
   <g>
     <rect class="card" x="326" y="72" width="133" height="82" rx="8"/>
     <g transform="translate(343 90)">
-      <rect class="logoBox" width="36" height="36" rx="9"/>
       <path class="logoH" d="M12 9v18M24 9v18M13 18h10"/>
       <path class="logoArc" d="M14 13c4-5 8-5 12 0"/>
       <circle cx="12" cy="9" r="2.5" fill="#1eccbb"/>
@@ -70,7 +68,6 @@
     <text class="small" x="389" y="133">sensor hub</text>
     <rect class="card" x="326" y="190" width="133" height="82" rx="8"/>
     <g transform="translate(343 208)">
-      <rect class="logoBox" width="36" height="36" rx="9"/>
       <circle cx="18" cy="18" r="5" fill="#f8fafc"/>
       <circle cx="9" cy="28" r="4" fill="#f8fafc"/>
       <circle cx="27" cy="28" r="4" fill="#f8fafc"/>
@@ -82,17 +79,17 @@
   <g>
     <rect class="card" x="554" y="95" width="132" height="96" rx="8"/>
     <g transform="translate(572 116)">
-      <rect class="logoBox" width="40" height="40" rx="10"/>
-      <g transform="translate(4 7) scale(.26)">
-        <path class="fluxMark" fill-rule="evenodd" clip-rule="evenodd" d="M93.2847 102.997C90.5539 105.461 87.2389 106.516 82.4388 106.516H30.7571L25.3658 97.1838L31.5946 61.8519H56.9111L65.9341 48.9649H20.7769L15.3363 79.8204L0 53.2582L9.74093 36.3805H69.0239L73.6058 48.9649L49.7603 83.0229H65.4907L78.9901 63.7451L93.2777 102.997H93.2847Z"/>
-        <path class="fluxMark" fill-rule="evenodd" clip-rule="evenodd" d="M78.061 23.4936H17.1944L25.6825 8.79074C29.3142 2.49857 33.1852 0 40.5754 0H92.2571L99.3235 12.2465L87.9779 28.4556L93.3551 43.2359L106.432 24.5564L123 53.2512L102.075 89.4911L78.054 23.4866L78.061 23.4936Z"/>
+      <g transform="translate(4 4) scale(.32)">
+        <path class="fluxHex" d="M50 0 93 25v50l-43 25L7 75V25Z"/>
+        <path class="fluxWave" d="M22 31c13 12 27 12 40 0 6-5 12-8 18-8"/>
+        <path class="fluxWave" d="M18 51c12 12 26 12 39 0 7-6 13-9 20-9"/>
+        <path class="fluxWave" d="M24 72c13 9 27 8 39-3"/>
       </g>
     </g>
     <text class="logoName" x="622" y="138">FluxMQ</text>
     <text class="small" x="622" y="160">cloud broker</text>
     <rect class="card" x="554" y="230" width="132" height="96" rx="8"/>
     <g transform="translate(574 250)">
-      <rect class="sysBox" width="30" height="30" rx="9"/>
       <path d="M8 22c5-8 10-12 17-12" fill="none" stroke="#1eccbb" stroke-width="2.6" stroke-linecap="round"/>
       <path class="sysLine" d="M9 10h5c4 0 6 4 10 11"/>
       <circle class="sysAccent" cx="9" cy="10" r="3"/>

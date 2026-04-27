@@ -30,21 +30,29 @@ const frameSizeClass: Record<ProductIconSize, string> = {
 };
 
 const markSizeClass: Record<ProductIconSize, string> = {
-  xs: "h-3.5 w-3.5",
-  sm: "h-5 w-5",
-  md: "h-6 w-6",
-  lg: "h-8 w-8",
-  xl: "h-10 w-10",
+  xs: "h-5 w-5",
+  sm: "h-7 w-7",
+  md: "h-9 w-9",
+  lg: "h-11 w-11",
+  xl: "h-14 w-14",
 };
 
-const ProductMark = ({ product, size = "md" }: { product: ProductId; size?: ProductIconSize }) => {
+const ProductMark = ({
+  product,
+  size = "md",
+  className,
+}: {
+  product: ProductId;
+  size?: ProductIconSize;
+  className?: string;
+}) => {
   const src = productAssets[product];
   return (
     <img
       src={src}
       alt=""
       aria-hidden="true"
-      className={cn("block shrink-0 object-contain", markSizeClass[size])}
+      className={cn("block shrink-0 object-contain", markSizeClass[size], className)}
       loading="lazy"
     />
   );
@@ -60,19 +68,19 @@ export const ProductIcon = ({
   if (!productId) return null;
 
   if (!framed) {
-    return <ProductMark product={productId} size={size} />;
+    return <ProductMark product={productId} size={size} className={className} />;
   }
 
   return (
     <span
       className={cn(
-        "inline-flex shrink-0 items-center justify-center border border-primary/30 bg-primary/10 shadow-[0_0_24px_hsl(var(--primary)/0.12)]",
+        "inline-flex shrink-0 items-center justify-center",
         frameSizeClass[size],
         className,
       )}
       title={productNames[productId]}
     >
-      <ProductMark product={productId} size={size} />
+      <ProductMark product={productId} size={size} className="h-full w-full" />
     </span>
   );
 };

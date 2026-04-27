@@ -29,7 +29,7 @@
       .chip{fill:#0f1c1a;stroke:#37625d;stroke-width:1}
       .wheel{fill:#07100f;stroke:#1eccbb;stroke-width:3}
       .logoBox{fill:#0b1715;stroke:url(#accent);stroke-width:2}
-      .logoWave{fill:none;stroke:#f8fafc;stroke-width:3.4;stroke-linecap:round}
+      .fluxMark{fill:url(#accent)}
       .logoName{font:700 19px Arial,sans-serif;fill:#f8fafc}
       .sysBox{fill:#0b1715;stroke:url(#accent);stroke-width:1.6}
       .sysLine{fill:none;stroke:#f8fafc;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
@@ -57,8 +57,10 @@
     <rect class="card" x="365" y="72" width="154" height="114" rx="8"/>
     <g transform="translate(386 92)">
       <rect class="logoBox" width="50" height="50" rx="12"/>
-      <path class="logoWave" d="M10 18c10-9 20 9 30 0"/>
-      <path class="logoWave" d="M10 31c10-9 20 9 30 0"/>
+      <g transform="translate(6 8) scale(.31)">
+        <path class="fluxMark" fill-rule="evenodd" clip-rule="evenodd" d="M93.2847 102.997C90.5539 105.461 87.2389 106.516 82.4388 106.516H30.7571L25.3658 97.1838L31.5946 61.8519H56.9111L65.9341 48.9649H20.7769L15.3363 79.8204L0 53.2582L9.74093 36.3805H69.0239L73.6058 48.9649L49.7603 83.0229H65.4907L78.9901 63.7451L93.2777 102.997H93.2847Z"/>
+        <path class="fluxMark" fill-rule="evenodd" clip-rule="evenodd" d="M78.061 23.4936H17.1944L25.6825 8.79074C29.3142 2.49857 33.1852 0 40.5754 0H92.2571L99.3235 12.2465L87.9779 28.4556L93.3551 43.2359L106.432 24.5564L123 53.2512L102.075 89.4911L78.054 23.4866L78.061 23.4936Z"/>
+      </g>
     </g>
     <text class="logoName" x="448" y="116">FluxMQ</text>
     <text class="small" x="448" y="136">vehicle gateway</text>

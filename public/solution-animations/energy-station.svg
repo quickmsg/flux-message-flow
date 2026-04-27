@@ -26,7 +26,7 @@
       .blade{fill:#d9fff8;opacity:.8;animation:spin 5s linear infinite;transform-origin:210px 158px}
       .bar{fill:url(#sun);animation:rise 3s ease-in-out infinite alternate}
       .logoBox{fill:#0b1715;stroke:url(#sun);stroke-width:2}
-      .logoWave{fill:none;stroke:#f8fafc;stroke-width:3.4;stroke-linecap:round}
+      .fluxMark{fill:url(#sun)}
       .logoShield{fill:none;stroke:#f8fafc;stroke-width:3;stroke-linejoin:round}
       .logoCheck{fill:none;stroke:#f8fafc;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
       .logoName{font:700 19px Arial,sans-serif;fill:#f8fafc}
@@ -63,8 +63,10 @@
     <rect class="card" x="363" y="84" width="153" height="116" rx="8"/>
     <g transform="translate(382 105)">
       <rect class="logoBox" width="48" height="48" rx="12"/>
-      <path class="logoWave" d="M10 17c10-8 18 8 28 0"/>
-      <path class="logoWave" d="M10 30c10-8 18 8 28 0"/>
+      <g transform="translate(5 8) scale(.31)">
+        <path class="fluxMark" fill-rule="evenodd" clip-rule="evenodd" d="M93.2847 102.997C90.5539 105.461 87.2389 106.516 82.4388 106.516H30.7571L25.3658 97.1838L31.5946 61.8519H56.9111L65.9341 48.9649H20.7769L15.3363 79.8204L0 53.2582L9.74093 36.3805H69.0239L73.6058 48.9649L49.7603 83.0229H65.4907L78.9901 63.7451L93.2777 102.997H93.2847Z"/>
+        <path class="fluxMark" fill-rule="evenodd" clip-rule="evenodd" d="M78.061 23.4936H17.1944L25.6825 8.79074C29.3142 2.49857 33.1852 0 40.5754 0H92.2571L99.3235 12.2465L87.9779 28.4556L93.3551 43.2359L106.432 24.5564L123 53.2512L102.075 89.4911L78.054 23.4866L78.061 23.4936Z"/>
+      </g>
     </g>
     <text class="logoName" x="442" y="129">FluxMQ</text>
     <text class="small" x="442" y="150">7-node cluster</text>

@@ -7,7 +7,7 @@ import {
   type ProductId,
 } from "@/lib/productIdentity";
 
-type ProductIconSize = "xs" | "sm" | "md" | "lg" | "xl";
+export type ProductIconSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 type ProductIconProps = {
   product: ProductId | string;

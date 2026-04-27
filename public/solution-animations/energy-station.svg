@@ -30,6 +30,10 @@
       .logoShield{fill:none;stroke:#f8fafc;stroke-width:3;stroke-linejoin:round}
       .logoCheck{fill:none;stroke:#f8fafc;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
       .logoName{font:700 19px Arial,sans-serif;fill:#f8fafc}
+      .sysBox{fill:#0b1715;stroke:url(#sun);stroke-width:1.6}
+      .sysLine{fill:none;stroke:#f8fafc;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+      .sysAccent{fill:#1eccbb}
+      .sysGold{fill:#f4b63a}
       @keyframes flow{to{stroke-dashoffset:-84}}
       @keyframes pulse{0%,100%{opacity:.3;r:5}50%{opacity:1;r:9}}
       @keyframes spin{to{transform:rotate(360deg)}}
@@ -70,9 +74,23 @@
   </g>
   <g>
     <rect class="card" x="571" y="68" width="123" height="75" rx="8"/>
-    <text class="label" x="605" y="108">Kafka</text>
+    <g transform="translate(592 87)">
+      <rect class="sysBox" width="28" height="28" rx="8"/>
+      <path d="M7 20c5-7 9-11 16-11" fill="none" stroke="#1eccbb" stroke-width="2.5" stroke-linecap="round"/>
+      <path class="sysLine" d="M8 9h5c4 0 6 4 9 10"/>
+      <circle class="sysAccent" cx="8" cy="9" r="2.8"/>
+      <circle class="sysGold" cx="7" cy="20" r="2.8"/>
+      <circle cx="23" cy="9" r="2.8" fill="#f8fafc"/>
+    </g>
+    <text class="label" x="630" y="108">Kafka</text>
     <rect class="card" x="571" y="174" width="123" height="75" rx="8"/>
-    <text class="label" x="603" y="214">RDS</text>
+    <g transform="translate(592 193)">
+      <rect class="sysBox" width="28" height="28" rx="8"/>
+      <ellipse cx="14" cy="9" rx="8" ry="4" fill="none" stroke="#1eccbb" stroke-width="2.2"/>
+      <path class="sysLine" d="M6 9v10c0 3 4 5 8 5s8-2 8-5V9"/>
+      <path d="M6 15c0 3 4 5 8 5s8-2 8-5" fill="none" stroke="#f4b63a" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+    <text class="label" x="630" y="214">RDS</text>
     <rect class="card" x="571" y="280" width="123" height="75" rx="8"/>
     <g transform="translate(596 298)">
       <rect class="logoBox" width="34" height="34" rx="9"/>

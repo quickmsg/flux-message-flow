@@ -2,8 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
-import { ProductIcon, ProductLabel } from "@/components/ProductIdentity";
-import { productIdFromText } from "@/lib/productIdentity";
+import { ProductLabel } from "@/components/ProductIdentity";
+import { TechIconStrip } from "@/components/TechIdentity";
 
 const IndustrySolutions = () => {
   const { i18n } = useTranslation();
@@ -65,12 +65,10 @@ const IndustrySolutions = () => {
 
                   <div className="mt-6 flex flex-wrap items-center gap-2">
                     {solution.flow.map((step, index) => {
-                      const product = productIdFromText(step);
-
                       return (
                         <div key={step} className="flex items-center gap-2">
                           <span className="inline-flex items-center gap-2 border border-border/70 bg-background/50 px-3 py-2 text-xs text-muted-foreground">
-                            {product && <ProductIcon product={product} size="xs" framed={false} />}
+                            <TechIconStrip text={step} size="xs" framed={false} />
                             {step}
                           </span>
                           {index < solution.flow.length - 1 && (
@@ -85,9 +83,10 @@ const IndustrySolutions = () => {
                     {solution.metrics.map((metric) => (
                       <div
                         key={metric}
-                        className="border border-border/70 bg-secondary/35 p-3 text-sm font-semibold leading-6 text-foreground"
+                        className="flex items-start gap-2 border border-border/70 bg-secondary/35 p-3 text-sm font-semibold leading-6 text-foreground"
                       >
-                        {metric}
+                        <TechIconStrip text={metric} size="xs" framed={false} className="mt-1" />
+                        <span>{metric}</span>
                       </div>
                     ))}
                   </div>

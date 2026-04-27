@@ -15,7 +15,6 @@
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <style>
-      .bg{fill:#07100f}
       .card{fill:url(#panel);stroke:#244641;stroke-width:1.4}
       .wire{fill:none;stroke:#1eccbb;stroke-width:3;stroke-dasharray:8 13;animation:flow 3.4s linear infinite}
       .wire2{animation-delay:.7s}
@@ -39,7 +38,6 @@
       @keyframes rise{from{height:20px;transform:translateY(42px)}to{height:62px;transform:translateY(0)}}
     </style>
   </defs>
-  <rect class="bg" width="760" height="420"/>
   <circle cx="615" cy="72" r="42" fill="url(#sun)" opacity=".18"/>
   <circle cx="615" cy="72" r="22" fill="url(#sun)" opacity=".8" filter="url(#glow)"/>
 
@@ -59,17 +57,17 @@
   </g>
 
   <g>
-    <rect class="card" x="363" y="84" width="153" height="116" rx="8"/>
+    <rect class="card" x="363" y="84" width="160" height="116" rx="8"/>
     <g transform="translate(382 105)">
-      <g transform="translate(5 4) scale(.37)">
+      <g transform="translate(4 8) scale(.27)">
         <path class="fluxHex" d="M50 0 93 25v50l-43 25L7 75V25Z"/>
         <path class="fluxWave" d="M22 31c13 12 27 12 40 0 6-5 12-8 18-8"/>
         <path class="fluxWave" d="M18 51c12 12 26 12 39 0 7-6 13-9 20-9"/>
         <path class="fluxWave" d="M24 72c13 9 27 8 39-3"/>
       </g>
     </g>
-    <text class="logoName" x="442" y="129">FluxMQ</text>
-    <text class="small" x="442" y="150">7-node cluster</text>
+    <text class="logoName" x="423" y="129">FluxMQ</text>
+    <text class="small" x="423" y="150">7-node cluster</text>
     <rect x="396" y="170" width="22" height="20" rx="4" fill="#1eccbb"/>
     <rect x="429" y="170" width="22" height="20" rx="4" fill="#1eccbb" opacity=".7"/>
     <rect x="462" y="170" width="22" height="20" rx="4" fill="#f4b63a" opacity=".8"/>
@@ -100,9 +98,9 @@
   </g>
   <path class="wire" d="M280 285 C324 260 340 190 363 158"/>
   <path class="wire wire2" d="M224 156 C282 120 314 113 363 122"/>
-  <path class="wire" d="M516 125 C543 112 552 107 571 106"/>
-  <path class="wire wire2" d="M516 145 C548 166 552 211 571 213"/>
-  <path class="wire" d="M516 165 C548 224 552 318 571 318"/>
+  <path class="wire" d="M523 125 C548 112 555 107 571 106"/>
+  <path class="wire wire2" d="M523 145 C551 166 555 211 571 213"/>
+  <path class="wire" d="M523 165 C551 224 555 318 571 318"/>
   <circle class="node" cx="318" cy="231" r="7"/>
   <circle class="node node2" cx="544" cy="112" r="7"/>
   <circle class="node" cx="544" cy="214" r="7"/>

@@ -18,7 +18,6 @@
       </feMerge>
     </filter>
     <style>
-      .bg{fill:#07100f}
       .card{fill:url(#panel);stroke:#244641;stroke-width:1.4}
       .line{fill:none;stroke:#1eccbb;stroke-width:3;stroke-linecap:round;stroke-dasharray:10 14;animation:dash 3.8s linear infinite}
       .pulse{fill:#1eccbb;filter:url(#glow);animation:pulse 2.4s ease-in-out infinite}
@@ -40,7 +39,6 @@
       .float{animation:float 4s ease-in-out infinite}
     </style>
   </defs>
-  <rect class="bg" width="760" height="420"/>
   <path d="M0 310 C130 250 235 380 380 292 C520 210 610 260 760 185 L760 420 L0 420Z" fill="#10201e" opacity=".65"/>
 
   <g class="float">
@@ -53,17 +51,17 @@
   </g>
 
   <g>
-    <rect class="card" x="365" y="72" width="154" height="114" rx="8"/>
+    <rect class="card" x="365" y="72" width="166" height="114" rx="8"/>
     <g transform="translate(386 92)">
-      <g transform="translate(6 5) scale(.38)">
+      <g transform="translate(4 8) scale(.27)">
         <path class="fluxHex" d="M50 0 93 25v50l-43 25L7 75V25Z"/>
         <path class="fluxWave" d="M22 31c13 12 27 12 40 0 6-5 12-8 18-8"/>
         <path class="fluxWave" d="M18 51c12 12 26 12 39 0 7-6 13-9 20-9"/>
         <path class="fluxWave" d="M24 72c13 9 27 8 39-3"/>
       </g>
     </g>
-    <text class="logoName" x="448" y="116">FluxMQ</text>
-    <text class="small" x="448" y="136">vehicle gateway</text>
+    <text class="logoName" x="427" y="116">FluxMQ</text>
+    <text class="small" x="427" y="137">vehicle gateway</text>
   </g>
 
   <g>
@@ -96,9 +94,9 @@
   </g>
 
   <path class="line" d="M318 285 C350 252 365 214 405 183"/>
-  <path class="line" d="M519 119 C552 103 561 96 587 95"/>
-  <path class="line" d="M519 133 C552 154 561 198 587 207"/>
-  <path class="line" d="M519 148 C552 205 561 308 587 319"/>
+  <path class="line" d="M531 119 C558 103 565 96 587 95"/>
+  <path class="line" d="M531 133 C558 154 565 198 587 207"/>
+  <path class="line" d="M531 148 C558 205 565 308 587 319"/>
   <circle class="pulse" cx="352" cy="248" r="8"/>
   <circle class="pulse pulse2" cx="552" cy="107" r="7"/>
   <circle class="pulse pulse3" cx="552" cy="209" r="7"/>

@@ -10,7 +10,7 @@ const IndustrySolutions = () => {
   const content = homepageContent[getHomepageLocale(i18n.language)];
 
   return (
-    <section id="solutions" className="bg-secondary/25 py-24">
+    <section id="solutions" className="overflow-hidden bg-secondary/25 py-24">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-normal text-primary">
@@ -19,7 +19,7 @@ const IndustrySolutions = () => {
           <h2 className="mx-auto max-w-full text-3xl font-bold leading-tight [overflow-wrap:anywhere] [word-break:break-word] md:text-5xl">
             {content.solutions.title}
           </h2>
-          <p className="mx-auto mt-5 max-w-[29ch] text-base leading-8 text-muted-foreground [overflow-wrap:anywhere] sm:max-w-none md:text-lg">
+          <p className="mx-auto mt-5 max-w-[min(29ch,100%)] text-base leading-8 text-muted-foreground [overflow-wrap:anywhere] sm:max-w-none md:text-lg">
             {content.solutions.subtitle}
           </p>
         </div>
@@ -33,11 +33,11 @@ const IndustrySolutions = () => {
                 key={solution.title}
                 className="group overflow-hidden border-border/70 bg-card/80 shadow-card transition-colors hover:border-primary/60"
               >
-                <div className="aspect-[16/9] border-b border-border/60 bg-background/45">
+                <div className="solution-visual-stage">
                   <img
                     src={solution.visual}
                     alt={solution.title}
-                    className="h-full w-full object-cover"
+                    className="solution-visual-image"
                     loading="lazy"
                   />
                 </div>
@@ -51,7 +51,7 @@ const IndustrySolutions = () => {
                         {solution.title}
                       </h3>
                     </div>
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-gradient-primary text-primary-foreground shadow-primary">
+                    <div className="solution-case-mark shrink-0">
                       <SolutionIcon className="h-6 w-6" />
                     </div>
                   </div>

@@ -15,7 +15,6 @@
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <style>
-      .bg{fill:#07100f}
       .card{fill:url(#panel);stroke:#244641;stroke-width:1.4}
       .line{fill:none;stroke:#1eccbb;stroke-width:3;stroke-dasharray:9 13;animation:flow 3.5s linear infinite}
       .line2{animation-delay:.75s}
@@ -40,7 +39,6 @@
       @keyframes spin{to{transform:rotate(360deg)}}
     </style>
   </defs>
-  <rect class="bg" width="760" height="420"/>
   <path d="M0 340 L760 260 L760 420 L0 420Z" fill="#10201e" opacity=".75"/>
 
   <g>
@@ -84,15 +82,15 @@
   <g>
     <rect class="card" x="533" y="82" width="135" height="86" rx="8"/>
     <g transform="translate(551 101)">
-      <g transform="translate(4 4) scale(.32)">
+      <g transform="translate(3 8) scale(.24)">
         <path class="fluxHex" d="M50 0 93 25v50l-43 25L7 75V25Z"/>
         <path class="fluxWave" d="M22 31c13 12 27 12 40 0 6-5 12-8 18-8"/>
         <path class="fluxWave" d="M18 51c12 12 26 12 39 0 7-6 13-9 20-9"/>
         <path class="fluxWave" d="M24 72c13 9 27 8 39-3"/>
       </g>
     </g>
-    <text class="logoName" x="601" y="123">FluxMQ</text>
-    <text class="small" x="601" y="145">message bus</text>
+    <text class="logoName" x="590" y="123">FluxMQ</text>
+    <text class="small" x="590" y="145">message bus</text>
     <rect class="card" x="533" y="212" width="135" height="86" rx="8"/>
     <g transform="translate(553 232)">
       <path class="logoShield" d="M19 7l11 5v8c0 8-5 13-11 16C13 33 8 28 8 20v-8z"/>

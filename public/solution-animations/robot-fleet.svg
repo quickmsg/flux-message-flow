@@ -15,7 +15,6 @@
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <style>
-      .bg{fill:#07100f}
       .card{fill:url(#panel);stroke:#244641;stroke-width:1.4}
       .line{fill:none;stroke:#1eccbb;stroke-width:3;stroke-dasharray:9 13;animation:flow 3.1s linear infinite}
       .line2{animation-delay:.9s}
@@ -42,7 +41,6 @@
       @keyframes pulse{0%,100%{opacity:.35;transform:scale(.9);transform-origin:center}50%{opacity:1;transform:scale(1.15);transform-origin:center}}
     </style>
   </defs>
-  <rect class="bg" width="760" height="420"/>
   <path d="M40 344 C160 270 249 381 352 316 C468 244 574 297 720 218" fill="none" stroke="#244641" stroke-width="2"/>
 
   <g class="bot">
@@ -79,15 +77,15 @@
   <g>
     <rect class="card" x="554" y="95" width="132" height="96" rx="8"/>
     <g transform="translate(572 116)">
-      <g transform="translate(4 4) scale(.32)">
+      <g transform="translate(3 8) scale(.24)">
         <path class="fluxHex" d="M50 0 93 25v50l-43 25L7 75V25Z"/>
         <path class="fluxWave" d="M22 31c13 12 27 12 40 0 6-5 12-8 18-8"/>
         <path class="fluxWave" d="M18 51c12 12 26 12 39 0 7-6 13-9 20-9"/>
         <path class="fluxWave" d="M24 72c13 9 27 8 39-3"/>
       </g>
     </g>
-    <text class="logoName" x="622" y="138">FluxMQ</text>
-    <text class="small" x="622" y="160">cloud broker</text>
+    <text class="logoName" x="610" y="138">FluxMQ</text>
+    <text class="small" x="610" y="160">cloud broker</text>
     <rect class="card" x="554" y="230" width="132" height="96" rx="8"/>
     <g transform="translate(574 250)">
       <path d="M8 22c5-8 10-12 17-12" fill="none" stroke="#1eccbb" stroke-width="2.6" stroke-linecap="round"/>

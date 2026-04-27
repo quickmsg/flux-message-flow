@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Big data</title>
+  <defs>
+    <linearGradient id="bigdataGradient" x1="9" y1="8" x2="55" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1eccbb"/>
+      <stop offset="1" stop-color="#f4b63a"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="52" height="52" rx="15" fill="#0b1715"/>
+  <rect x="17" y="36" width="8" height="13" rx="3" fill="#1eccbb"/>
+  <rect x="28" y="27" width="8" height="22" rx="3" fill="#f8fafc"/>
+  <rect x="39" y="18" width="8" height="31" rx="3" fill="#f4b63a"/>
+  <path d="M16 24c7-8 16 2 24-7" fill="none" stroke="url(#bigdataGradient)" stroke-width="4" stroke-linecap="round"/>
+</svg>

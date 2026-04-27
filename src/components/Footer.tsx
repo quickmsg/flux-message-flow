@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Mail, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { ProductLabel } from "@/components/ProductIdentity";
 
 const Footer = () => {
   const { i18n } = useTranslation();
@@ -11,16 +12,16 @@ const Footer = () => {
     {
       title: content.footer.products,
       links: [
-        { name: "Halia", href: "/products#halia" },
-        { name: "FluxMQ", href: "https://doc.fluxmq.com", external: true },
-        { name: "FCP", href: "https://fcp.doc.fluxmq.com", external: true },
+        { name: "Halia", href: "/products#halia", product: "halia" },
+        { name: "FluxMQ", href: "https://doc.fluxmq.com", external: true, product: "fluxmq" },
+        { name: "FCP", href: "https://fcp.doc.fluxmq.com", external: true, product: "fcp" },
       ],
     },
     {
       title: content.footer.resources,
       links: [
-        { name: "FluxMQ Docs", href: "https://doc.fluxmq.com", external: true },
-        { name: "FCP Docs", href: "https://fcp.doc.fluxmq.com", external: true },
+        { name: "FluxMQ Docs", href: "https://doc.fluxmq.com", external: true, product: "fluxmq" },
+        { name: "FCP Docs", href: "https://fcp.doc.fluxmq.com", external: true, product: "fcp" },
         { name: "Demo Videos", href: "/demos" },
         { name: "GitHub", href: "https://github.com/quickmsg/fluxmq", external: true },
       ],
@@ -85,7 +86,11 @@ const Footer = () => {
                         rel={link.external ? "noopener noreferrer" : undefined}
                         className="group flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary"
                       >
-                        {link.name}
+                        {link.product ? (
+                          <ProductLabel product={link.product} label={link.name} size="xs" />
+                        ) : (
+                          link.name
+                        )}
                         {link.external && (
                           <ExternalLink className="h-3 w-3 opacity-0 transition-opacity group-hover:opacity-100" />
                         )}
@@ -120,13 +125,13 @@ const Footer = () => {
           <div>Copyright © 2021-{new Date().getFullYear()} 非迅科技 版权所有 | 苏ICP备2023015068号-1</div>
           <div className="flex gap-5">
             <a href="/products#halia" className="hover:text-primary">
-              Halia
+              <ProductLabel product="halia" size="xs" />
             </a>
             <a href="https://doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-              FluxMQ
+              <ProductLabel product="fluxmq" size="xs" />
             </a>
             <a href="https://fcp.doc.fluxmq.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">
-              FCP
+              <ProductLabel product="fcp" size="xs" />
             </a>
           </div>
         </div>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">FluxMQ</title>
+  <defs>
+    <linearGradient id="fluxGradient" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1eccbb"/>
+      <stop offset="1" stop-color="#f4b63a"/>
+    </linearGradient>
+    <filter id="fluxGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <path d="M32 4 56 18v28L32 60 8 46V18Z" fill="#0b1715"/>
+  <path d="M32 4 56 18v28L32 60 8 46V18Z" fill="none" stroke="url(#fluxGradient)" stroke-width="3"/>
+  <path d="M17 25c8-8 14 8 22 0 3-3 6-4 8-3" fill="none" stroke="url(#fluxGradient)" stroke-width="5" stroke-linecap="round" filter="url(#fluxGlow)"/>
+  <path d="M17 39c8-8 14 8 22 0 3-3 6-4 8-3" fill="none" stroke="#f8fafc" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="48" cy="22" r="4" fill="#1eccbb"/>
+</svg>

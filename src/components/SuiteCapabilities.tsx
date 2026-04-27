@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { ProductIcon } from "@/components/ProductIdentity";
+import { productIdFromText } from "@/lib/productIdentity";
 
 const SuiteCapabilities = () => {
   const { i18n } = useTranslation();
@@ -20,10 +22,14 @@ const SuiteCapabilities = () => {
         <div className="grid grid-cols-1 gap-px overflow-hidden border border-border/70 bg-border/70 md:grid-cols-2 lg:grid-cols-3">
           {content.capabilities.items.map((item) => {
             const ItemIcon = item.icon;
+            const product = productIdFromText(item.description);
 
             return (
               <div key={item.title} className="bg-card p-7">
-                <ItemIcon className="h-7 w-7 text-primary" />
+                <div className="flex items-center gap-3">
+                  <ItemIcon className="h-7 w-7 text-primary" />
+                  {product && <ProductIcon product={product} size="sm" />}
+                </div>
                 <h3 className="mt-6 text-xl font-semibold">{item.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-muted-foreground">{item.description}</p>
               </div>

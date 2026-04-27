@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { ProductIcon, ProductLabel } from "@/components/ProductIdentity";
 
 const PlatformArchitecture = () => {
   const { i18n } = useTranslation();
@@ -45,22 +46,19 @@ const PlatformArchitecture = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-4">
-            {content.architecture.stages.map((stage, index) => {
-              const StageIcon = stage.icon;
-
-              return (
+            {content.architecture.stages.map((stage, index) => (
                 <div key={stage.product} className="flex flex-col gap-4 md:flex-row md:items-center">
                   <Card className="flex-1 border-border/70 bg-card/80 shadow-card">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-5">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-gradient-primary text-primary-foreground">
-                          <StageIcon className="h-6 w-6" />
-                        </div>
+                        <ProductIcon product={stage.product} size="lg" />
                         <div>
                           <div className="text-sm font-semibold uppercase tracking-normal text-primary">
                             {stage.title}
                           </div>
-                          <h3 className="mt-1 text-2xl font-bold">{stage.product}</h3>
+                          <h3 className="mt-1 text-2xl font-bold">
+                            <ProductLabel product={stage.product} size="sm" />
+                          </h3>
                           <p className="mt-3 text-sm leading-7 text-muted-foreground">
                             {stage.description}
                           </p>
@@ -72,8 +70,7 @@ const PlatformArchitecture = () => {
                     <ArrowRight className="mx-auto h-6 w-6 rotate-90 text-primary/70 md:rotate-0" />
                   )}
                 </div>
-              );
-            })}
+              ))}
           </div>
         </div>
       </div>

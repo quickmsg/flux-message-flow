@@ -17,6 +17,7 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from "@/lib/constants";
+import { ProductIcon, ProductLabel } from "@/components/ProductIdentity";
 
 const QuickStart = () => {
   const { t } = useTranslation();
@@ -184,6 +185,7 @@ kubectl get pods -l app=fluxmq`,
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-16">
+          <ProductIcon product="fluxmq" size="xl" className="mx-auto mb-5" />
           <h2 className="mb-6 text-3xl font-bold leading-tight [overflow-wrap:anywhere] md:text-5xl">
             {t('getStarted.title')}
             <span className="text-gradient block">{t('getStarted.titleHighlight')}</span>
@@ -219,6 +221,7 @@ kubectl get pods -l app=fluxmq`,
                         <div className="p-3 bg-gradient-primary rounded-lg shadow-glow">
                           <method.icon className="h-6 w-6 text-primary-foreground" />
                         </div>
+                        <ProductIcon product="fluxmq" size="sm" />
                         <div>
                           <CardTitle className="text-xl">{method.title}</CardTitle>
                           <CardDescription>{method.description}</CardDescription>
@@ -328,7 +331,7 @@ kubectl get pods -l app=fluxmq`,
         <div className="bg-gradient-card border border-border/50 shadow-card p-8 md:p-12 text-center">
           <div className="max-w-3xl mx-auto">
             <div className="p-4 bg-gradient-primary rounded-full w-fit mx-auto mb-6 shadow-glow">
-              <Download className="h-12 w-12 text-primary-foreground" />
+              <ProductIcon product="fluxmq" size="xl" framed={false} />
             </div>
             
             <h3 className="text-3xl font-bold mb-4">
@@ -342,7 +345,7 @@ kubectl get pods -l app=fluxmq`,
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button variant="hero" size="lg" className="group w-full sm:w-auto" onClick={() => window.open(FLUXMQ_DOC_INSTALL_CATEGORY_URL, '_blank')}>
                 <Download className="h-5 w-5 mr-2" />
-                {t('quickstart.cta.download')}
+                <ProductLabel product="fluxmq" label={t('quickstart.cta.download')} size="xs" framed={false} />
                 <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="glass" size="lg" className="group w-full sm:w-auto">

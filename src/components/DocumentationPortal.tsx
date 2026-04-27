@@ -15,11 +15,11 @@ import {
   Settings,
   TestTube,
   BarChart3,
-  Cpu
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { FLUXMQ_DOC_INSTALL_CATEGORY_URL, FLUXMQ_DOC_DEMOS_URL } from '@/lib/constants';
 import { getHomepageLocale, homepageContent } from '@/lib/homepageContent';
+import { ProductIcon, ProductLabel } from '@/components/ProductIdentity';
 
 interface DocSection {
   id: string;
@@ -113,6 +113,16 @@ const DocumentationPortal: React.FC = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {docsSubtitle}
           </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            {['halia', 'fluxmq', 'fcp'].map((product) => (
+              <ProductLabel
+                key={product}
+                product={product}
+                size="xs"
+                className="border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+              />
+            ))}
+          </div>
         </div>
 
         {/* By product */}
@@ -122,11 +132,9 @@ const DocumentationPortal: React.FC = () => {
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             <CardHeader className="pb-4">
-              <div className="p-3 bg-background/60 border border-border/60 w-fit mb-3">
-                <Cpu className="h-8 w-8 text-primary" />
-              </div>
+              <ProductIcon product="halia" size="xl" className="mb-3" />
               <CardTitle className="text-2xl group-hover:text-primary transition-colors">
-                Halia
+                <ProductLabel product="halia" size="sm" />
               </CardTitle>
               <p className="text-muted-foreground leading-relaxed">
                 {home.products.items[0].summary}
@@ -144,11 +152,9 @@ const DocumentationPortal: React.FC = () => {
             onClick={() => window.open('https://doc.fluxmq.com', '_blank')}
           >
             <CardHeader className="pb-4">
-              <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 w-fit mb-3">
-                <BookOpen className="h-8 w-8 text-primary" />
-              </div>
+              <ProductIcon product="fluxmq" size="xl" className="mb-3" />
               <CardTitle className="text-2xl group-hover:text-primary transition-colors">
-                {t('docs.portal.fluxmqDoc')}
+                <ProductLabel product="fluxmq" label={t('docs.portal.fluxmqDoc')} size="sm" />
               </CardTitle>
               <p className="text-muted-foreground leading-relaxed">
                 {t('docs.portal.fluxmqDocDesc')}
@@ -166,11 +172,9 @@ const DocumentationPortal: React.FC = () => {
             onClick={() => window.open('https://fcp.doc.fluxmq.com', '_blank')}
           >
             <CardHeader className="pb-4">
-              <div className="p-3 bg-gradient-to-br from-amber-500/20 to-teal-500/20 w-fit mb-3">
-                <Settings className="h-8 w-8 text-primary" />
-              </div>
+              <ProductIcon product="fcp" size="xl" className="mb-3" />
               <CardTitle className="text-2xl group-hover:text-primary transition-colors">
-                {t('docs.portal.fcpDoc')}
+                <ProductLabel product="fcp" label={t('docs.portal.fcpDoc')} size="sm" />
               </CardTitle>
               <p className="text-muted-foreground leading-relaxed">
                 {t('docs.portal.fcpDocDesc')}
@@ -239,16 +243,14 @@ const DocumentationPortal: React.FC = () => {
                 onClick={() => window.open('https://doc.fluxmq.com', '_blank')}
                 className="flex items-center space-x-2"
               >
-                <BookOpen className="h-4 w-4" />
-                <span>{t('docs.portal.quickAccess.fluxmqDocs')}</span>
+                <ProductLabel product="fluxmq" label={t('docs.portal.quickAccess.fluxmqDocs')} size="xs" />
               </Button>
               <Button 
                 variant="outline" 
                 onClick={() => window.open('https://fcp.doc.fluxmq.com', '_blank')}
                 className="flex items-center space-x-2"
               >
-                <Settings className="h-4 w-4" />
-                <span>{t('docs.portal.quickAccess.fcpDocs')}</span>
+                <ProductLabel product="fcp" label={t('docs.portal.quickAccess.fcpDocs')} size="xs" />
               </Button>
               <Button 
                 variant="outline" 

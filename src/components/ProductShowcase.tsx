@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, CheckCircle2, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { ProductIcon, ProductLabel } from "@/components/ProductIdentity";
 
 const ProductShowcase = () => {
   const { i18n } = useTranslation();
@@ -25,7 +26,7 @@ const ProductShowcase = () => {
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
           {content.products.items.map((product) => {
-            const ProductIcon = product.icon;
+            const SupportIcon = product.icon;
 
             return (
               <Card
@@ -35,21 +36,13 @@ const ProductShowcase = () => {
               >
                 <CardHeader className="pb-5">
                   <div className="mb-6 flex items-center justify-between">
-                    <div className="flex h-14 w-14 items-center justify-center border border-border/70 bg-background/60">
-                      {product.logo ? (
-                        <img
-                          src={product.logo}
-                          alt={product.name}
-                          className="h-9 w-9 object-contain"
-                        />
-                      ) : (
-                        <ProductIcon className="h-7 w-7 text-primary" />
-                      )}
-                    </div>
-                    <ProductIcon className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-primary" />
+                    <ProductIcon product={product.id} size="xl" />
+                    <SupportIcon className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-primary" />
                   </div>
                   <div className="text-sm text-primary">{product.category}</div>
-                  <CardTitle className="mt-2 text-3xl">{product.name}</CardTitle>
+                  <CardTitle className="mt-2 text-3xl">
+                    <ProductLabel product={product.id} label={product.name} size="sm" />
+                  </CardTitle>
                   <p className="mt-4 min-h-28 text-sm leading-7 text-muted-foreground">
                     {product.summary}
                   </p>

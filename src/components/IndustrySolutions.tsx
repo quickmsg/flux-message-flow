@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { ProductIcon, ProductLabel } from "@/components/ProductIdentity";
+import { productIdFromText } from "@/lib/productIdentity";
 
 const IndustrySolutions = () => {
   const { i18n } = useTranslation();
@@ -62,16 +64,21 @@ const IndustrySolutions = () => {
                   </p>
 
                   <div className="mt-6 flex flex-wrap items-center gap-2">
-                    {solution.flow.map((step, index) => (
-                      <div key={step} className="flex items-center gap-2">
-                        <span className="border border-border/70 bg-background/50 px-3 py-2 text-xs text-muted-foreground">
-                          {step}
-                        </span>
-                        {index < solution.flow.length - 1 && (
-                          <ArrowRight className="h-4 w-4 text-primary/75" />
-                        )}
-                      </div>
-                    ))}
+                    {solution.flow.map((step, index) => {
+                      const product = productIdFromText(step);
+
+                      return (
+                        <div key={step} className="flex items-center gap-2">
+                          <span className="inline-flex items-center gap-2 border border-border/70 bg-background/50 px-3 py-2 text-xs text-muted-foreground">
+                            {product && <ProductIcon product={product} size="xs" framed={false} />}
+                            {step}
+                          </span>
+                          {index < solution.flow.length - 1 && (
+                            <ArrowRight className="hidden h-4 w-4 text-primary/75 sm:block" />
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-3">
@@ -96,12 +103,12 @@ const IndustrySolutions = () => {
                     </div>
                     <div className="flex flex-wrap gap-2 md:justify-end">
                       {solution.products.map((product) => (
-                        <span
+                        <ProductLabel
                           key={product}
+                          product={product}
+                          size="xs"
                           className="border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
-                        >
-                          {product}
-                        </span>
+                        />
                       ))}
                     </div>
                   </div>

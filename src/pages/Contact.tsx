@@ -6,6 +6,7 @@ import PageHero from "@/components/PageHero";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { ProductLabel } from "@/components/ProductIdentity";
 
 const Contact = () => {
   const { i18n } = useTranslation();
@@ -29,6 +30,7 @@ const Contact = () => {
       title: locale === "zh" ? "适合讨论" : "Best for",
       value: locale === "zh" ? "协议接入、MQTT 集群、FCP 运维管控" : "Protocols, MQTT clusters, and FCP operations",
       href: "/products",
+      products: ["halia", "fluxmq", "fcp"],
     },
   ];
 
@@ -60,7 +62,20 @@ const Contact = () => {
                       href={card.href}
                       className="mt-4 block break-words text-sm leading-7 text-muted-foreground transition-colors hover:text-primary"
                     >
-                      {card.value}
+                      {"products" in card ? (
+                        <span className="flex flex-wrap gap-2">
+                          {card.products.map((product) => (
+                            <ProductLabel
+                              key={product}
+                              product={product}
+                              size="xs"
+                              className="border border-primary/30 bg-primary/10 px-2 py-1 text-xs font-semibold text-primary"
+                            />
+                          ))}
+                        </span>
+                      ) : (
+                        card.value
+                      )}
                     </a>
                   </CardContent>
                 </Card>
@@ -79,6 +94,16 @@ const Contact = () => {
                     ? "我们可以围绕协议类型、连接规模、部署环境、告警与审计要求，给出 Halia、FluxMQ、FCP 的组合建议。"
                     : "We can map protocol mix, connection scale, deployment model, alerting, and audit requirements to the right Halia, FluxMQ, and FCP rollout."}
                 </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["halia", "fluxmq", "fcp"].map((product) => (
+                    <ProductLabel
+                      key={product}
+                      product={product}
+                      size="xs"
+                      className="border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                    />
+                  ))}
+                </div>
               </div>
               <Button variant="hero" onClick={() => window.location.assign("mailto:xurong.lu@fluxmq.com")}>
                 {content.footer.contactButton}

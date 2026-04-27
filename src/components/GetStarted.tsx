@@ -1,8 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Code, Download, BookOpen, Rocket } from "lucide-react";
+import { Code, Download, Rocket } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from "@/lib/constants";
+import { ProductIcon } from "@/components/ProductIdentity";
 
 const GetStarted = () => {
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ const GetStarted = () => {
     <section id="docs" className="py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
+          <ProductIcon product="fluxmq" size="xl" className="mx-auto mb-5" />
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             {t('getStarted.title')}
             <span className="text-gradient block">{t('getStarted.titleHighlight')}</span>
@@ -90,7 +92,7 @@ const GetStarted = () => {
         <div className="bg-gradient-card rounded-2xl border border-border/50 shadow-card p-8 md:p-12 text-center">
           <div className="max-w-2xl mx-auto">
             <div className="p-4 bg-gradient-primary rounded-full w-fit mx-auto mb-6 shadow-glow">
-              <BookOpen className="h-12 w-12 text-primary-foreground" />
+              <ProductIcon product="fluxmq" size="xl" framed={false} />
             </div>
             
             <h3 className="text-3xl font-bold mb-6">

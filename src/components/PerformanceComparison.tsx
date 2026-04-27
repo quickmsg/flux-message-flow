@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { FLUXMQ_DOC_INSTALL_CATEGORY_URL } from "@/lib/constants";
+import { ProductLabel } from "@/components/ProductIdentity";
 
 const PerformanceComparison = () => {
   const { t } = useTranslation();
@@ -191,8 +192,7 @@ const PerformanceComparison = () => {
                   <th className="text-left p-4 font-semibold">指标</th>
                   <th className="text-center p-4 font-semibold">
                     <div className="flex items-center justify-center gap-2">
-                      <div className="w-3 h-3 bg-gradient-primary rounded-full"></div>
-                      FluxMQ
+                      <ProductLabel product="fluxmq" size="xs" />
                     </div>
                   </th>
                   <th className="text-center p-4 font-semibold">EMQX</th>
@@ -230,8 +230,7 @@ const PerformanceComparison = () => {
                   <th className="text-left p-4 font-semibold">功能特性</th>
                   <th className="text-center p-4 font-semibold">
                     <div className="flex items-center justify-center gap-2">
-                      <div className="w-3 h-3 bg-gradient-primary rounded-full"></div>
-                      FluxMQ
+                      <ProductLabel product="fluxmq" size="xs" />
                     </div>
                   </th>
                   <th className="text-center p-4 font-semibold">EMQX</th>

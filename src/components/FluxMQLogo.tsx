@@ -11,7 +11,7 @@ const FluxMQLogo: React.FC<FluxMQLogoProps> = ({
   size = 32, 
   variant = 'light' 
 }) => {
-  const logoSrc = variant === 'dark' ? '/logo_dark.jpg' : '/logo_light.jpg';
+  const logoSrc = '/product-icons/fluxmq.svg';
   
   return (
     <img

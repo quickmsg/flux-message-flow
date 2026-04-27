@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Network } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { ProductIcon, ProductLabel } from "@/components/ProductIdentity";
+import { productIdFromText } from "@/lib/productIdentity";
 
 const Hero = () => {
   const { i18n } = useTranslation();
@@ -33,6 +35,7 @@ const Hero = () => {
                 {index > 0 && (
                   <span className="text-muted-foreground">·</span>
                 )}
+                <ProductIcon product={part} size="md" className="h-7 w-7 md:h-10 md:w-10" />
                 <span>{part}</span>
               </span>
             ))}
@@ -84,14 +87,24 @@ const Hero = () => {
           </div>
 
           <div className="mx-auto mt-8 flex max-w-5xl flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
-            {content.hero.pipeline.map((item, index) => (
-              <div key={item} className="flex items-center gap-2">
-                <span className="border border-border/70 bg-card/70 px-3 py-2">{item}</span>
-                {index < content.hero.pipeline.length - 1 && (
-                  <ArrowRight className="h-4 w-4 text-primary/70" />
-                )}
-              </div>
-            ))}
+            {content.hero.pipeline.map((item, index) => {
+              const product = productIdFromText(item);
+
+              return (
+                <div key={item} className="flex items-center gap-2">
+                  <span className="inline-flex items-center gap-2 border border-border/70 bg-card/70 px-3 py-2">
+                    {product ? (
+                      <ProductLabel product={product} label={item} size="xs" />
+                    ) : (
+                      item
+                    )}
+                  </span>
+                  {index < content.hero.pipeline.length - 1 && (
+                    <ArrowRight className="hidden h-4 w-4 text-primary/70 sm:block" />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

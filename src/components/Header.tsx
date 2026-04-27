@@ -10,6 +10,7 @@ import { ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getHomepageLocale, homepageContent } from "@/lib/homepageContent";
+import { ProductLabel } from "@/components/ProductIdentity";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,10 +49,10 @@ const Header = () => {
   ];
 
   const docItems = [
-    { label: "FluxMQ Docs", href: "https://doc.fluxmq.com" },
-    { label: "FCP Docs", href: "https://fcp.doc.fluxmq.com" },
+    { label: "FluxMQ Docs", href: "https://doc.fluxmq.com", product: "fluxmq" },
+    { label: "FCP Docs", href: "https://fcp.doc.fluxmq.com", product: "fcp" },
     { label: "Demo Videos", href: "/demos" },
-    { label: "Halia", href: "/products#halia" },
+    { label: "Halia", href: "/products#halia", product: "halia" },
   ];
 
   const openLink = (href: string) => {
@@ -104,7 +105,11 @@ const Header = () => {
                     onClick={() => openLink(item.href)}
                     className="cursor-pointer"
                   >
-                    {item.label}
+                    {item.product ? (
+                      <ProductLabel product={item.product} label={item.label} size="xs" />
+                    ) : (
+                      item.label
+                    )}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
@@ -171,7 +176,11 @@ const Header = () => {
                       className="block w-full px-2 py-3 text-left text-muted-foreground hover:text-primary"
                       onClick={() => openLink(item.href)}
                     >
-                      {item.label}
+                      {item.product ? (
+                        <ProductLabel product={item.product} label={item.label} size="xs" />
+                      ) : (
+                        item.label
+                      )}
                     </button>
                   ))}
                 </div>

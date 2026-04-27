@@ -25,6 +25,13 @@
       .eye{fill:#1eccbb;animation:blink 3.2s ease-in-out infinite}
       .scan{fill:none;stroke:url(#accent);stroke-width:3;opacity:.8;animation:scan 2.6s ease-in-out infinite}
       .dot{fill:#1eccbb;filter:url(#glow);animation:pulse 2s ease-in-out infinite}
+      .logoBox{fill:#0b1715;stroke:url(#accent);stroke-width:2}
+      .logoH{fill:none;stroke:#f8fafc;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+      .logoArc{fill:none;stroke:url(#accent);stroke-width:2.5;stroke-linecap:round}
+      .logoWave{fill:none;stroke:#f8fafc;stroke-width:3;stroke-linecap:round}
+      .logoShield{fill:none;stroke:#f8fafc;stroke-width:2.8;stroke-linejoin:round}
+      .logoNode{fill:none;stroke:#f8fafc;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+      .logoName{font:700 17px Arial,sans-serif;fill:#f8fafc}
       @keyframes flow{to{stroke-dashoffset:-88}}
       @keyframes move{0%,100%{transform:translateX(0)}50%{transform:translateX(20px)}}
       @keyframes blink{0%,88%,100%{opacity:1}92%{opacity:.2}}
@@ -48,16 +55,35 @@
 
   <g>
     <rect class="card" x="326" y="72" width="133" height="82" rx="8"/>
-    <text class="label" x="367" y="111">Halia</text>
-    <text class="small" x="346" y="133">sensor hub</text>
+    <g transform="translate(343 90)">
+      <rect class="logoBox" width="36" height="36" rx="9"/>
+      <path class="logoH" d="M12 9v18M24 9v18M13 18h10"/>
+      <path class="logoArc" d="M14 13c4-5 8-5 12 0"/>
+      <circle cx="12" cy="9" r="2.5" fill="#1eccbb"/>
+      <circle cx="24" cy="27" r="2.5" fill="#f4b63a"/>
+    </g>
+    <text class="logoName" x="389" y="112">Halia</text>
+    <text class="small" x="389" y="133">sensor hub</text>
     <rect class="card" x="326" y="190" width="133" height="82" rx="8"/>
-    <text class="label" x="354" y="229">NodeMQ</text>
-    <text class="small" x="349" y="251">edge bus</text>
+    <g transform="translate(343 208)">
+      <rect class="logoBox" width="36" height="36" rx="9"/>
+      <circle cx="18" cy="18" r="5" fill="#f8fafc"/>
+      <circle cx="9" cy="28" r="4" fill="#f8fafc"/>
+      <circle cx="27" cy="28" r="4" fill="#f8fafc"/>
+      <path class="logoNode" d="M18 23v-5M14 21l-5 7M22 21l5 7"/>
+    </g>
+    <text class="logoName" x="389" y="230">NodeMQ</text>
+    <text class="small" x="389" y="251">edge bus</text>
   </g>
   <g>
     <rect class="card" x="554" y="95" width="132" height="96" rx="8"/>
-    <text class="label" x="586" y="136">FluxMQ</text>
-    <text class="small" x="582" y="158">cloud broker</text>
+    <g transform="translate(572 116)">
+      <rect class="logoBox" width="40" height="40" rx="10"/>
+      <path class="logoWave" d="M8 15c9-7 15 7 24 0"/>
+      <path class="logoWave" d="M8 26c9-7 15 7 24 0"/>
+    </g>
+    <text class="logoName" x="622" y="138">FluxMQ</text>
+    <text class="small" x="622" y="160">cloud broker</text>
     <rect class="card" x="554" y="230" width="132" height="96" rx="8"/>
     <text class="label" x="588" y="271">Kafka</text>
     <text class="small" x="584" y="293">analytics</text>

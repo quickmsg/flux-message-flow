@@ -83,7 +83,7 @@ export const homepageContent = {
           icon: Cpu,
           href: "/contact",
           cta: "Discuss Halia",
-          logo: "/halia.svg",
+          logo: "/product-icons/halia.svg",
         },
         {
           id: "fluxmq",
@@ -100,7 +100,7 @@ export const homepageContent = {
           icon: RadioTower,
           href: "https://doc.fluxmq.com",
           cta: "FluxMQ docs",
-          logo: "/logo_light.jpg",
+          logo: "/product-icons/fluxmq.svg",
         },
         {
           id: "fcp",
@@ -117,7 +117,7 @@ export const homepageContent = {
           icon: CloudCog,
           href: "https://fcp.doc.fluxmq.com",
           cta: "FCP docs",
-          logo: "/fcp-logo.ico",
+          logo: "/product-icons/fcp.svg",
         },
       ],
     },
@@ -342,7 +342,7 @@ export const homepageContent = {
           icon: Cpu,
           href: "/contact",
           cta: "咨询 Halia",
-          logo: "/halia.svg",
+          logo: "/product-icons/halia.svg",
         },
         {
           id: "fluxmq",
@@ -359,7 +359,7 @@ export const homepageContent = {
           icon: RadioTower,
           href: "https://doc.fluxmq.com",
           cta: "FluxMQ 文档",
-          logo: "/logo_light.jpg",
+          logo: "/product-icons/fluxmq.svg",
         },
         {
           id: "fcp",
@@ -376,7 +376,7 @@ export const homepageContent = {
           icon: CloudCog,
           href: "https://fcp.doc.fluxmq.com",
           cta: "FCP 文档",
-          logo: "/fcp-logo.ico",
+          logo: "/product-icons/fcp.svg",
         },
       ],
     },
